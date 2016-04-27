@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DigitaltTestVerktygGrupp6Wpf.Model
 {
-    class Quiz
+    public class Quiz
     {
         public int QuizId { get; set; }
         public string Name { get; set; }

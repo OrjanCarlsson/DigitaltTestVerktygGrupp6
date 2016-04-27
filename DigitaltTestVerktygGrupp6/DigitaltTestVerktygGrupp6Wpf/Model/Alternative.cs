@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DigitaltTestVerktygGrupp6Wpf.Model
 {
-    class Alternative
+    public class Alternative
     {
         public int AlternativeId { get; set; }
         public string Text { get; set; }
