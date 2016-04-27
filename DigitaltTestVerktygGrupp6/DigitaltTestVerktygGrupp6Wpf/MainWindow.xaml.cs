@@ -23,6 +23,17 @@ namespace DigitaltTestVerktygGrupp6Wpf
         public MainWindow()
         {
             InitializeComponent();
+
+            //var query = from dbqu in test.Quizes
+            //            where dbqu.Students.Any(c => c.StudentId == 3)
+            //            select dbqu;
+
+            //foreach (var item in query)
+            //{
+            //    MessageBox.Show(item.Name);
+
+
+            //}
         }
     }
 }
