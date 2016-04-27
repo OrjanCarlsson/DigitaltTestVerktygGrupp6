@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitaltTestVerktygGrupp6", "DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6.csproj", "{577017EF-2EFC-4B9A-867F-A9A8A97F742A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -13,26 +11,6 @@ Global
 		Release|ARM = Release|ARM
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{577017EF-2EFC-4B9A-867F-A9A8A97F742A}.Debug|ARM.ActiveCfg = Debug|ARM
-		{577017EF-2EFC-4B9A-867F-A9A8A97F742A}.Debug|ARM.Build.0 = Debug|ARM
-		{577017EF-2EFC-4B9A-867F-A9A8A97F742A}.Debug|ARM.Deploy.0 = Debug|ARM
-		{577017EF-2EFC-4B9A-867F-A9A8A97F742A}.Debug|x64.ActiveCfg = Debug|x64
-		{577017EF-2EFC-4B9A-867F-A9A8A97F742A}.Debug|x64.Build.0 = Debug|x64
-		{577017EF-2EFC-4B9A-867F-A9A8A97F742A}.Debug|x64.Deploy.0 = Debug|x64
-		{577017EF-2EFC-4B9A-867F-A9A8A97F742A}.Debug|x86.ActiveCfg = Debug|x86
-		{577017EF-2EFC-4B9A-867F-A9A8A97F742A}.Debug|x86.Build.0 = Debug|x86
-		{577017EF-2EFC-4B9A-867F-A9A8A97F742A}.Debug|x86.Deploy.0 = Debug|x86
-		{577017EF-2EFC-4B9A-867F-A9A8A97F742A}.Release|ARM.ActiveCfg = Release|ARM
-		{577017EF-2EFC-4B9A-867F-A9A8A97F742A}.Release|ARM.Build.0 = Release|ARM
-		{577017EF-2EFC-4B9A-867F-A9A8A97F742A}.Release|ARM.Deploy.0 = Release|ARM
-		{577017EF-2EFC-4B9A-867F-A9A8A97F742A}.Release|x64.ActiveCfg = Release|x64
-		{577017EF-2EFC-4B9A-867F-A9A8A97F742A}.Release|x64.Build.0 = Release|x64
-		{577017EF-2EFC-4B9A-867F-A9A8A97F742A}.Release|x64.Deploy.0 = Release|x64
-		{577017EF-2EFC-4B9A-867F-A9A8A97F742A}.Release|x86.ActiveCfg = Release|x86
-		{577017EF-2EFC-4B9A-867F-A9A8A97F742A}.Release|x86.Build.0 = Release|x86
-		{577017EF-2EFC-4B9A-867F-A9A8A97F742A}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
