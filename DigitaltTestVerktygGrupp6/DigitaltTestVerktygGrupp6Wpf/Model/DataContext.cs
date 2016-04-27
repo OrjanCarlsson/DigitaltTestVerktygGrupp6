@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DigitaltTestVerktygGrupp6Wpf.Model
 {
-    class DataContext : DbContext
+    public class DataContext : DbContext
     {
         public DbSet<Alternative> Alternatives { get; set; }
         public DbSet<Question> Questions { get; set; }

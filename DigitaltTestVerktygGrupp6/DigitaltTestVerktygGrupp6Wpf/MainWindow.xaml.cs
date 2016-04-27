@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DigitaltTestVerktygGrupp6Wpf.Model;
 
 namespace DigitaltTestVerktygGrupp6Wpf
 {
@@ -20,10 +21,13 @@ namespace DigitaltTestVerktygGrupp6Wpf
     /// </summary>
     public partial class MainWindow : Window
     {
+        Repository repo = new Repository();
+        public List<Student> students;
         public MainWindow()
         {
             InitializeComponent();
 
+            update();
             //var query = from dbqu in test.Quizes
             //            where dbqu.Students.Any(c => c.StudentId == 3)
             //            select dbqu;
@@ -34,6 +38,15 @@ namespace DigitaltTestVerktygGrupp6Wpf
 
 
             //}
+        }
+        public void update()
+        {
+            students = repo.StudentsList();
+
+            foreach (Student item in students)
+            {
+                UserListView.Items.Add(item.FirstName + " " + item.LastName + " " + item.Email);   
+            }
         }
     }
 }
