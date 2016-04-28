@@ -13,6 +13,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
         public DbSet<Question> Questions { get; set; }
         public DbSet<Quiz> Quizes { get; set; }
         public DbSet<Student> Students { get; set; }
+        public DbSet<StudentQuiz> StudentQuizes { get; set; }
 
     }
 }
