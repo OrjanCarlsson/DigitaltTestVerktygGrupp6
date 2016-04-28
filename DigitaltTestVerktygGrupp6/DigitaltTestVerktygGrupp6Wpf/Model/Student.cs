@@ -14,7 +14,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
         public string UserName { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
-        public ICollection<Quiz> Quizes { get; set; }
-        
+        public virtual ICollection<StudentQuiz> StudentQuizes { get; set; }
+
     }
 }

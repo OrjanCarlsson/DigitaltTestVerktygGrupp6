@@ -15,6 +15,6 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
         public int Points { get; set; }
         public Quiz Quiz { get; set; }
         public int QuizId { get; set; }
-        public ICollection<Alternative> Alternatives { get; set; }
+        public virtual ICollection<Alternative> Alternatives { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
         {
             using (var db = new DataContext())
             {
-                return db.Students.Include("Quizes").ToList();
+                return db.Students.ToList();
             }
         }
     }

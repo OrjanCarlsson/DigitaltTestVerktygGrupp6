@@ -84,6 +84,7 @@
     <Compile Include="Model\Quiz.cs" />
     <Compile Include="Model\Repository.cs" />
     <Compile Include="Model\Student.cs" />
+    <Compile Include="Model\StudentQuiz.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

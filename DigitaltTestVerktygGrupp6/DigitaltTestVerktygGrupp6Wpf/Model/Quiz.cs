@@ -13,8 +13,9 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
         public string Intro { get; set; }
         public int GradeG { get; set; }
         public int GradeVG { get; set; }
-        public ICollection<Question> Questions { get; set; }
-        public ICollection<Student> Students { get; set; }
+        public int TimeLimit { get; set; }      
+        public virtual ICollection<Question> Questions { get; set; }
+        public virtual ICollection<StudentQuiz> StudentQuizes { get; set; }
 
     }
 }
