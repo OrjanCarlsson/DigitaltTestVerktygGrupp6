@@ -15,5 +15,16 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
                 return db.Students.ToList();
             }
         }
+        public void DbRemoveUser(int Stu)
+        {
+            using (var db = new DataContext())
+            {
+                Student stu2 = db.Students.Where(c => c.StudentId == Stu).FirstOrDefault<Student>();
+
+
+                db.Students.Remove(stu2);
+                db.SaveChanges();
+            }
+        }
     }
 }
