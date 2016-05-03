@@ -43,16 +43,16 @@ namespace DigitaltTestVerktygGrupp6Student.View
         {
            switch(viewModel.ActiveQuestion.Type)
             {
-                case 1:
+                case "Single":
                     AlternativesContent.Template = radioTemplate;
                     break;
-                case 2:
+                case "Multi":
                     AlternativesContent.Template = checkTemplate;
                     break;
-                case 3:
+                case "Text":
                     AlternativesContent.Template = textTemplate;
                     break;
-                case 4:
+                case "Rank":
                     AlternativesContent.Template = rankingTemplate;
                     break;
             }

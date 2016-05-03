@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Threading;
 
+
 namespace DigitaltTestVerktygGrupp6Student.ViewModel
 {
     class Timer : DispatcherTimer

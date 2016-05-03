@@ -23,17 +23,17 @@ namespace DigitaltTestVerktygGrupp6Wpf
     public partial class MainWindow : Window
     {
         Repository repo = new Repository();
-        public List<dbStudent> students;
+        
+        
         public MainWindow()
         {
             InitializeComponent();
-            students = repo.StudentsList();
-            UserListView.ItemsSource = students;
+            update();
         }
         public void update()
         {
-            students = repo.StudentsList();
-            UserListView.ItemsSource = students;
+            ExamListView.ItemsSource = repo.QuizsList();
+            UserListView.ItemsSource = repo.StudentsList();
         }
         private void DelUserBtn_Click(object sender, RoutedEventArgs e)
          {
@@ -62,18 +62,13 @@ namespace DigitaltTestVerktygGrupp6Wpf
 
                 db.Students.Add(stu);
                 db.SaveChanges();
-                AddUserPopup.IsOpen = false;
-                NewName.Clear();
-                NewLastName.Clear();
-                NewEmail.Clear();
-                NewUserName.Clear();
-                NewPassword.Clear();
+                popupclose();
                 update();
 
             }
         }
 
-        private void btnCloseUserPopup_click(object sender, RoutedEventArgs e)
+        private void popupclose()
         {
             AddUserPopup.IsOpen = false;
             NewName.Clear();
@@ -81,6 +76,11 @@ namespace DigitaltTestVerktygGrupp6Wpf
             NewEmail.Clear();
             NewUserName.Clear();
             NewPassword.Clear();
+        }
+
+        private void btnCloseUserPopup_click(object sender, RoutedEventArgs e)
+        {
+            popupclose();
         }
     }
 }

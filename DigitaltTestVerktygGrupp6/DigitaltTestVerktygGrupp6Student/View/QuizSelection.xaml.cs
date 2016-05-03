@@ -32,7 +32,7 @@ namespace DigitaltTestVerktygGrupp6Student.View
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            viewModel.ContentFrame.Navigate(new Quiz());
+            viewModel.ContentFrame.Navigate(new Quiz());          
         }
     }
 }

@@ -16,6 +16,7 @@ namespace DigitaltTestVerktygGrupp6Student.Model
                 var query = from quiz in model.dbQuizs
                             where quiz.dbStudentQuizs.Any(c => c.dbStudentId == student.dbStudentId)
                             select quiz;
+
                 return query.ToList();
             }
         }
@@ -23,20 +24,23 @@ namespace DigitaltTestVerktygGrupp6Student.Model
         public List<Question> GetQuestions(dbQuizs quiz)
         {
             List<Question> questions = new List<Question>();
+
             using (var model = new QuizModel())
             {
                 var query = from question in model.dbQuestions
                             where question.dbQuizId == quiz.dbQuizId
                             select question;
+
                 foreach (var q in query)
                 {
-                    if (q.Type == 1 || q.Type == 2)
+                    if (q.Type.Equals(QuestionType.Single.ToString()) || q.Type.Equals(QuestionType.Multi.ToString()))
                         questions.Add(new MultiQuestion(q));
-                    else if (q.Type == 3)
+                    else if (q.Type.Equals(QuestionType.Text.ToString()))
                         questions.Add(new TextQuestion(q));
-                    else if (q.Type == 4)
+                    else if (q.Type.Equals(QuestionType.Rank.ToString()))
                         questions.Add(new RankingQuestion(q));
                 }
+
                 return questions;
             }
         }

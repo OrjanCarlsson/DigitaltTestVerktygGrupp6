@@ -1,4 +1,5 @@
-﻿using DigitaltTestVerktygGrupp6Student.Model;
+﻿using DigitaltTestVerktygGrupp6Student.Database;
+using DigitaltTestVerktygGrupp6Student.Model;
 using DigitaltTestVerktygGrupp6Student.View;
 using System;
 using System.Collections.Generic;
@@ -9,14 +10,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using DigitaltTestVerktygGrupp6Student.Database;
 
 namespace DigitaltTestVerktygGrupp6Student.ViewModel
 {
     class QuizViewmodel : INotifyPropertyChanged
     {
-        public Students ActiveStudent { get; set; }
-        public List<Quizs> Quizes { get; set; }
-        public Quizs SelectedQuiz { get; set; }
+        public dbStudents ActiveStudent { get; set; }
+        public List<dbQuizs> Quizes { get; set; }
+        public dbQuizs SelectedQuiz { get; set; }
         public ObservableCollection<Question> Questions { get; set; }
         public Question ActiveQuestion { get; set; }
         public Frame ContentFrame { get; set; }
@@ -61,7 +63,7 @@ namespace DigitaltTestVerktygGrupp6Student.ViewModel
             ButtonCommand.Call += SwitchCommand;
         }
 
-        internal void SelectionSetup(Students student)
+        internal void SelectionSetup(dbStudents student)
         {
             Quizes = repo.GetQuizes(ActiveStudent = student);
         }
