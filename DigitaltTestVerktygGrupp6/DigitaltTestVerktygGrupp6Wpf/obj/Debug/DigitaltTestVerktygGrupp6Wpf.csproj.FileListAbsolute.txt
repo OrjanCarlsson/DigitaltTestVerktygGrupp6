@@ -56,3 +56,8 @@ C:\Users\ottar\Desktop\Grupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp
 C:\Users\ottar\Desktop\Grupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\CreateQuiz.baml
 C:\Users\ottar\Desktop\Grupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\Index.g.cs
 C:\Users\ottar\Desktop\Grupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\Index.baml
+C:\Users\Char\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\DigitaltTestVerktygGrupp6Wpf.csprojResolveAssemblyReference.cache
+C:\Users\Char\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\CreateQuiz.g.cs
+C:\Users\Char\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\Index.g.cs
+C:\Users\Char\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\CreateQuiz.baml
+C:\Users\Char\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\Index.baml
