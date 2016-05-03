@@ -16,6 +16,13 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
                 return db.Students.ToList();
             }
         }
+        public List<dbQuiz> QuizsList()
+        {
+            using (var db = new dbDataContext())
+            {
+                return db.Quizes.ToList();
+            }
+        }
         public void DbRemoveUser(dbStudent Stu)
         {
             using (var db = new dbDataContext())
@@ -27,5 +34,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
                 db.SaveChanges();
             }
         }
+
+       
     }
 }

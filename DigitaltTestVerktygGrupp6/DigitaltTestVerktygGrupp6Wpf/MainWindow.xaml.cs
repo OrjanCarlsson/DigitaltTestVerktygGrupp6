@@ -24,15 +24,17 @@ namespace DigitaltTestVerktygGrupp6Wpf
     {
         Repository repo = new Repository();
         public List<dbStudent> students;
+        public List<dbQuiz> quiz;
         public MainWindow()
         {
             InitializeComponent();
-            students = repo.StudentsList();
-            UserListView.ItemsSource = students;
+            update();
         }
         public void update()
         {
+            quiz = repo.QuizsList();
             students = repo.StudentsList();
+            ExamListView.ItemsSource = quiz;
             UserListView.ItemsSource = students;
         }
         private void DelUserBtn_Click(object sender, RoutedEventArgs e)
