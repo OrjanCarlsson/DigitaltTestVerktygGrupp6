@@ -44,9 +44,9 @@ namespace DigitaltTestVerktygGrupp6Wpf
             viewModel.NavigateTo(new Index());
         }
 
-        private void btnCloseUserPopup_click(object sender, RoutedEventArgs e)
-        {
-            popupclose();
-        }
+        //private void btnCloseUserPopup_click(object sender, RoutedEventArgs e)
+        //{
+        //    popupclose();
+        //}
     }
 }

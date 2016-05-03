@@ -59,7 +59,6 @@
 
         </ContentControl>
         <ContentControl x:Name="showAnswersControl" Grid.Row="1" Grid.ColumnSpan="2">
-            <TextBlock Text="HERPHEPR"></TextBlock>
         </ContentControl>
 
         <!--<StackPanel x:Name="panelDisplayQ" Grid.Column="0" Margin="0,253,0,0">
