@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DigitaltTestVerktygGrupp6Wpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525"
-        xmlns:model="clr-namespace:DigitaltTestVerktygGrupp6Wpf.Model">
+        xmlns:model="clr-namespace:DigitaltTestVerktygGrupp6Wpf.Database">
 
     <!--<DataTemplate x:Name="Userdata" DataType="model:Student"/>-->
     <Grid>
@@ -26,11 +26,23 @@
             </TabItem>
             <TabItem Header="Users" Margin="34.667,-2,-79,0">
                 <Grid Background="#FFE5E5E5">
-                    <ListView x:Name="UserListView" HorizontalAlignment="Left" Height="177" Margin="10,10,0,0" VerticalAlignment="Top" Width="493">
+                    
+                    <ListView Name="UserListView" HorizontalAlignment="Left" Height="177" Margin="10,10,0,0" VerticalAlignment="Top" Width="493">
+                        <ListView.Resources>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                            </Style>
+                        </ListView.Resources>
                         <ListView.View>
-                            <GridView>
-                                <GridViewColumn/>
-                            </GridView>
+                                <GridView>
+                                    
+                                <GridViewColumn Header="Firstname"   DisplayMemberBinding="{Binding FirstName}" />
+                                <GridViewColumn Header="Lastname" DisplayMemberBinding="{Binding LastName}" />
+                                <GridViewColumn Header="Username" DisplayMemberBinding="{Binding UserName}" />
+                                <GridViewColumn Header="Password"  DisplayMemberBinding="{Binding Password}" />
+                                <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}" />
+                                    
+                               </GridView>
                         </ListView.View>
                     </ListView>
                     <Button x:Name="NewUserBtn" Content="New User" HorizontalAlignment="Left" Margin="344,205,0,0" VerticalAlignment="Top" Width="130" Height="43" Click="NewUserBtn_Click"/>

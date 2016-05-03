@@ -27,36 +27,18 @@ namespace DigitaltTestVerktygGrupp6Wpf
         public MainWindow()
         {
             InitializeComponent();
-           
-            update();
-            //var query = from dbqu in test.Quizes
-            //            where dbqu.Students.Any(c => c.StudentId == 3)
-            //            select dbqu;
-
-            //foreach (var item in query)
-            //{
-            //    MessageBox.Show(item.Name);
-
-
-            //}
+            students = repo.StudentsList();
+            UserListView.ItemsSource = students;
         }
         public void update()
         {
             students = repo.StudentsList();
-
-            UserListView.Items.Clear();
-
-            foreach (dbStudent item in students)
-            {
-                UserListView.Items.Add(item.dbStudentId + " " + item.FirstName + " " + item.LastName + " " + item.Email);
-
-            }
+            UserListView.ItemsSource = students;
         }
         private void DelUserBtn_Click(object sender, RoutedEventArgs e)
          {
-                 string[] words = UserListView.SelectedItem.ToString().Split(' ');
-                 int id = int.Parse(words[0]);
-                 repo.DbRemoveUser(id);
+            dbStudent delstu = UserListView.SelectedItem as dbStudent;
+            repo.DbRemoveUser(delstu);
             update();
         }
 
@@ -81,6 +63,11 @@ namespace DigitaltTestVerktygGrupp6Wpf
                 db.Students.Add(stu);
                 db.SaveChanges();
                 AddUserPopup.IsOpen = false;
+                NewName.Clear();
+                NewLastName.Clear();
+                NewEmail.Clear();
+                NewUserName.Clear();
+                NewPassword.Clear();
                 update();
 
             }
@@ -88,9 +75,9 @@ namespace DigitaltTestVerktygGrupp6Wpf
 
         private void btnCloseUserPopup_click(object sender, RoutedEventArgs e)
         {
-             AddUserPopup.IsOpen = false;
-             NewName.Clear();
-             NewLastName.Clear();
+            AddUserPopup.IsOpen = false;
+            NewName.Clear();
+            NewLastName.Clear();
             NewEmail.Clear();
             NewUserName.Clear();
             NewPassword.Clear();
