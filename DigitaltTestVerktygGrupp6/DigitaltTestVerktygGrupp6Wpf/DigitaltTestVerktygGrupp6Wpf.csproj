@@ -64,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Views\CreateQuiz.xaml.cs">
+      <DependentUpon>CreateQuiz.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -76,15 +79,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\CreateQuiz.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Alternative.cs" />
-    <Compile Include="Model\DataContext.cs" />
-    <Compile Include="Model\Question.cs" />
-    <Compile Include="Model\Quiz.cs" />
+    <Compile Include="Database\dbAlternative.cs" />
+    <Compile Include="Database\dbDataContext.cs" />
+    <Compile Include="Database\dbQuestion.cs" />
+    <Compile Include="Database\dbQuiz.cs" />
     <Compile Include="Model\Repository.cs" />
-    <Compile Include="Model\Student.cs" />
-    <Compile Include="Model\StudentQuiz.cs" />
+    <Compile Include="Database\dbStudent.cs" />
+    <Compile Include="Database\dbStudentQuiz.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

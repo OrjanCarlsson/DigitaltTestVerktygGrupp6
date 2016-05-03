@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DigitaltTestVerktygGrupp6Student.Model;
+using DigitaltTestVerktygGrupp6Student.View;
+using DigitaltTestVerktygGrupp6Student.ViewModel;
+using DigitaltTestVerktygGrupp6Student.Database;
 
 namespace DigitaltTestVerktygGrupp6Student
 {
@@ -21,18 +24,23 @@ namespace DigitaltTestVerktygGrupp6Student
     /// </summary>
     public partial class MainWindow : Window
     {
+        private QuizViewmodel viewModel;
         public MainWindow()
         {
             InitializeComponent();
-            using (var db = new ModelQuiz())
-            {
-                var query = db.Students.ToList();
-                foreach (var item in query)
-                {
-                    MessageBox.Show(item.FirstName);
-                }
-            }
+            //using (var db = new ModelQuiz())
+            //{
+            //    var query = db.Students.ToList();
+            //    foreach (var item in query)
+            //    {
+            //        MessageBox.Show(item.FirstName);
+            //    }
+            //}
 
+            viewModel = QuizViewmodel.Instance;
+            viewModel.SelectionSetup(new dbStudents { FirstName = "Charles", LastName = "Placeholder", dbStudentId = 1, UserName = "5mJ5na" });
+            viewModel.ContentFrame = LoginFrame;
+            viewModel.NavigateTo(new QuizSelection());
         }
     }
 }
