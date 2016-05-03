@@ -4,29 +4,17 @@
 winexe
 C#
 .cs
-<<<<<<< HEAD
-C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Student\obj\Debug\
-=======
-C:\Users\ottar\Desktop\Grupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Student\obj\Debug\
->>>>>>> f2399c8c202474d2907f6f6d6e30f008e0e9de0f
+C:\Users\Örjan\Source\Repos\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Student\obj\Debug\
 DigitaltTestVerktygGrupp6Student
 none
 false
 DEBUG;TRACE
-<<<<<<< HEAD
-C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Student\App.xaml
+C:\Users\Örjan\Source\Repos\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Student\App.xaml
 41910499233
 
-311641264215
-18-549129426
-=======
-C:\Users\ottar\Desktop\Grupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Student\App.xaml
-41910499233
-
-31773084611
+31-1022377268
 18-1000936494
->>>>>>> f2399c8c202474d2907f6f6d6e30f008e0e9de0f
 MainWindow.xaml;View\Quiz.xaml;View\QuizSelection.xaml;View\Results.xaml;
 
-False
+True
 

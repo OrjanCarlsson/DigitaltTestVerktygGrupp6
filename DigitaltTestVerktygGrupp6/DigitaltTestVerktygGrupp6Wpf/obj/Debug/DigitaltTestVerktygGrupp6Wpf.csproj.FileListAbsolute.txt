@@ -52,3 +52,5 @@ C:\Users\ottar\Desktop\Grupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp
 C:\Users\ottar\Desktop\Grupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\DigitaltTestVerktygGrupp6Wpf.g.resources
 C:\Users\ottar\Desktop\Grupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\DigitaltTestVerktygGrupp6Wpf.Properties.Resources.resources
 C:\Users\ottar\Desktop\Grupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\DigitaltTestVerktygGrupp6Wpf.csproj.GenerateResource.Cache
+C:\Users\Örjan\Source\Repos\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\CreateQuiz.g.cs
+C:\Users\Örjan\Source\Repos\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\CreateQuiz.baml
