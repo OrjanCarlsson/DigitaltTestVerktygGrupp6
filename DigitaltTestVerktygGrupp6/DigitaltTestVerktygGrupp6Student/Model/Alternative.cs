@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DigitaltTestVerktygGrupp6Student.Database;
 
 namespace DigitaltTestVerktygGrupp6Student.Model
 {
@@ -14,7 +15,7 @@ namespace DigitaltTestVerktygGrupp6Student.Model
 
         public string Text { get; set; }
         public int IsCorrect { get; set; }
-        public Alternative(Alternatives alt, Question parentQuestion)
+        public Alternative(dbAlternatives alt, Question parentQuestion)
         {
             Text = alt.Text;
             IsCorrect = alt.IsCorrect;

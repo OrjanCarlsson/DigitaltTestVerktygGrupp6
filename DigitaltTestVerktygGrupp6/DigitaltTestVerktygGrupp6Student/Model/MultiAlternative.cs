@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DigitaltTestVerktygGrupp6Student.ViewModel;
+using DigitaltTestVerktygGrupp6Student.Database;
 
 namespace DigitaltTestVerktygGrupp6Student.Model
 {
@@ -25,7 +26,7 @@ namespace DigitaltTestVerktygGrupp6Student.Model
             }
         }
 
-        public MultiAlternative(Alternatives alt, Question q) : base(alt, q) { }
+        public MultiAlternative(dbAlternatives alt, Question q) : base(alt, q) { }
 
         private void ChangeCounter()
         {

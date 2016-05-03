@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DigitaltTestVerktygGrupp6Wpf.Model;
+using DigitaltTestVerktygGrupp6Wpf.Database;
 
 namespace DigitaltTestVerktygGrupp6Wpf
 {
@@ -22,11 +23,11 @@ namespace DigitaltTestVerktygGrupp6Wpf
     public partial class MainWindow : Window
     {
         Repository repo = new Repository();
-        public List<Student> students;
+        public List<dbStudent> students;
         public MainWindow()
         {
             InitializeComponent();
-
+           
             update();
             //var query = from dbqu in test.Quizes
             //            where dbqu.Students.Any(c => c.StudentId == 3)
@@ -43,10 +44,56 @@ namespace DigitaltTestVerktygGrupp6Wpf
         {
             students = repo.StudentsList();
 
-            foreach (Student item in students)
+            UserListView.Items.Clear();
+
+            foreach (dbStudent item in students)
             {
-                UserListView.Items.Add(item.FirstName + " " + item.LastName + " " + item.Email);   
+                UserListView.Items.Add(item.dbStudentId + " " + item.FirstName + " " + item.LastName + " " + item.Email);
+
             }
+        }
+        private void DelUserBtn_Click(object sender, RoutedEventArgs e)
+         {
+                 string[] words = UserListView.SelectedItem.ToString().Split(' ');
+                 int id = int.Parse(words[0]);
+                 repo.DbRemoveUser(id);
+            update();
+        }
+
+        private void NewUserBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AddUserPopup.IsOpen = true;
+        }
+
+        private void btnSaveUser_Click(object sender, RoutedEventArgs e)
+        {
+            using (var db = new dbDataContext())
+            {
+                dbStudent stu = new dbStudent
+                {
+                    FirstName = NewName.Text,
+                    LastName = NewLastName.Text,
+                    Email = NewEmail.Text,
+                    UserName = NewUserName.Text,
+                    Password = NewPassword.Text
+                };
+
+                db.Students.Add(stu);
+                db.SaveChanges();
+                AddUserPopup.IsOpen = false;
+                update();
+
+            }
+        }
+
+        private void btnCloseUserPopup_click(object sender, RoutedEventArgs e)
+        {
+             AddUserPopup.IsOpen = false;
+             NewName.Clear();
+             NewLastName.Clear();
+            NewEmail.Clear();
+            NewUserName.Clear();
+            NewPassword.Clear();
         }
     }
 }

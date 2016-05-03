@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using DigitaltTestVerktygGrupp6Student.Model;
 using DigitaltTestVerktygGrupp6Student.View;
 using DigitaltTestVerktygGrupp6Student.ViewModel;
+using DigitaltTestVerktygGrupp6Student.Database;
 
 namespace DigitaltTestVerktygGrupp6Student
 {
@@ -37,7 +38,7 @@ namespace DigitaltTestVerktygGrupp6Student
             //}
 
             viewModel = QuizViewmodel.Instance;
-            viewModel.SelectionSetup(new Students { FirstName = "Charles", LastName = "Placeholder", StudentId = 1, UserName = "5mJ5na" });
+            viewModel.SelectionSetup(new dbStudents { FirstName = "Charles", LastName = "Placeholder", dbStudentId = 1, UserName = "5mJ5na" });
             viewModel.ContentFrame = LoginFrame;
             viewModel.NavigateTo(new QuizSelection());
         }
