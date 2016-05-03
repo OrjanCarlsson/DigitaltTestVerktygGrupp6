@@ -33,7 +33,7 @@ namespace DigitaltTestVerktygGrupp6Student.Model
                 {
                     if (q.Type.Equals(QuestionType.Single) || q.Type.Equals(QuestionType.Multi))
                         questions.Add(new MultiQuestion(q));
-                    else if (q.Type.Equals(QuestionType.Text))
+                    else if (q.Type.Equals(QuestionType.Text.ToString()))
                         questions.Add(new TextQuestion(q));
                     else if (q.Type.Equals(QuestionType.Rank))
                         questions.Add(new RankingQuestion(q));
