@@ -66,6 +66,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\ActiveStudent.cs" />
+    <Compile Include="Model\Alternative.cs" />
+    <Compile Include="Model\MultiQuestion.cs" />
+    <Compile Include="Model\Question.cs" />
+    <Compile Include="Model\RankingAlternative.cs" />
+    <Compile Include="Model\RankingQuestion.cs" />
+    <Compile Include="Model\Repository.cs" />
+    <Compile Include="Model\TextQuestion.cs" />
+    <Compile Include="ViewModel\ButtonCommand.cs" />
+    <Compile Include="Model\MultiAlternative.cs" />
+    <Compile Include="ViewModel\QuizViewmodel.cs" />
+    <Compile Include="ViewModel\Timer.cs" />
+    <Compile Include="View\Quiz.xaml.cs">
+      <DependentUpon>Quiz.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\QuizSelection.xaml.cs">
+      <DependentUpon>QuizSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Results.xaml.cs">
+      <DependentUpon>Results.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -78,6 +99,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Quiz.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\QuizSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Results.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Alternatives.cs" />

@@ -1,0 +1,34 @@
+﻿<Page x:Class="DigitaltTestVerktygGrupp6Student.View.QuizSelection"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DigitaltTestVerktygGrupp6Student.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="Quiz">
+
+    <Grid>
+        <Frame x:Name="SelectionFrame"/>
+        <StackPanel Orientation="Vertical">
+            <StackPanel>
+                <TextBlock Text="Available quizes"></TextBlock>
+                <ListView Name="QuizList" ItemsSource="{Binding Quizes}" SelectedItem="{Binding SelectedQuiz}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Name}"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="{Binding SelectedQuiz.Name}"/>
+                <TextBlock Text="{Binding SelectedQuiz.TimeLimit}"/>
+                <TextBlock Text="{Binding SelectedQuiz.Intro}"/>
+                <Button Content="Starta Quiz" Name="StartButton" Click="StartButton_Click"></Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
