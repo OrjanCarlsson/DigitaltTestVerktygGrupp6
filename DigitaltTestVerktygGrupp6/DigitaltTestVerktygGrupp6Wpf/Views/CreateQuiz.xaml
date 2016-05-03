@@ -5,10 +5,108 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DigitaltTestVerktygGrupp6Wpf.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="525" d:DesignWidth="520"
       Title="CreateQuiz">
 
-    <Grid>
-        
+    <Page.Resources>
+        <ControlTemplate x:Key="showQuestion">
+            <ItemsControl ItemsSource="{Binding Questions}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Text}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ControlTemplate>
+        <ControlTemplate x:Key="showAnswers">
+            <ItemsControl ItemsSource="{Binding alternativeList}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Text}"/>
+                            <TextBlock Text="DERPDERPDERP"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ControlTemplate>
+    </Page.Resources>
+    <Grid Background="#FFF9F9F9">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="174"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Canvas x:Name="Header" Height="50" Width="518" Margin="0,0,-1,444" Background="#FFECA92F">
+            <TextBlock Text="HerpyLogo" FontSize="26" FontWeight="Bold" Foreground="#FF2B2A2A" Canvas.Left="339" Canvas.Top="7"/>
+        </Canvas>
+        <Canvas Height="2" Background="Gray" Margin="0,50,0,442" Grid.ColumnSpan="2"/>
+        <Canvas Width="515" Margin="2,55,0,0" Grid.ColumnSpan="2">
+            <TextBlock Text="Namn:" Canvas.Left="31" Canvas.Top="10"/>
+            <TextBox Width="123" Canvas.Left="105" Canvas.Top="10" Height="22"/>
+            <TextBlock Text="Om Provet:" Canvas.Left="31" Canvas.Top="49" />
+            <TextBox Width="198" Canvas.Left="105" Canvas.Top="49" Height="50" />
+            <Button x:Name="btnAddQuestion" Content="Lägg till fråga" Canvas.Left="349" Canvas.Top="77" Width="80" Height="22" Click="btnAddQuestion_Click"/>
+        </Canvas>
+        <Canvas Height="2" Background="Gray" Margin="0,173,0,319" Grid.ColumnSpan="2"/>
+        <ContentControl x:Name="showQuestionsControl" Grid.Row="1" Grid.ColumnSpan="2">
+
+        </ContentControl>
+        <ContentControl x:Name="showAnswersControl" Grid.Row="1" Grid.ColumnSpan="2">
+            <TextBlock Text="HERPHEPR"></TextBlock>
+        </ContentControl>
+
+        <!--<StackPanel x:Name="panelDisplayQ" Grid.Column="0" Margin="0,253,0,0">
+
+        </StackPanel>
+        <StackPanel x:Name="panelDisplayQText" Grid.Column="1" Margin="0,253,0,0">
+
+        </StackPanel>-->
+        <Popup x:Name="AddQPopup" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" Height="400" IsOpen="False" Placement="Center" AllowsTransparency="True">
+            <Border BorderThickness="2" BorderBrush="Gray">
+                <Grid Background="#FFF9F9F9">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Canvas Height="1" Background="Gray" Grid.ColumnSpan="4" Margin="0,50,0,345"/>
+                    <Canvas Width="396" Height="50" Background="#FFECA92F" Margin="0,0,0,346">
+                        <TextBlock Text="Lägg till ny fråga" FontSize="18" FontWeight="Bold" Canvas.Top="12" Canvas.Left="25" Foreground="#FF2B2A2A"/>
+                    </Canvas>
+                    <TextBlock Text="Fråga nr." Grid.Column="0" Margin="21,83,10,293" FontWeight="Bold" Foreground="#FF2B2A2A" FontSize="14"/>
+                    <TextBox x:Name="txtQuestion"  Height="20" Margin="0,83,0,293" Grid.Column="1"/>
+                    <TextBlock Text="Poäng" Grid.Column="2" FontWeight="Bold" Foreground="#FF2B2A2A" FontSize="14" Margin="28,83,66,291" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="txtPoints" Height="20" Grid.Column="3" Width="40" Margin="10,85,24,291" />
+                    <TextBlock Text="Frågetyp" Grid.Column="0" FontWeight="Bold" Foreground="#FF2B2A2A" FontSize="14" Grid.ColumnSpan="2" Margin="21,115,127,261"/>
+                    <ComboBox x:Name="cmbType" Width="120" Height="22" Grid.Column="1" Margin="1,115,27,256" >
+                        <ComboBoxItem Content="Rangordnings"/>
+                        <ComboBoxItem Content="Flervals"/>
+                        <ComboBoxItem Content="Alternativ"/>
+                    </ComboBox>
+                    <StackPanel x:Name="panelAnswerText" Margin="21,150,10,45" Grid.Column="0">
+                        <TextBlock Text="Svar" FontWeight="Bold" Foreground="#FF2B2A2A" FontSize="14"/>
+                    </StackPanel>
+                    <StackPanel x:Name="panelAnswers" Margin="1,150,0,0" Grid.Column="1">
+                        <TextBox Height="20" x:Name="txtAnswer"/>
+                    </StackPanel>
+                    <StackPanel x:Name="panelCheckBox" Grid.Column="2" Margin="0,150,0,0">
+                        <CheckBox x:Name="chkAnswer" Margin="8,3,0,6"/>
+                    </StackPanel>
+                    <StackPanel x:Name="panelRemoveAnswer" Grid.Column="3" Margin="0,150,0,0">
+                        <Button Content="+"  Click="Button_Click_1" Width="20"/>
+                    </StackPanel>
+                    <Button x:Name="btnSaveQuestion" Content="Save" Width="60" Height="20" Grid.Column="0" Margin="67,366,70,10" Grid.ColumnSpan="2" Click="btnSaveQuestion_Click"/>
+                    <Button x:Name="btnClosePopup" Content="Cancel" Width="60" Height="20" Grid.Column="1" Click="btnClosePopup_Click" Margin="0,366,70,10" Grid.ColumnSpan="2" HorizontalAlignment="Right" />
+                </Grid>
+            </Border>
+        </Popup>
     </Grid>
 </Page>
