@@ -1,4 +1,4 @@
-namespace DigitaltTestVerktygGrupp6Student.Model
+namespace DigitaltTestVerktygGrupp6Student.Database
 {
     using System;
     using System.Collections.Generic;
@@ -6,16 +6,16 @@ namespace DigitaltTestVerktygGrupp6Student.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Students
+    public partial class dbStudents
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Students()
+        public dbStudents()
         {
-            StudentQuizs = new HashSet<StudentQuizs>();
+            dbStudentQuizs = new HashSet<dbStudentQuizs>();
         }
 
         [Key]
-        public int StudentId { get; set; }
+        public int dbStudentId { get; set; }
 
         public string FirstName { get; set; }
 
@@ -28,6 +28,6 @@ namespace DigitaltTestVerktygGrupp6Student.Model
         public string Email { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StudentQuizs> StudentQuizs { get; set; }
+        public virtual ICollection<dbStudentQuizs> dbStudentQuizs { get; set; }
     }
 }

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DigitaltTestVerktygGrupp6Student.Database;
 
 namespace DigitaltTestVerktygGrupp6Student.Model
 {
     class ActiveStudent
     {
-        public ActiveStudent(Students dbStudent)
+        public ActiveStudent(dbStudents dbStudent)
         {
 
         }

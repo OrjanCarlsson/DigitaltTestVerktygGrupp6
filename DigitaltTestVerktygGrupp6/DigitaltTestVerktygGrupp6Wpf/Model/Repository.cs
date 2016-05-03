@@ -3,23 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DigitaltTestVerktygGrupp6Wpf.Database;
 
 namespace DigitaltTestVerktygGrupp6Wpf.Model
 {
     public class Repository
     {
-        public List<Student> StudentsList()
+        public List<dbStudent> StudentsList()
         {
-            using (var db = new DataContext())
+            using (var db = new dbDataContext())
             {
                 return db.Students.ToList();
             }
         }
         public void DbRemoveUser(int Stu)
         {
-            using (var db = new DataContext())
+            using (var db = new dbDataContext())
             {
-                Student stu2 = db.Students.Where(c => c.StudentId == Stu).FirstOrDefault<Student>();
+                dbStudent stu2 = db.Students.Where(c => c.dbStudentId == Stu).FirstOrDefault<dbStudent>();
 
 
                 db.Students.Remove(stu2);

@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DigitaltTestVerktygGrupp6Wpf.Model
+namespace DigitaltTestVerktygGrupp6Wpf.Database
 {
-    public class Alternative
+    public class dbAlternative
     {
-        public int AlternativeId { get; set; }
+        public int dbAlternativeId { get; set; }
         public string Text { get; set; }
         public int IsCorrect { get; set; }
 
-        public Question Question { get; set; }
-        public int QuestionId { get; set; }
+        public dbQuestion Question { get; set; }
+        public int dbQuestionId { get; set; }
     }
 }

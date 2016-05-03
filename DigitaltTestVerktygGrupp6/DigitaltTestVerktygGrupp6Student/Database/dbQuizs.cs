@@ -1,4 +1,4 @@
-namespace DigitaltTestVerktygGrupp6Student.Model
+namespace DigitaltTestVerktygGrupp6Student.Database
 {
     using System;
     using System.Collections.Generic;
@@ -6,17 +6,17 @@ namespace DigitaltTestVerktygGrupp6Student.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Quizs
+    public partial class dbQuizs
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Quizs()
+        public dbQuizs()
         {
-            Questions = new HashSet<Questions>();
-            StudentQuizs = new HashSet<StudentQuizs>();
+            dbQuestions = new HashSet<dbQuestions>();
+            dbStudentQuizs = new HashSet<dbStudentQuizs>();
         }
 
         [Key]
-        public int QuizId { get; set; }
+        public int dbQuizId { get; set; }
 
         public string Name { get; set; }
 
@@ -29,9 +29,9 @@ namespace DigitaltTestVerktygGrupp6Student.Model
         public int TimeLimit { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Questions> Questions { get; set; }
+        public virtual ICollection<dbQuestions> dbQuestions { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StudentQuizs> StudentQuizs { get; set; }
+        public virtual ICollection<dbStudentQuizs> dbStudentQuizs { get; set; }
     }
 }
