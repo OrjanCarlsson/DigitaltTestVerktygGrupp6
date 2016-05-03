@@ -66,6 +66,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Database\C__MigrationHistory.cs" />
+    <Compile Include="Database\dbAlternatives.cs" />
+    <Compile Include="Database\dbQuestions.cs" />
+    <Compile Include="Database\dbQuizs.cs" />
+    <Compile Include="Database\dbStudentQuizs.cs" />
+    <Compile Include="Database\dbStudents.cs" />
     <Compile Include="Model\ActiveStudent.cs" />
     <Compile Include="Model\Alternative.cs" />
     <Compile Include="Model\MultiQuestion.cs" />
@@ -74,6 +80,7 @@
     <Compile Include="Model\RankingQuestion.cs" />
     <Compile Include="Model\Repository.cs" />
     <Compile Include="Model\TextQuestion.cs" />
+    <Compile Include="Database\QuizModel.cs" />
     <Compile Include="ViewModel\ButtonCommand.cs" />
     <Compile Include="Model\MultiAlternative.cs" />
     <Compile Include="ViewModel\QuizViewmodel.cs" />
@@ -113,13 +120,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Alternatives.cs" />
-    <Compile Include="Model\C__MigrationHistory.cs" />
-    <Compile Include="Model\ModelQuiz.cs" />
-    <Compile Include="Model\Questions.cs" />
-    <Compile Include="Model\Quizs.cs" />
-    <Compile Include="Model\StudentQuizs.cs" />
-    <Compile Include="Model\Students.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

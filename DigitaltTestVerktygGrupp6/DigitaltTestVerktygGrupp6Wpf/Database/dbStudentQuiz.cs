@@ -6,17 +6,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DigitaltTestVerktygGrupp6Wpf.Model
+namespace DigitaltTestVerktygGrupp6Wpf.Database
 {
-    public class StudentQuiz
+    public class dbStudentQuiz
     {
         [Key, Column(Order = 0)]
-        public int StudentId { get; set; }
+        public int dbStudentId { get; set; }
         [Key, Column(Order = 1)]
-        public int QuizId { get; set; }
+        public int dbQuizId { get; set; }
 
-        public virtual Student student { get; set; }
-        public virtual Quiz quiz { get; set; }
+        public virtual dbStudent student { get; set; }
+        public virtual dbQuiz quiz { get; set; }
 
         public int Time { get; set; }
         public int Score { get; set; }

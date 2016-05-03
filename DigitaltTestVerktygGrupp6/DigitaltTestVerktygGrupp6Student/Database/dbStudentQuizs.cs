@@ -1,4 +1,4 @@
-namespace DigitaltTestVerktygGrupp6Student.Model
+namespace DigitaltTestVerktygGrupp6Student.Database
 {
     using System;
     using System.Collections.Generic;
@@ -6,24 +6,24 @@ namespace DigitaltTestVerktygGrupp6Student.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class StudentQuizs
+    public partial class dbStudentQuizs
     {
         [Key]
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int StudentId { get; set; }
+        public int dbStudentId { get; set; }
 
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int QuizId { get; set; }
+        public int dbQuizId { get; set; }
 
         public int Time { get; set; }
 
         public int Score { get; set; }
 
-        public virtual Quizs Quizs { get; set; }
+        public virtual dbQuizs dbQuizs { get; set; }
 
-        public virtual Students Students { get; set; }
+        public virtual dbStudents dbStudents { get; set; }
     }
 }

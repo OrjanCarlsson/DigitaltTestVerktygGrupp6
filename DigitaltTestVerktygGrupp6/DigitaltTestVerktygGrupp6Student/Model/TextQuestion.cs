@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DigitaltTestVerktygGrupp6Student.Database;
 
 namespace DigitaltTestVerktygGrupp6Student.Model
 {
@@ -24,7 +25,7 @@ namespace DigitaltTestVerktygGrupp6Student.Model
                 answered = userText.Length;
             }
         }
-        public TextQuestion(Questions question) : base(question)
+        public TextQuestion(dbQuestions question) : base(question)
         {
             correctAnswers = 1;
         }

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DigitaltTestVerktygGrupp6Wpf.Model;
+using DigitaltTestVerktygGrupp6Wpf.Database;
 
 namespace DigitaltTestVerktygGrupp6Wpf
 {
@@ -22,11 +23,11 @@ namespace DigitaltTestVerktygGrupp6Wpf
     public partial class MainWindow : Window
     {
         Repository repo = new Repository();
-        public List<Student> students;
+        public List<dbStudent> students;
         public MainWindow()
         {
             InitializeComponent();
-
+           
             update();
             //var query = from dbqu in test.Quizes
             //            where dbqu.Students.Any(c => c.StudentId == 3)
@@ -42,22 +43,22 @@ namespace DigitaltTestVerktygGrupp6Wpf
         public void update()
         {
             students = repo.StudentsList();
-            
+
             UserListView.Items.Clear();
 
-            foreach (Student item in students)
+            foreach (dbStudent item in students)
             {
-                UserListView.Items.Add(item.StudentId + " " + item.FirstName + " " + item.LastName + " " + item.Email);
+                UserListView.Items.Add(item.dbStudentId + " " + item.FirstName + " " + item.LastName + " " + item.Email);
 
             }
         }
-         private void DelUserBtn_Click(object sender, RoutedEventArgs e)
+        private void DelUserBtn_Click(object sender, RoutedEventArgs e)
          {
                  string[] words = UserListView.SelectedItem.ToString().Split(' ');
                  int id = int.Parse(words[0]);
                  repo.DbRemoveUser(id);
-                 update();
-            }
+            update();
+        }
 
         private void NewUserBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -66,9 +67,9 @@ namespace DigitaltTestVerktygGrupp6Wpf
 
         private void btnSaveUser_Click(object sender, RoutedEventArgs e)
         {
-            using (var db = new DataContext())
+            using (var db = new dbDataContext())
             {
-                Student stu = new Student
+                dbStudent stu = new dbStudent
                 {
                     FirstName = NewName.Text,
                     LastName = NewLastName.Text,
@@ -79,6 +80,7 @@ namespace DigitaltTestVerktygGrupp6Wpf
 
                 db.Students.Add(stu);
                 db.SaveChanges();
+                AddUserPopup.IsOpen = false;
                 update();
 
             }

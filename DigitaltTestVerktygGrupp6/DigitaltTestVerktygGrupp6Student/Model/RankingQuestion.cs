@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DigitaltTestVerktygGrupp6Student.Database;
 
 namespace DigitaltTestVerktygGrupp6Student.Model
 {
@@ -53,13 +54,13 @@ namespace DigitaltTestVerktygGrupp6Student.Model
             }
         }
 
-        public RankingQuestion(Questions question) : base(question) { }
+        public RankingQuestion(dbQuestions question) : base(question) { }
 
-        protected override void AddAlternatives(Questions question)
+        protected override void AddAlternatives(dbQuestions question)
         {
             Numbers = new List<int>();
             int nr = 1;
-            foreach (var alt in question.Alternatives.ToList())
+            foreach (var alt in question.dbAlternatives.ToList())
             {
                 Alternatives.Add(new RankingAlternative(alt, this));
                 Numbers.Add(nr++);

@@ -1,4 +1,4 @@
-namespace DigitaltTestVerktygGrupp6Student.Model
+namespace DigitaltTestVerktygGrupp6Student.Database
 {
     using System;
     using System.Collections.Generic;

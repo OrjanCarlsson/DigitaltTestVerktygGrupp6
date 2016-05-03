@@ -1,4 +1,4 @@
-namespace DigitaltTestVerktygGrupp6Student.Model
+namespace DigitaltTestVerktygGrupp6Student.Database
 {
     using System;
     using System.Collections.Generic;
@@ -6,17 +6,17 @@ namespace DigitaltTestVerktygGrupp6Student.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Alternatives
+    public partial class dbAlternatives
     {
         [Key]
-        public int AlternativeId { get; set; }
+        public int dbAlternativeId { get; set; }
 
         public string Text { get; set; }
 
         public int IsCorrect { get; set; }
 
-        public int QuestionId { get; set; }
+        public int dbQuestionId { get; set; }
 
-        public virtual Questions Questions { get; set; }
+        public virtual dbQuestions dbQuestions { get; set; }
     }
 }

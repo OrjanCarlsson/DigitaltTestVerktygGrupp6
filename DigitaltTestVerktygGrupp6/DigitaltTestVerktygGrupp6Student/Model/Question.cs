@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DigitaltTestVerktygGrupp6Student.Database;
 
 namespace DigitaltTestVerktygGrupp6Student.Model
 {
@@ -16,7 +17,7 @@ namespace DigitaltTestVerktygGrupp6Student.Model
     }
     class Question
     {
-        public int Type { get; set; }
+        public string Type { get; set; }
         public string Text { get; set; }
         public int Points { get; set; }
         public string Image { get; set; }
@@ -25,7 +26,7 @@ namespace DigitaltTestVerktygGrupp6Student.Model
         protected int correctAnswers = 0;
         public int userCorrectAnswers = 0, answered = 0;
 
-        public Question(Questions question)
+        public Question(dbQuestions question)
         {
             Alternatives = new ObservableCollection<Alternative>();
             AddAlternatives(question);
@@ -35,9 +36,9 @@ namespace DigitaltTestVerktygGrupp6Student.Model
             Image = question.Image;
         }
 
-        protected virtual void AddAlternatives(Questions question)
+        protected virtual void AddAlternatives(dbQuestions question)
         {
-            foreach (var alt in question.Alternatives.ToList())
+            foreach (var alt in question.dbAlternatives.ToList())
             {
                 Alternatives.Add(new Alternative(alt, this));
             }
