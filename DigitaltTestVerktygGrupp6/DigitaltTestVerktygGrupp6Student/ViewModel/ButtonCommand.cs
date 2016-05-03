@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
+
 namespace DigitaltTestVerktygGrupp6Student.ViewModel
 {
     class ButtonCommand : ICommand
