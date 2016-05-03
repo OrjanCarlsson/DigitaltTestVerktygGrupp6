@@ -42,11 +42,56 @@ namespace DigitaltTestVerktygGrupp6Wpf
         public void update()
         {
             students = repo.StudentsList();
+            
+            UserListView.Items.Clear();
 
             foreach (Student item in students)
             {
-                UserListView.Items.Add(item.FirstName + " " + item.LastName + " " + item.Email);   
+                UserListView.Items.Add(item.StudentId + " " + item.FirstName + " " + item.LastName + " " + item.Email);
+
             }
+        }
+         private void DelUserBtn_Click(object sender, RoutedEventArgs e)
+         {
+                 string[] words = UserListView.SelectedItem.ToString().Split(' ');
+                 int id = int.Parse(words[0]);
+                 repo.DbRemoveUser(id);
+                 update();
+            }
+
+        private void NewUserBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AddUserPopup.IsOpen = true;
+        }
+
+        private void btnSaveUser_Click(object sender, RoutedEventArgs e)
+        {
+            using (var db = new DataContext())
+            {
+                Student stu = new Student
+                {
+                    FirstName = NewName.Text,
+                    LastName = NewLastName.Text,
+                    Email = NewEmail.Text,
+                    UserName = NewUserName.Text,
+                    Password = NewPassword.Text
+                };
+
+                db.Students.Add(stu);
+                db.SaveChanges();
+                update();
+
+            }
+        }
+
+        private void btnCloseUserPopup_click(object sender, RoutedEventArgs e)
+        {
+             AddUserPopup.IsOpen = false;
+             NewName.Clear();
+             NewLastName.Clear();
+            NewEmail.Clear();
+            NewUserName.Clear();
+            NewPassword.Clear();
         }
     }
 }
