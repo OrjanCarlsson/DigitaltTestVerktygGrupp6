@@ -33,6 +33,7 @@ namespace DigitaltTestVerktygGrupp6Student.View
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             viewModel.ContentFrame.Navigate(new Quiz());
+            viewModel.ActiveStudent = new Database.dbStudents { FirstName = "Charlie", LastName = "Placeholder", dbStudentId = 1 };          
         }
     }
 }
