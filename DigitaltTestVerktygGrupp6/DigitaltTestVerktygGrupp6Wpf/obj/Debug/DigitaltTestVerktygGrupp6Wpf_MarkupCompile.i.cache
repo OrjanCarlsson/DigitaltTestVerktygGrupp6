@@ -4,16 +4,28 @@
 winexe
 C#
 .cs
-C:\Users\Örjan\Source\Repos\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\
+<<<<<<< HEAD
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\
+=======
+C:\Users\ottar\Desktop\Grupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\
+>>>>>>> f2399c8c202474d2907f6f6d6e30f008e0e9de0f
 DigitaltTestVerktygGrupp6Wpf
 none
 false
 DEBUG;TRACE
-C:\Users\Örjan\Source\Repos\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\App.xaml
+<<<<<<< HEAD
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\App.xaml
 11151548125
 
-161941699069
+16471809929
+162078904725
+=======
+C:\Users\ottar\Desktop\Grupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\App.xaml
+11151548125
+
+16-396369675
 161627097657
+>>>>>>> f2399c8c202474d2907f6f6d6e30f008e0e9de0f
 MainWindow.xaml;
 
 True
