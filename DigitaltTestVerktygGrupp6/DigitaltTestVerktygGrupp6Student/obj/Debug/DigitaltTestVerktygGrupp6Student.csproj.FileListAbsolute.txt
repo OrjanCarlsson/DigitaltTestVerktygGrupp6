@@ -40,3 +40,9 @@ C:\Users\Char\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrup
 C:\Users\Char\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Student\obj\Debug\DigitaltTestVerktygGrupp6Student.pdb
 C:\Users\Char\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Student\obj\Debug\View\Results.g.cs
 C:\Users\Char\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Student\obj\Debug\View\Results.baml
+C:\Users\Örjan\Source\Repos\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Student\obj\Debug\View\Quiz.g.cs
+C:\Users\Örjan\Source\Repos\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Student\obj\Debug\View\QuizSelection.g.cs
+C:\Users\Örjan\Source\Repos\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Student\obj\Debug\View\Results.g.cs
+C:\Users\Örjan\Source\Repos\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Student\obj\Debug\View\Quiz.baml
+C:\Users\Örjan\Source\Repos\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Student\obj\Debug\View\QuizSelection.baml
+C:\Users\Örjan\Source\Repos\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Student\obj\Debug\View\Results.baml
