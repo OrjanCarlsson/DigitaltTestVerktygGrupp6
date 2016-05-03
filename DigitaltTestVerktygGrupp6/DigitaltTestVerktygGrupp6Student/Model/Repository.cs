@@ -24,20 +24,23 @@ namespace DigitaltTestVerktygGrupp6Student.Model
         public List<Question> GetQuestions(dbQuizs quiz)
         {
             List<Question> questions = new List<Question>();
+
             using (var model = new QuizModel())
             {
                 var query = from question in model.dbQuestions
                             where question.dbQuizId == quiz.dbQuizId
                             select question;
+
                 foreach (var q in query)
                 {
-                    if (q.Type.Equals(QuestionType.Single) || q.Type.Equals(QuestionType.Multi))
+                    if (q.Type.Equals(QuestionType.Single.ToString()) || q.Type.Equals(QuestionType.Multi.ToString()))
                         questions.Add(new MultiQuestion(q));
                     else if (q.Type.Equals(QuestionType.Text.ToString()))
                         questions.Add(new TextQuestion(q));
-                    else if (q.Type.Equals(QuestionType.Rank))
+                    else if (q.Type.Equals(QuestionType.Rank.ToString()))
                         questions.Add(new RankingQuestion(q));
                 }
+
                 return questions;
             }
         }
