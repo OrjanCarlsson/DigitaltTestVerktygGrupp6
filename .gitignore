@@ -13,3 +13,5 @@ DigitaltTestVerktygGrupp6/DigitaltTestVerktygGrupp6Wpf/obj/
 DigitaltTestVerktygGrupp6/DigitaltTestVerktygGrupp6Wpf/bin/
 DigitaltTestVerktygGrupp6/DigitaltTestVerktygGrupp6Student/bin/
 DigitaltTestVerktygGrupp6/DigitaltTestVerktygGrupp6Student/obj/
+*.cache
+*.suo

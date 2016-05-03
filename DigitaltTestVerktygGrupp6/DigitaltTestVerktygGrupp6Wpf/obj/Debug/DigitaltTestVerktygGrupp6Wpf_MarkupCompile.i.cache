@@ -9,11 +9,19 @@ DigitaltTestVerktygGrupp6Wpf
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\App.xaml
 21084377981
 
 171752154189
 162078904725
+=======
+C:\Users\Örjan\Source\Repos\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\App.xaml
+21084377981
+
+17883974585
+161627097657
+>>>>>>> origin/master
 MainWindow.xaml;Views\CreateQuiz.xaml;
 
 False
