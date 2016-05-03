@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525"
         xmlns:model="clr-namespace:DigitaltTestVerktygGrupp6Wpf.Database">
+    
 
     <!--<DataTemplate x:Name="Userdata" DataType="model:Student"/>-->
     <Grid>
