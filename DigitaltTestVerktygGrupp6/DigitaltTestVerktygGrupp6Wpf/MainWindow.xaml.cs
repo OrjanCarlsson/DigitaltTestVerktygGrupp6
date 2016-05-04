@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DigitaltTestVerktygGrupp6Wpf.Model;
 using DigitaltTestVerktygGrupp6Wpf.Database;
+using DigitaltTestVerktygGrupp6Wpf.Views;
+using DigitaltTestVerktygGrupp6Wpf.ViewModel;
 
 namespace DigitaltTestVerktygGrupp6Wpf
 {
@@ -22,65 +24,29 @@ namespace DigitaltTestVerktygGrupp6Wpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        Repository repo = new Repository();
-        
-        
+
+        private CreateQuizModel viewModel;
         public MainWindow()
         {
             InitializeComponent();
-            update();
-        }
-        public void update()
-        {
-            ExamListView.ItemsSource = repo.QuizsList();
-            UserListView.ItemsSource = repo.StudentsList();
-        }
-        private void DelUserBtn_Click(object sender, RoutedEventArgs e)
-         {
-            dbStudent delstu = UserListView.SelectedItem as dbStudent;
-            repo.DbRemoveUser(delstu);
-            update();
+            //using (var db = new ModelQuiz())
+            //{
+            //    var query = db.Students.ToList();
+            //    foreach (var item in query)
+            //    {
+            //        MessageBox.Show(item.FirstName);
+            //    }
+            //}
+
+            viewModel = CreateQuizModel.StaticModel;
+           
+            viewModel.ContentFrame = FrameCreateQuiz;
+            viewModel.NavigateTo(new Index());
         }
 
-        private void NewUserBtn_Click(object sender, RoutedEventArgs e)
-        {
-            AddUserPopup.IsOpen = true;
-        }
-
-        private void btnSaveUser_Click(object sender, RoutedEventArgs e)
-        {
-            using (var db = new dbDataContext())
-            {
-                dbStudent stu = new dbStudent
-                {
-                    FirstName = NewName.Text,
-                    LastName = NewLastName.Text,
-                    Email = NewEmail.Text,
-                    UserName = NewUserName.Text,
-                    Password = NewPassword.Text
-                };
-
-                db.Students.Add(stu);
-                db.SaveChanges();
-                popupclose();
-                update();
-
-            }
-        }
-
-        private void popupclose()
-        {
-            AddUserPopup.IsOpen = false;
-            NewName.Clear();
-            NewLastName.Clear();
-            NewEmail.Clear();
-            NewUserName.Clear();
-            NewPassword.Clear();
-        }
-
-        private void btnCloseUserPopup_click(object sender, RoutedEventArgs e)
-        {
-            popupclose();
-        }
+        //private void btnCloseUserPopup_click(object sender, RoutedEventArgs e)
+        //{
+        //    popupclose();
+        //}
     }
 }

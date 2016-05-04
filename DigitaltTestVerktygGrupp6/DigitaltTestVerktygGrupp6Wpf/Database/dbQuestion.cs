@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace DigitaltTestVerktygGrupp6Wpf.Database
 {
+    public enum QuestionType
+    {
+        Single,
+        Multi,
+        Text,
+        Rank
+    }
     public class dbQuestion
     {
         public int dbQuestionId { get; set; }

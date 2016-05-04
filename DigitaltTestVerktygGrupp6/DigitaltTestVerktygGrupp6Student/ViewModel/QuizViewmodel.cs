@@ -111,7 +111,7 @@ namespace DigitaltTestVerktygGrupp6Student.ViewModel
             }
             else
             {
-                MessageBox.Show("Välj ett svar!!!!!!!!!!!!!!!!!!!!!!!");
+                MessageBox.Show("Välj ett svar!");
             }
         }
 
