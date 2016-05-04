@@ -25,23 +25,22 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
     {
         CreateQuizModel viewModel;
         Repository repo = new Repository();
-        public List<dbStudent> students;
+       
         public Index()
         {
             InitializeComponent();
-            students = repo.StudentsList();
-            UserListView.ItemsSource = students;
-            ExamListView.ItemsSource = 
-            // FrameCreateQuiz.NavigationService.GoBack();
+            update();
             viewModel = CreateQuizModel.StaticModel;
+            // FrameCreateQuiz.NavigationService.GoBack();
+
 
             //viewModel.ContentFrame = FrameCreateQuiz;
             //viewModel.NavigateTo(new CreateQuiz());
         }
         public void update()
         {
-            students = repo.StudentsList();
-            UserListView.ItemsSource = students;
+            ExamListView.ItemsSource = repo.QuizsList();
+            UserListView.ItemsSource = repo.StudentsList();
         }
         private void DelUserBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -70,14 +69,10 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
 
                 db.Students.Add(stu);
                 db.SaveChanges();
-                popupStuff();
-
-
-
+                popupclose();
             }
         }
-
-        private void popupStuff()
+        private void popupclose()
         {
             AddUserPopup.IsOpen = false;
             NewName.Clear();
@@ -90,7 +85,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
 
         private void btnCloseUserPopup_click(object sender, RoutedEventArgs e)
         {
-            popupStuff();
+            popupclose();
         }
 
         private void NewExamBtn_Click(object sender, RoutedEventArgs e)
