@@ -93,5 +93,6 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             viewModel.ContentFrame.Navigate(new CreateQuiz());
             //FrameCreateQuiz.Navigate(new CreateQuiz());
         }
+
     }
 }
