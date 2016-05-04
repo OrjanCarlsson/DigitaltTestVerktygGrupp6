@@ -36,7 +36,7 @@
                     </ListView>
                 </Grid>
             </TabItem>
-            <TabItem Header="Users" Margin="34.667,-2,-79,0">
+            <TabItem Header="Users" Margin="120.667,-2,-164.667,0">
                 <Grid Background="#FFE5E5E5">
 
                     <ListView Name="UserListView" HorizontalAlignment="Left" Height="177" Margin="10,10,0,0" VerticalAlignment="Top" Width="493">
@@ -59,6 +59,30 @@
                     </ListView>
                     <Button x:Name="NewUserBtn" Content="New User" HorizontalAlignment="Left" Margin="344,205,0,0" VerticalAlignment="Top" Width="130" Height="43" Click="NewUserBtn_Click"/>
                     <Button x:Name="DelUserBtn" Content="Delete User" HorizontalAlignment="Left" Margin="153,205,0,0" VerticalAlignment="Top" Width="115" Height="43" Click="DelUserBtn_Click"/>
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="Statistik" Margin="-10.333,-2,-33.667,0">
+                <Grid Background="#FFE5E5E5">
+
+                    <ListView x:Name="StatisticsListView" HorizontalAlignment="Left" Height="177" Margin="10,10,0,0" VerticalAlignment="Top" Width="493">
+                        <ListView.Resources>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                            </Style>
+                        </ListView.Resources>
+                        <ListView.View>
+                            <GridView>
+
+                                <GridViewColumn Header="Student"   DisplayMemberBinding="{Binding Name}" />
+                                <GridViewColumn Header="Quiz" DisplayMemberBinding="{Binding Intro}" />
+                                <GridViewColumn Header="Time" DisplayMemberBinding="{Binding GradeG}" />
+                                <GridViewColumn Header="Score"  DisplayMemberBinding="{Binding GradeVG}" />
+                                
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
                 </Grid>
 
             </TabItem>

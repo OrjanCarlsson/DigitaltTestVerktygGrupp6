@@ -37,7 +37,6 @@ namespace DigitaltTestVerktygGrupp6Wpf.Database
             List<dbAlternative> defaultAlternatvies = new List<dbAlternative>();
             defaultStudentQuizs.Add(new dbStudentQuiz
             {
-                
                 dbStudentId = 1,
                 dbQuizId = 1,
                 Time = 5,
