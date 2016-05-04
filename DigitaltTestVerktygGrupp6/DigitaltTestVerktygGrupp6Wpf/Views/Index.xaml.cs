@@ -25,22 +25,22 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
     {
         CreateQuizModel viewModel;
         Repository repo = new Repository();
-        public List<dbStudent> students;
+       
         public Index()
         {
             InitializeComponent();
-            students = repo.StudentsList();
-            UserListView.ItemsSource = students;
-            // FrameCreateQuiz.NavigationService.GoBack();
+            update();
             viewModel = CreateQuizModel.StaticModel;
+            // FrameCreateQuiz.NavigationService.GoBack();
+
 
             //viewModel.ContentFrame = FrameCreateQuiz;
             //viewModel.NavigateTo(new CreateQuiz());
         }
         public void update()
         {
-            students = repo.StudentsList();
-            UserListView.ItemsSource = students;
+            ExamListView.ItemsSource = repo.QuizsList();
+            UserListView.ItemsSource = repo.StudentsList();
         }
         private void DelUserBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -69,18 +69,10 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
 
                 db.Students.Add(stu);
                 db.SaveChanges();
-                AddUserPopup.IsOpen = false;
-                NewName.Clear();
-                NewLastName.Clear();
-                NewEmail.Clear();
-                NewUserName.Clear();
-                NewPassword.Clear();
-                update();
-
+                popupclose();
             }
         }
-
-        private void btnCloseUserPopup_click(object sender, RoutedEventArgs e)
+        private void popupclose()
         {
             AddUserPopup.IsOpen = false;
             NewName.Clear();
@@ -88,6 +80,12 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             NewEmail.Clear();
             NewUserName.Clear();
             NewPassword.Clear();
+            update();
+        }
+
+        private void btnCloseUserPopup_click(object sender, RoutedEventArgs e)
+        {
+            popupclose();
         }
 
         private void NewExamBtn_Click(object sender, RoutedEventArgs e)
@@ -95,5 +93,6 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             viewModel.ContentFrame.Navigate(new CreateQuiz());
             //FrameCreateQuiz.Navigate(new CreateQuiz());
         }
+
     }
 }

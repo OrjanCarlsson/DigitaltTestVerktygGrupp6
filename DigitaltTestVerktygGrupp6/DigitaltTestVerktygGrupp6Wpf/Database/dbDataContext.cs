@@ -33,7 +33,16 @@ namespace DigitaltTestVerktygGrupp6Wpf.Database
             IList<dbStudent> defaultStudent = new List<dbStudent>();
             IList<dbQuiz> defaultQuiz = new List<dbQuiz>();
             IList<dbQuestion> defaultQuestions = new List<dbQuestion>();
+            IList<dbStudentQuiz> defaultStudentQuizs = new List<dbStudentQuiz>();
             List<dbAlternative> defaultAlternatvies = new List<dbAlternative>();
+            defaultStudentQuizs.Add(new dbStudentQuiz
+            {
+                dbStudentId = 1,
+                dbQuizId = 1,
+                Time = 5,
+                Score = 120
+            });
+            
 
             defaultQuestions.Add(new dbQuestion
             {
@@ -77,10 +86,12 @@ namespace DigitaltTestVerktygGrupp6Wpf.Database
                 GradeG = 50,
                 GradeVG = 70,
                 TimeLimit = 100,
+                StudentQuizes = defaultStudentQuizs,
                 Questions = defaultQuestions
             });
             defaultQuiz.Add(new dbQuiz
             {
+
                 dbQuizId = 2,
                 Name = "Quiz2",
                 Intro = "Stuff123",
@@ -91,6 +102,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Database
 
             defaultStudent.Add(new dbStudent
             {
+                StudentQuizes = defaultStudentQuizs,
                 dbStudentId = 1,
                 FirstName = "Ottar",
                 LastName = "Kallesson",
@@ -100,6 +112,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Database
             });
             defaultStudent.Add(new dbStudent
             {
+
                 dbStudentId = 2,
                 FirstName = "Örjan",
                 LastName = "Carlsson",
@@ -107,7 +120,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Database
                 Password = "123",
                 Email = "OrjanCool92@stuff.se"
             });
-            
+
             foreach (dbStudent stu in defaultStudent)
                 Context.Students.Add(stu);
             foreach (dbQuiz quiz in defaultQuiz)

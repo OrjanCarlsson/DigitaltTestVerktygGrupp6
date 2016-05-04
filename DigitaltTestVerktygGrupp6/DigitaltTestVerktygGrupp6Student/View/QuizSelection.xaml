@@ -24,9 +24,9 @@
                 </ListView>
             </StackPanel>
             <StackPanel>
-                <TextBlock Text="{Binding SelectedQuiz.Name}"/>
-                <TextBlock Text="{Binding SelectedQuiz.TimeLimit}"/>
-                <TextBlock Text="{Binding SelectedQuiz.Intro}"/>
+                <TextBlock Text="{Binding SelectedQuiz.Name, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="{Binding SelectedQuiz.TimeLimit, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="{Binding SelectedQuiz.Intro, UpdateSourceTrigger=PropertyChanged}"/>
                 <Button Content="Starta Quiz" Name="StartButton" Click="StartButton_Click"></Button>
             </StackPanel>
         </StackPanel>

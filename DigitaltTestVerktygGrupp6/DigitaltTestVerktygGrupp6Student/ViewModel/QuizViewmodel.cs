@@ -18,7 +18,18 @@ namespace DigitaltTestVerktygGrupp6Student.ViewModel
     {
         public dbStudents ActiveStudent { get; set; }
         public List<dbQuizs> Quizes { get; set; }
-        public dbQuizs SelectedQuiz { get; set; }
+        private dbQuizs selectedQuiz;
+
+        public dbQuizs SelectedQuiz
+        {
+            get { return selectedQuiz; }
+            set
+            {
+                selectedQuiz = value; 
+                OnPropertyChanged("SelectedQuiz");
+            }
+        }
+
         public ObservableCollection<Question> Questions { get; set; }
         public Question ActiveQuestion { get; set; }
         public Frame ContentFrame { get; set; }
