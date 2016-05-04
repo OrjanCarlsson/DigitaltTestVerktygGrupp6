@@ -84,3 +84,7 @@ C:\Users\Char\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrup
 C:\Users\Char\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\CreateQuiz.baml
 C:\Users\Char\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\Index.baml
 >>>>>>> origin/master
+C:\Users\Örjan\Source\Repos\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\CreateQuiz.g.cs
+C:\Users\Örjan\Source\Repos\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\Index.g.cs
+C:\Users\Örjan\Source\Repos\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\CreateQuiz.baml
+C:\Users\Örjan\Source\Repos\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\Index.baml

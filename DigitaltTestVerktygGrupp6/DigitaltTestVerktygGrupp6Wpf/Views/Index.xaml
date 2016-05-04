@@ -15,10 +15,21 @@
             <TabItem x:Name="TestsTAB" Header="Exams" Margin="-2,-2,-35,0">
                 <Grid Background="#FFE5E5E5">
                     <Button x:Name="NewExamBtn" Content="New Exam" HorizontalAlignment="Left" Margin="309,190,0,0" VerticalAlignment="Top" Width="178" Height="57" Click="NewExamBtn_Click"/>
-                    <ListView x:Name="ExamListView" HorizontalAlignment="Left" Height="175" Margin="10,10,0,0" VerticalAlignment="Top" Width="493">
+                    <ListView Name="ExamListView" HorizontalAlignment="Left" Height="177" Margin="10,10,0,0" VerticalAlignment="Top" Width="493">
+                        <ListView.Resources>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                            </Style>
+                        </ListView.Resources>
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn/>
+
+                                <GridViewColumn Header="Examname"   DisplayMemberBinding="{Binding Name}" />
+                                <GridViewColumn Header="Summary" DisplayMemberBinding="{Binding Intro}" />
+                                <GridViewColumn Header="Grade G" DisplayMemberBinding="{Binding GradeG}" />
+                                <GridViewColumn Header="Grade VG"  DisplayMemberBinding="{Binding GradeVG}" />
+                                <GridViewColumn Header="Timelimit" DisplayMemberBinding="{Binding TimeLimit}" />
+
                             </GridView>
                         </ListView.View>
                     </ListView>

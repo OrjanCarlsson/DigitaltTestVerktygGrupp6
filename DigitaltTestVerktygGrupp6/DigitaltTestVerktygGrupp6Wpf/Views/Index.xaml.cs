@@ -31,6 +31,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             InitializeComponent();
             students = repo.StudentsList();
             UserListView.ItemsSource = students;
+            ExamListView.ItemsSource = 
             // FrameCreateQuiz.NavigationService.GoBack();
             viewModel = CreateQuizModel.StaticModel;
 
@@ -69,18 +70,14 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
 
                 db.Students.Add(stu);
                 db.SaveChanges();
-                AddUserPopup.IsOpen = false;
-                NewName.Clear();
-                NewLastName.Clear();
-                NewEmail.Clear();
-                NewUserName.Clear();
-                NewPassword.Clear();
-                update();
+                popupStuff();
+
+
 
             }
         }
 
-        private void btnCloseUserPopup_click(object sender, RoutedEventArgs e)
+        private void popupStuff()
         {
             AddUserPopup.IsOpen = false;
             NewName.Clear();
@@ -88,6 +85,12 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             NewEmail.Clear();
             NewUserName.Clear();
             NewPassword.Clear();
+            update();
+        }
+
+        private void btnCloseUserPopup_click(object sender, RoutedEventArgs e)
+        {
+            popupStuff();
         }
 
         private void NewExamBtn_Click(object sender, RoutedEventArgs e)
