@@ -1,3 +1,25 @@
+<<<<<<< HEAD
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\bin\Debug\DigitaltTestVerktygGrupp6Wpf.exe.config
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\bin\Debug\DigitaltTestVerktygGrupp6Wpf.exe
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\bin\Debug\DigitaltTestVerktygGrupp6Wpf.pdb
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\bin\Debug\EntityFramework.dll
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\bin\Debug\EntityFramework.xml
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\DigitaltTestVerktygGrupp6Wpf.csprojResolveAssemblyReference.cache
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\MainWindow.g.cs
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\CreateQuiz.g.cs
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\App.g.cs
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\DigitaltTestVerktygGrupp6Wpf_MarkupCompile.cache
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\DigitaltTestVerktygGrupp6Wpf_MarkupCompile.lref
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\MainWindow.baml
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\CreateQuiz.baml
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\DigitaltTestVerktygGrupp6Wpf.g.resources
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\DigitaltTestVerktygGrupp6Wpf.Properties.Resources.resources
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\DigitaltTestVerktygGrupp6Wpf.csproj.GenerateResource.Cache
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\DigitaltTestVerktygGrupp6Wpf.exe
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\DigitaltTestVerktygGrupp6Wpf.pdb
+=======
 C:\Users\Örjan\Source\Repos\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\bin\Debug\DigitaltTestVerktygGrupp6Wpf.exe.config
 C:\Users\ottar\Desktop\DigitaltTestProjekt2\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\bin\Debug\DigitaltTestVerktygGrupp6Wpf.exe.config
 C:\Users\Örjan\Source\Repos\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\bin\Debug\DigitaltTestVerktygGrupp6Wpf.exe
@@ -56,3 +78,13 @@ C:\Users\ottar\Desktop\Grupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp
 C:\Users\ottar\Desktop\Grupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\CreateQuiz.baml
 C:\Users\ottar\Desktop\Grupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\Index.g.cs
 C:\Users\ottar\Desktop\Grupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\Index.baml
+C:\Users\Char\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\DigitaltTestVerktygGrupp6Wpf.csprojResolveAssemblyReference.cache
+C:\Users\Char\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\CreateQuiz.g.cs
+C:\Users\Char\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\Index.g.cs
+C:\Users\Char\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\CreateQuiz.baml
+C:\Users\Char\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\Index.baml
+>>>>>>> origin/master
+C:\Users\Örjan\Source\Repos\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\CreateQuiz.g.cs
+C:\Users\Örjan\Source\Repos\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\Index.g.cs
+C:\Users\Örjan\Source\Repos\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\CreateQuiz.baml
+C:\Users\Örjan\Source\Repos\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Wpf\obj\Debug\Views\Index.baml
