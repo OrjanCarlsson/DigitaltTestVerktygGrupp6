@@ -10,7 +10,7 @@
     
     <Page.Resources>
         <ControlTemplate x:Key="CheckTemplate">
-            <ItemsControl ItemsSource="{Binding ActiveQuestion.Alternatives}">
+            <ItemsControl ItemsSource="{Binding ActiveQuestion.Alternatives}" Margin="8">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
@@ -21,7 +21,7 @@
             </ItemsControl>
         </ControlTemplate>
         <ControlTemplate x:Key="RadioTemplate">
-            <ItemsControl ItemsSource="{Binding ActiveQuestion.Alternatives}">
+            <ItemsControl ItemsSource="{Binding ActiveQuestion.Alternatives}" Margin="8">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
@@ -32,13 +32,13 @@
             </ItemsControl>
         </ControlTemplate>
         <ControlTemplate x:Key="TextTemplate">
-            <TextBox Text="{Binding ActiveQuestion.UserText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBox Text="{Binding ActiveQuestion.UserText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="8"></TextBox>
         </ControlTemplate>
         <ControlTemplate x:Key="RankingTemplate">
             <StackPanel Orientation="Horizontal">
-                <ListBox ItemsSource="{Binding ActiveQuestion.Numbers}">
+                <ListBox ItemsSource="{Binding ActiveQuestion.Numbers}" Margin="2">
                 </ListBox>
-                <ListView ItemsSource="{Binding ActiveQuestion.Alternatives}" SelectedItem="{Binding ActiveQuestion.AlternativesOrder}">
+                <ListView ItemsSource="{Binding ActiveQuestion.Alternatives}" SelectedItem="{Binding ActiveQuestion.AlternativesOrder}" Margin="2">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
@@ -59,12 +59,12 @@
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="{Binding ActiveQuestion.Text, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-                    <TextBlock Text="{Binding DisplayTimer, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                    <TextBlock Text="{Binding DisplayTimer, UpdateSourceTrigger=PropertyChanged}" Margin="50,0,0,0"></TextBlock>
                 </StackPanel>
                 <ContentControl Name="AlternativesContent">
 
                 </ContentControl>
-                <Button Content="Nästa fråga" Command="{Binding ButtonCommand}" CommandParameter="NextQuestion"></Button>
+                <Button Content="Nästa fråga" Command="{Binding ButtonCommand}" CommandParameter="NextQuestion" Width="200"></Button>
             </StackPanel>
         </Grid>
     </Grid>
