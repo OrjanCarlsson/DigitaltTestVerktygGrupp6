@@ -9,7 +9,6 @@ namespace DigitaltTestVerktygGrupp6Student.Model
 {
     class MultiQuestion : Question
     {
-        public static int UserCorrectAnswers = 0;
         public MultiQuestion(dbQuestions question) : base(question) { }
 
         protected override void AddAlternatives(dbQuestions question)
@@ -20,6 +19,21 @@ namespace DigitaltTestVerktygGrupp6Student.Model
                 if (alt.IsCorrect == 1)
                     correctAnswers++;
             }
+        }
+
+        public override bool AnswerCorrect()
+        {
+            foreach (Alternative alt in Alternatives)
+            {
+                if (alt.IsCorrect == 1 && alt.IsChecked)
+                    userCorrectAnswers++;
+                else if (alt.IsChecked)
+                    userCorrectAnswers--;
+            }
+            if (userCorrectAnswers == correctAnswers)
+                return true;
+            else
+                return false;
         }
     }
 }

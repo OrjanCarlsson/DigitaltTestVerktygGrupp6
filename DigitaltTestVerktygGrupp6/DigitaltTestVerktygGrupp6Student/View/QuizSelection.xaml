@@ -5,15 +5,22 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DigitaltTestVerktygGrupp6Student.View"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="800" d:DesignWidth="1200"
       Title="Quiz">
 
     <Grid>
-        <Frame x:Name="SelectionFrame"/>
-        <StackPanel Orientation="Vertical">
-            <StackPanel>
-                <TextBlock Text="Available quizes"></TextBlock>
-                <ListView Name="QuizList" ItemsSource="{Binding Quizes}" SelectedItem="{Binding SelectedQuiz}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center">
+            <StackPanel HorizontalAlignment="Right">
+                <TextBlock Text="Available quizes" Margin="5"></TextBlock>
+                <ListView Name="QuizList" ItemsSource="{Binding Quizes}" SelectedItem="{Binding SelectedQuiz}" Loaded="QuizList_Loaded" Margin="15, 5, 15, 15">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
@@ -23,12 +30,17 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </StackPanel>
-            <StackPanel>
-                <TextBlock Text="{Binding SelectedQuiz.Name, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Text="{Binding SelectedQuiz.TimeLimit, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Text="{Binding SelectedQuiz.Intro, UpdateSourceTrigger=PropertyChanged}"/>
-                <Button Content="Starta Quiz" Name="StartButton" Click="StartButton_Click"></Button>
-            </StackPanel>
         </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical" VerticalAlignment="Center">
+            <TextBlock Text="{Binding SelectedQuiz.Name, UpdateSourceTrigger=PropertyChanged}" Margin="0, 50, 10, 10"/>
+            <TextBlock Text="{Binding SelectedQuiz.TimeLimit, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="{Binding SelectedQuiz.Intro, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Content="Starta Quiz>" Name="StartButton" Click="StartButton_Click" Width="100" HorizontalAlignment="Left" Margin="0, 10, 10, 10" >
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+        <Button Content="Save image" Click="Button_Click" Height="100" Width="100"></Button>
     </Grid>
 </Page>

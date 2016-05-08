@@ -25,6 +25,11 @@ namespace DigitaltTestVerktygGrupp6Student.View
         private QuizViewmodel viewModel;
         private ControlTemplate radioTemplate, checkTemplate, textTemplate, rankingTemplate;
 
+        private void Image_Loaded(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("Source: " + (sender as Image).Source);
+        }
+
         public Quiz()
         {
             InitializeComponent();

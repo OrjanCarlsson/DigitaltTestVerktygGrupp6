@@ -44,5 +44,20 @@ namespace DigitaltTestVerktygGrupp6Student.Model
                 return questions;
             }
         }
+
+        internal void SaveResult(dbStudents activeStudent, dbQuizs selectedQuiz, int score, int time)
+        {
+            using (var model = new QuizModel())
+            {
+                var query = from studentQuiz in model.dbStudentQuizs
+                            where studentQuiz.dbStudentId == activeStudent.dbStudentId && studentQuiz.dbQuizId == selectedQuiz.dbQuizId
+                            select studentQuiz;
+
+                var sq = query.First();
+                sq.Score = score;
+                sq.Time = time;
+                model.SaveChanges();
+            }
+        }
     }
 }
