@@ -64,7 +64,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Student.cs" />
+    <Compile Include="ViewModel\ButtonCommand.cs" />
     <Compile Include="ViewModel\CreateQuizModel.cs" />
+    <Compile Include="ViewModel\IndexViewmodel.cs" />
     <Compile Include="Views\CreateQuiz.xaml.cs">
       <DependentUpon>CreateQuiz.xaml</DependentUpon>
     </Compile>

@@ -24,6 +24,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
     public partial class Index : Page
     {
         CreateQuizModel viewModel;
+        IndexViewmodel ivm = new IndexViewmodel();
         Repository repo = new Repository();
        
         public Index()
@@ -31,6 +32,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             InitializeComponent();
             update();
             viewModel = CreateQuizModel.StaticModel;
+            DataContext = ivm;
             // FrameCreateQuiz.NavigationService.GoBack();
 
 
@@ -95,5 +97,9 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             //FrameCreateQuiz.Navigate(new CreateQuiz());
         }
 
+        private void SendButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

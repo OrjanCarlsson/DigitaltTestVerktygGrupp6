@@ -26,6 +26,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
 
             //    return query.ToList();
             //}
+            return null;
         }
 
         public List<dbQuiz> QuizsList()
@@ -45,8 +46,6 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
                 db.Students.Remove(stu2);
                 db.SaveChanges();
             }
-        }
-
-       
+        }    
     }
 }
