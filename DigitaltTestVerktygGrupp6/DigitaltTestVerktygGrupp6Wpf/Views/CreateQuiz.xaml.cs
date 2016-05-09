@@ -272,7 +272,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
 
         private void btnSaveQuestion_Click(object sender, RoutedEventArgs e)
         {
-            
+            rangordningsCounter = -1;
                counter = 0;
             //int listCounter = 0;
             //questionList = new List<dbQuestion>();
@@ -336,43 +336,6 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                 AddQPopup.IsOpen = false;
             }
             
-            //showQuestionsControl.Template = showQuestion;
-            //showAnswersControl.Template = showAnswers;
-
-            //listQuestions.ItemsSource = questionList;
-            
-            //TextBlock displayQuestionNumber = new TextBlock()
-            //{
-            //    Text = questionList.Count.ToString()
-            //};
-
-
-            //panelDisplayQ.Children.Add(displayQuestionNumber);
-
-            //TextBlock displayQuestionText = new TextBlock()
-            //{
-            //    Text = questionList[listCounter - 1].Text,
-
-            //};
-            //panelDisplayQText.Children.Add(displayQuestionText);
-
-            //foreach (var item in alternativeList)
-            //{
-            //    TextBlock displayAnswerText = new TextBlock()
-            //    {
-            //        Text = item.Text
-            //    };
-            //    TextBlock displayAnswerNumber = new TextBlock()
-            //    {
-            //        Text = item.AlternativeId.ToString()
-            //    };
-            //    panelDisplayQText.Children.Add(displayAnswerText);
-            //    panelDisplayQ.Children.Add(displayAnswerNumber);
-            //}
-
-
-
-
         }
 
     }
