@@ -23,11 +23,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
     /// </summary>
     public partial class Index : Page
     {
-        public delegate void ComboboxUpdater(string content);
-        private void QuizzesCombobox(string content)
-        {
-            cbxQuizzes.Items.Add(content);
-        }
+        
         CreateQuizModel viewModel;
         Repository repo = new Repository();
        
@@ -45,6 +41,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
         public void update()
         {
             ExamListView.ItemsSource = repo.QuizsList();
+            cbxQuizzes.ItemsSource = repo.QuizsList();
             UserListView.ItemsSource = repo.StudentsList();
             StatisticsListView.ItemsSource = repo.StudentQuizzesList();
         }
