@@ -24,3 +24,6 @@ C:\Users\Char\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrup
 C:\Users\Char\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Student\obj\Debug\DigitaltTestVerktygGrupp6Student.pdb
 C:\Users\Char\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Student\obj\Debug\View\ImageSaving.g.cs
 C:\Users\Char\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Student\obj\Debug\View\ImageSaving.baml
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Student\bin\Debug\DigitaltTestVerktygGrupp6Student.exe.config
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Student\obj\Debug\DigitaltTestVerktygGrupp6Student.exe
+C:\Users\Charlie\Documents\GitHub\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6\DigitaltTestVerktygGrupp6Student\obj\Debug\DigitaltTestVerktygGrupp6Student.pdb
