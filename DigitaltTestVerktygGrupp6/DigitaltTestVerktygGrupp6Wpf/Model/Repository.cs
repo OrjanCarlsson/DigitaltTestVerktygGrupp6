@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DigitaltTestVerktygGrupp6Wpf.Database;
+using DigitaltTestVerktygGrupp6Wpf.Views;
 
 namespace DigitaltTestVerktygGrupp6Wpf.Model
 {
@@ -18,15 +19,17 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
         }
         public List<dbStudentQuiz> StudentQuizzesList()
         {
-            //using (var db = new dbDataContext())
-            //{
-            //    var query = from quiz in db.Quizes
-            //                where quiz.StudentQuizes.Any(c => c.dbStudentId == 1)
-            //                select quiz;
-
-            //    return query.ToList();
-            //}
-            return null;
+            using (var db = new dbDataContext())
+            {
+                return db.StudentQuizzes.Include("student").Include("quiz").ToList();
+            }
+        }
+        public List<dbStudentQuiz> UpdateStudentQuizzesList(int quizId)
+        {
+            using (var db = new dbDataContext())
+            {
+                return db.StudentQuizzes.Include("student").Include("quiz").Where(a => a.dbQuizId == quizId).ToList();
+            }
         }
 
         public List<dbQuiz> QuizsList()
@@ -46,6 +49,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
                 db.Students.Remove(stu2);
                 db.SaveChanges();
             }
-        }    
+        }
+
     }
 }
