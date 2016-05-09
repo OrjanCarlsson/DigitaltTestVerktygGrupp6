@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DigitaltTestVerktygGrupp6Wpf.Database;
+using DigitaltTestVerktygGrupp6Wpf.Views;
 
 namespace DigitaltTestVerktygGrupp6Wpf.Model
 {
@@ -50,6 +51,5 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
             }
         }
 
-       
     }
 }

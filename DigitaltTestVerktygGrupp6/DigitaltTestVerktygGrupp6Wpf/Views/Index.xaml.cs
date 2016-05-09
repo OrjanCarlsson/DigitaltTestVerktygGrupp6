@@ -29,6 +29,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             cbxQuizzes.Items.Add(content);
         }
         CreateQuizModel viewModel;
+        IndexViewmodel ivm = new IndexViewmodel();
         Repository repo = new Repository();
        
         public Index()
@@ -36,6 +37,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             InitializeComponent();
             update();
             viewModel = CreateQuizModel.StaticModel;
+            DataContext = ivm;
             // FrameCreateQuiz.NavigationService.GoBack();
 
 
@@ -45,6 +47,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
         public void update()
         {
             ExamListView.ItemsSource = repo.QuizsList();
+            cbxQuizzes.ItemsSource = repo.QuizsList();
             UserListView.ItemsSource = repo.StudentsList();
             StatisticsListView.ItemsSource = repo.StudentQuizzesList();
         }
@@ -100,5 +103,27 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             //FrameCreateQuiz.Navigate(new CreateQuiz());
         }
 
+        private void SendButton_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void SortBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedQuiz = cbxQuizzes.SelectedItem as dbQuiz;
+            if (selectedQuiz == null)
+            {
+                MessageBox.Show("Välj ett prov");
+            }
+            else
+            {
+                StatisticsListView.ItemsSource = repo.UpdateStudentQuizzesList(selectedQuiz.dbQuizId);
+            }
+            
+        }
+
+        private void DefaultSortBtn_Click(object sender, RoutedEventArgs e)
+        {
+            StatisticsListView.ItemsSource = repo.StudentQuizzesList();
+        }
     }
 }

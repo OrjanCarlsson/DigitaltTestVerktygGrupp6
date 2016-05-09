@@ -16,7 +16,7 @@
             <TabItem x:Name="TestsTAB" Header="Exams" Margin="-2,-2,-35,0">
                 <Grid Background="#FFE5E5E5">
                     <Button x:Name="NewExamBtn" Content="New Exam" HorizontalAlignment="Left" Margin="309,190,0,0" VerticalAlignment="Top" Width="178" Height="57" Click="NewExamBtn_Click"/>
-                   <ListView Name="ExamListView" HorizontalAlignment="Left" Height="177" Margin="10,10,0,0" VerticalAlignment="Top" Width="493">
+                    <ListView Name="ExamListView" HorizontalAlignment="Left" Height="177" Margin="10,10,0,0" VerticalAlignment="Top" Width="493">
                         <ListView.Resources>
                             <Style TargetType="{x:Type GridViewColumnHeader}">
                                 <Setter Property="HorizontalContentAlignment" Value="Left" />
@@ -36,7 +36,7 @@
                     </ListView>
                 </Grid>
             </TabItem>
-            <TabItem Header="Users" Margin="120.667,-2,-164.667,0">
+            <TabItem Header="Users" Margin="196,0,-240,-2">
                 <Grid Background="#FFE5E5E5">
 
                     <ListView Name="UserListView" HorizontalAlignment="Left" Height="177" Margin="10,10,0,0" VerticalAlignment="Top" Width="493">
@@ -78,16 +78,74 @@
                                 <GridViewColumn Header="Quiz" DisplayMemberBinding="{Binding quiz.Name}" />
                                 <GridViewColumn Header="Time" DisplayMemberBinding="{Binding Time}" />
                                 <GridViewColumn Header="Score"  DisplayMemberBinding="{Binding Score}" />
-                                
+
 
                             </GridView>
                         </ListView.View>
                     </ListView>
-                    <ComboBox x:Name="cbxQuizzes" HorizontalAlignment="Left" Margin="10,205,0,0" VerticalAlignment="Top" Width="120"/>
+                    <!--<ComboBox  ItemsSource="{Binding Quizes}" HorizontalAlignment="Left" Margin="10,205,0,0" VerticalAlignment="Top" Width="120">
+                        <ComboBox.ItemTemplate >
+                            
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>-->
+                    <ComboBox x:Name="cbxQuizzes" HorizontalAlignment="Left" Width="150" Margin="10,208,0,0" VerticalAlignment="Top" Text="--Välj Quiz--">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"></TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Label x:Name="label" Content="Välj prov här att sortera på" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="SortBtn" Content="Sortera" HorizontalAlignment="Left" Margin="190,210,0,0" VerticalAlignment="Top" Width="75" Click="SortBtn_Click"/>
+                    <Button x:Name="DefaultSortBtn" Content="Återställ" HorizontalAlignment="Left" Margin="190,235,0,0" VerticalAlignment="Top" Width="75" Click="DefaultSortBtn_Click"/>
                 </Grid>
 
             </TabItem>
-
+            <TabItem Header="Skicka" Margin="224,-4,-268,2">
+                <Grid Background="#FFE5E5E5">
+                    <ListView x:Name="UserSendListView" ItemsSource="{Binding Students}" HorizontalAlignment="Left" Height="177" Margin="10,10,0,0" VerticalAlignment="Top" Width="493">
+                        <ListView.Resources>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                            </Style>
+                        </ListView.Resources>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox IsChecked="{Binding SendTo}"></CheckBox>
+                                        <TextBlock Text="{Binding FirstName}"></TextBlock>
+                                        <TextBlock Text="{Binding LastName}"></TextBlock>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ComboBox x:Name="QuizCombo" ItemsSource="{Binding Quizzes}" HorizontalAlignment="Left" Margin="55, 205,0,0" VerticalAlignment="Top" Width="92">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <TextBlock Text="{Binding Name}"></TextBlock>
+                                </Grid>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <TextBlock  Text="--Välj Quiz--" IsHitTestVisible="False"  HorizontalAlignment="Left" Margin="55, 207,0,0" VerticalAlignment="Top" Width="92" TextAlignment="Center">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=QuizCombo,Path=SelectedItem}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <Button x:Name="SendQuizBtn" Content="Send" HorizontalAlignment="Left" Margin="153,205,0,0" VerticalAlignment="Top"
+                            Width="115" Height="43" Command="{Binding ButtonCommand}" CommandParameter="Send" />
+                </Grid>
+            </TabItem>
         </TabControl>
         <Popup x:Name="AddUserPopup" HorizontalAlignment="Left" VerticalAlignment="Top" Width="300" Height="400" IsOpen="False" Placement="Center" AllowsTransparency="True">
             <Border BorderThickness="2" BorderBrush="Gray">
