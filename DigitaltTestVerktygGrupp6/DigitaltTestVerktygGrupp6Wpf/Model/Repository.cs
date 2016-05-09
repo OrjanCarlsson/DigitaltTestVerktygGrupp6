@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,11 +46,21 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
             {
                 dbStudent stu2 = db.Students.Where(c => c.dbStudentId == Stu.dbStudentId).FirstOrDefault<dbStudent>();
 
-
                 db.Students.Remove(stu2);
                 db.SaveChanges();
             }
         }
 
+        internal void SaveStudentQuiz(ObservableCollection<Student> sendoutList, dbQuiz targetQuiz)
+        {
+            using (var db = new dbDataContext())
+            {
+                foreach (var student in sendoutList)
+                {
+                    db.StudentQuizzes.Add(new dbStudentQuiz { dbStudentId = student.ID, dbQuizId = targetQuiz.dbQuizId });
+                }
+                db.SaveChanges();
+            }
+        }
     }
 }

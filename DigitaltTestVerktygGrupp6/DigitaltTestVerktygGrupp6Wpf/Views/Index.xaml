@@ -121,7 +121,8 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <ComboBox x:Name="QuizCombo" ItemsSource="{Binding Quizzes}" HorizontalAlignment="Left" Margin="55, 205,0,0" VerticalAlignment="Top" Width="92">
+                    <ComboBox x:Name="QuizCombo" ItemsSource="{Binding Quizzes}" HorizontalAlignment="Left" Margin="55, 205,0,0" VerticalAlignment="Top" 
+                              Width="92" SelectedItem="{Binding SendoutQuiz}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
@@ -143,7 +144,7 @@
                         </TextBlock.Style>
                     </TextBlock>
                     <Button x:Name="SendQuizBtn" Content="Send" HorizontalAlignment="Left" Margin="153,205,0,0" VerticalAlignment="Top"
-                            Width="115" Height="43" Command="{Binding ButtonCommand}" CommandParameter="Send" />
+                            Width="115" Height="43" Command="{Binding ButtonCommand}" CommandParameter="Sendout" Click="SendButton_Click"/>
                 </Grid>
             </TabItem>
         </TabControl>
@@ -178,6 +179,42 @@
 
                     <Button x:Name="btnSaveUser" Content="Save" Width="60" Height="20" Grid.Column="0" Margin="67,366,70,10" Grid.ColumnSpan="2" Click="btnSaveUser_Click"/>
                     <Button x:Name="btnCloseUserPopup" Content="Cancel" Width="60" Height="20" Grid.Column="1"  Margin="0,366,70,10" Grid.ColumnSpan="2" HorizontalAlignment="Right" Click="btnCloseUserPopup_click"/>
+                </Grid>
+            </Border>
+        </Popup>
+        <Popup x:Name="SendQuizPopup" HorizontalAlignment="Left" VerticalAlignment="Top" Width="300" Height="400" IsOpen="False" Placement="Center" AllowsTransparency="True">
+            <Border BorderThickness="2" BorderBrush="Gray">
+                <Grid Background="#FFF9F9F9">
+                    <!--<Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>-->
+                    <Canvas Height="1" Background="Gray" Grid.ColumnSpan="3" Margin="0,50,0,345"/>
+                    <Canvas Width="296" Height="50" Background="#FFECA92F" Margin="0,0,0,346">
+                        <TextBlock FontSize="18" FontWeight="Bold" Canvas.Top="12" Canvas.Left="25" Foreground="#FF2B2A2A">
+                            <Run Text="Skicka Quiz "></Run>
+                            <Run FontStyle="Italic" Text="{Binding SendoutQuiz.Name}"></Run>
+                            <Run Text=" till:"></Run>
+                        </TextBlock>
+                    </Canvas>
+                    <ListView Margin="0,50,0,0" ItemsSource="{Binding SendoutList}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="DarkSlateGray" BorderThickness="0,0,0,1">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding FirstName}" Margin="5"></TextBlock>
+                                    <TextBlock Text="{Binding LastName}" Margin="5"></TextBlock>
+                                    <TextBlock Text="{Binding Email}" Margin="5"></TextBlock>
+                                </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Button x:Name="btnSendout" Content="Skicka" Width="60" Height="20" Grid.Column="0" Margin="67,366,70,10" 
+                            Grid.ColumnSpan="2" Click="btnSendout_Click" Command="{Binding ButtonCommand}" CommandParameter="Send"/>
+                    <Button x:Name="btnCancelSendout" Content="Avbryt" Width="60" Height="20" Grid.Column="1"  Margin="0,366,70,10" 
+                            Grid.ColumnSpan="2" HorizontalAlignment="Right" Click="btnCancelSendout_click"/>
                 </Grid>
             </Border>
         </Popup>

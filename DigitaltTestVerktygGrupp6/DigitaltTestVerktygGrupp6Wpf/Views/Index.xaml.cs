@@ -105,6 +105,8 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
+            Console.WriteLine("popping");
+            SendQuizPopup.IsOpen = true;
         }
 
         private void SortBtn_Click(object sender, RoutedEventArgs e)
@@ -124,6 +126,17 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
         private void DefaultSortBtn_Click(object sender, RoutedEventArgs e)
         {
             StatisticsListView.ItemsSource = repo.StudentQuizzesList();
+        }
+
+        private void btnCancelSendout_click(object sender, RoutedEventArgs e)
+        {
+            SendQuizPopup.IsOpen = false;
+        }
+
+        private void btnSendout_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Testen har skickats ut!");
+            SendQuizPopup.IsOpen = false;
         }
     }
 }

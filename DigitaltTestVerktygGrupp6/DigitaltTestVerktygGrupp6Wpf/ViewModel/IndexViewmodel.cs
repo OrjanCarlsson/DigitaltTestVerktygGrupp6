@@ -13,6 +13,8 @@ namespace DigitaltTestVerktygGrupp6Wpf.ViewModel
     {
         public ObservableCollection<Student> Students { get; set; }
         public ObservableCollection<dbQuiz> Quizzes { get; set; }
+        public dbQuiz SendoutQuiz { get; set; }
+        public ObservableCollection<Student> SendoutList { get; set; }
         public dbQuiz ActiveSendQuiz { get; set; }
         private Repository repo;
         public ButtonCommand ButtonCommand { get; }
@@ -23,8 +25,9 @@ namespace DigitaltTestVerktygGrupp6Wpf.ViewModel
             ButtonCommand = new ButtonCommand();
             ButtonCommand.Call += SwitchCommand;
             Quizzes = new ObservableCollection<dbQuiz>();
-            repo.QuizsList().ForEach(Quizzes.Add);
             Students = new ObservableCollection<Student>();
+            SendoutList = new ObservableCollection<Student>();
+            repo.QuizsList().ForEach(Quizzes.Add);
 
             foreach (var dbstudent in repo.StudentsList())
             {
@@ -32,16 +35,31 @@ namespace DigitaltTestVerktygGrupp6Wpf.ViewModel
             }
         }
 
-        private void SwitchCommand(string obj)
+        private void SwitchCommand(string parameter)
         {
-            Console.WriteLine("this happens");
-            if (obj.Equals("Send"))
-                SendQuiz();
+            if (parameter.Equals("Sendout"))
+                SendoutSetup();
+            else if (parameter.Equals("Send"))
+                Send();
+            else if (parameter.Equals("Cancel"))
+                SendoutList.Clear();
         }
 
-        private void SendQuiz()
+        private void Send()
         {
-            
+            repo.SaveStudentQuiz(SendoutList, SendoutQuiz);
+            SendoutList.Clear();
+        }
+
+        private void SendoutSetup()
+        {
+            foreach (var student in Students)
+            {
+                if (student.SendTo == true)
+                {
+                    SendoutList.Add(student);
+                }
+            }
         }
     }
 }
