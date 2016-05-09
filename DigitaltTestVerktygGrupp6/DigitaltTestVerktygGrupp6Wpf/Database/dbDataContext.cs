@@ -14,6 +14,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Database
         public DbSet<dbQuestion> Questions { get; set; }
         public DbSet<dbQuiz> Quizes { get; set; }
         public DbSet<dbStudent> Students { get; set; }
+        public DbSet<dbStudentQuiz> StudentQuizzes { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

@@ -14,6 +14,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Database
         public int GradeG { get; set; }
         public int GradeVG { get; set; }
         public int TimeLimit { get; set; }  
+        public bool Feedback { get; set; }
         public virtual ICollection<dbQuestion> Questions { get; set; }
         public virtual ICollection<dbStudentQuiz> StudentQuizes { get; set; }
 

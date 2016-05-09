@@ -74,10 +74,10 @@
                         <ListView.View>
                             <GridView>
 
-                                <GridViewColumn Header="Student"   DisplayMemberBinding="{Binding Name}" />
-                                <GridViewColumn Header="Quiz" DisplayMemberBinding="{Binding Intro}" />
-                                <GridViewColumn Header="Time" DisplayMemberBinding="{Binding GradeG}" />
-                                <GridViewColumn Header="Score"  DisplayMemberBinding="{Binding GradeVG}" />
+                                <GridViewColumn Header="Student"   DisplayMemberBinding="{Binding student.FirstName}" />
+                                <GridViewColumn Header="Quiz" DisplayMemberBinding="{Binding quiz.Name}" />
+                                <GridViewColumn Header="Time" DisplayMemberBinding="{Binding Time}" />
+                                <GridViewColumn Header="Score"  DisplayMemberBinding="{Binding Score}" />
                                 
 
                             </GridView>
