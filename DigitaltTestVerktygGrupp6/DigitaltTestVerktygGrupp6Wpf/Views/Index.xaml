@@ -83,6 +83,7 @@
                             </GridView>
                         </ListView.View>
                     </ListView>
+                    <ComboBox x:Name="cbxQuizzes" HorizontalAlignment="Left" Margin="10,205,0,0" VerticalAlignment="Top" Width="120"/>
                 </Grid>
 
             </TabItem>
