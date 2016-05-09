@@ -134,6 +134,6 @@
                 </Grid>
             </Border>
         </Popup>
-        <Button x:Name="btnEditQuestion" Content="Edit" Grid.Column="2" HorizontalAlignment="Left" Margin="20,86,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnAddImage" Content="Lägg til bild" Grid.Column="2" HorizontalAlignment="Left" Margin="20,86,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Page>

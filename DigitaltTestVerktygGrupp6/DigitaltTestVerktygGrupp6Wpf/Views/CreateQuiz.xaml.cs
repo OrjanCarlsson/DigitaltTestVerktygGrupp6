@@ -26,6 +26,9 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
     {
         int counter = 0;
         int clickCounter = 0;
+        int rangordningsCounter = -1;
+        int calcPoints;
+        double totalPoints;
         CreateQuizModel viewModel;
         //IList<dbAlternative> alternativeList = new List<dbAlternative>();
         ObservableCollection<dbAlternative> alternativeTemp = new ObservableCollection<dbAlternative>();
@@ -119,6 +122,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             clickCounter++;
+            rangordningsCounter++;
             int answerChecker;
             if (chkAnswer.IsChecked == true)
             {
@@ -135,18 +139,36 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             }
             else
             {
-                viewModel.alternativeList.Add(new dbAlternative
+                if (cmbType.SelectedIndex == 1) //Rangordnings fråga
                 {
-                    Text = txtAnswer.Text,
-                    IsCorrect = answerChecker
-                });
+                    viewModel.alternativeList.Add(new dbAlternative
+                    {
+                        Text = txtAnswer.Text,
+                        IsCorrect = rangordningsCounter
+                    });
 
-                alternativeTemp.Add(new dbAlternative
+                    alternativeTemp.Add(new dbAlternative
+                    {
+                        Text = txtAnswer.Text,
+                        IsCorrect = rangordningsCounter
+                    });
+
+                }
+                else
                 {
-                    Text = txtAnswer.Text,
-                    IsCorrect = answerChecker
-                });
+                    viewModel.alternativeList.Add(new dbAlternative
+                    {
+                        Text = txtAnswer.Text,
+                        IsCorrect = answerChecker
+                    });
 
+                    alternativeTemp.Add(new dbAlternative
+                    {
+                        Text = txtAnswer.Text,
+                        IsCorrect = answerChecker
+                    });
+                }
+                
                 txtAnswer.Clear();
             
 
@@ -201,16 +223,23 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             }
             else
             {
+                //gradeG(totalPoints);
+                //gradeVG(totalPoints);
+                //totalPoints = totalPoints * 0.5;
+                //int gradeG = (int)Math.Round(totalPoints, 0);
+
                 viewModel.quizList.Add(new dbQuiz
                 {
                     Name = txtQuizName.Text,
                     Intro = txtQuizIntro.Text,
-                    Questions = viewModel.questionList
+                    Questions = viewModel.questionList,
+                    GradeG = gradeVG(),
+                    GradeVG = gradeG()
                 });
 
                 using (var db = new dbDataContext())
                 {
-                   
+
                     foreach (dbQuiz quiz in viewModel.quizList)
                     {
                         db.Quizes.Add(quiz);
@@ -218,18 +247,32 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                     db.SaveChanges();
                 }
                 viewModel.ContentFrame.Navigate(new Index());
+
             }
         }
 
-        //        int calcPoints;
-        //private int calculatePoints()
-        //{
-          
-        //}
+
+        private int gradeVG()
+        {
+            //int gradeVG = totalPoints * (int)Math.Round(0.8);
+            double gPoint = totalPoints;
+            gPoint = gPoint * 0.8;
+            int gradeVG = (int)Math.Round(gPoint, 0);
+            return gradeVG;
+        }
+        private int gradeG()
+        {
+            //int gradeG = totalPoints * (int)Math.Round(0.5);
+            //return gradeG;
+            double vgPoint = totalPoints;
+            vgPoint = vgPoint * 0.5;
+            int gradeG = (int)Math.Round(vgPoint, 0);
+            return gradeG;
+        }
 
         private void btnSaveQuestion_Click(object sender, RoutedEventArgs e)
         {
-           //calculatePoints();
+            
                counter = 0;
             //int listCounter = 0;
             //questionList = new List<dbQuestion>();
@@ -270,7 +313,14 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                 //    Points = int.Parse(txtPoints.Text),
                 //    Alternatives = alternativeTemp
                 //});
-                
+
+                //calculatePoints();
+
+                foreach (var item in viewModel.questionList)
+                {
+                    calcPoints = item.Points;
+                }
+                totalPoints += calcPoints;
 
                 panelAnswers.Children.RemoveRange(1, clickCounter);
                 panelAnswerText.Children.RemoveRange(1, clickCounter);
@@ -279,7 +329,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                 txtPoints.Clear();
                 txtQuestion.Clear();
 
-         
+                
                 alternativeTemp = new ObservableCollection<dbAlternative>();
                 //viewModel.alternativeList.Clear();
             
