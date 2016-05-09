@@ -41,6 +41,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
         {
             ExamListView.ItemsSource = repo.QuizsList();
             UserListView.ItemsSource = repo.StudentsList();
+            StatisticsListView.ItemsSource = repo.StudentQuizzesList();
         }
         private void DelUserBtn_Click(object sender, RoutedEventArgs e)
         {
