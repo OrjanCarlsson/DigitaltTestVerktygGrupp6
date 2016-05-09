@@ -56,8 +56,9 @@
 
     <Grid>
         <Grid>
-            <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
+                    <Image Source="{Binding ActiveQuestion.Image, UpdateSourceTrigger=PropertyChanged}" Loaded="Image_Loaded" ></Image>
                     <TextBlock Text="{Binding ActiveQuestion.Text, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                     <TextBlock Text="{Binding DisplayTimer, UpdateSourceTrigger=PropertyChanged}" Margin="50,0,0,0"></TextBlock>
                 </StackPanel>

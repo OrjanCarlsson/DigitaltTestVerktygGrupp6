@@ -10,7 +10,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using DigitaltTestVerktygGrupp6Student.Database;
 
 namespace DigitaltTestVerktygGrupp6Student.ViewModel
 {
@@ -18,7 +17,18 @@ namespace DigitaltTestVerktygGrupp6Student.ViewModel
     {
         public dbStudents ActiveStudent { get; set; }
         public List<dbQuizs> Quizes { get; set; }
-        public dbQuizs SelectedQuiz { get; set; }
+        private dbQuizs selectedQuiz;
+
+        public dbQuizs SelectedQuiz
+        {
+            get { return selectedQuiz; }
+            set
+            {
+                selectedQuiz = value; 
+                OnPropertyChanged("SelectedQuiz");
+            }
+        }
+
         public ObservableCollection<Question> Questions { get; set; }
         public Question ActiveQuestion { get; set; }
         public Frame ContentFrame { get; set; }
@@ -26,7 +36,6 @@ namespace DigitaltTestVerktygGrupp6Student.ViewModel
         public int Score { get; set; } = 0;
         public int CorrectAnswers { get; set; } = 0;
         public int TotalScore { get; set; }
-        public static int MultiCorrectAnswers = 0;
         private Timer timer;
         public event Action NextQuestionEvent;
 
@@ -101,7 +110,9 @@ namespace DigitaltTestVerktygGrupp6Student.ViewModel
                     CorrectAnswers++;
                 }
                 if (Questions.IndexOf(ActiveQuestion) == Questions.Count - 1)
+                {
                     ShowResult();
+                }
                 else
                 {
                     ActiveQuestion = Questions[questionIndex++];
@@ -118,6 +129,7 @@ namespace DigitaltTestVerktygGrupp6Student.ViewModel
         public void ShowResult()
         {
             timer.Stop();
+            repo.SaveResult(ActiveStudent, SelectedQuiz, Score, (SelectedQuiz.TimeLimit - timer.Minutes));
             ContentFrame.Navigate(new Results());
         }
 

@@ -16,6 +16,20 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
                 return db.Students.ToList();
             }
         }
+        public List<dbStudentQuiz> StudentQuizzesList()
+        {
+            using (var db = new dbDataContext())
+            {
+                return db.StudentQuizzes.Include("student").Include("quiz").ToList();
+            }
+        }
+        public List<dbStudentQuiz> UpdateStudentQuizzesList(int quizId)
+        {
+            using (var db = new dbDataContext())
+            {
+                return db.StudentQuizzes.Include("student").Include("quiz").Where(a => a.dbQuizId == quizId).ToList();
+            }
+        }
 
         public List<dbQuiz> QuizsList()
         {

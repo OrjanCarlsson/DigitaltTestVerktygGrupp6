@@ -22,18 +22,10 @@ namespace DigitaltTestVerktygGrupp6Student.Model
                     ParentQuestion.answered++;
                 else
                     ParentQuestion.answered--;
-                ChangeCounter();
             }
         }
 
         public MultiAlternative(dbAlternatives alt, Question q) : base(alt, q) { }
 
-        private void ChangeCounter()
-        {
-            if (IsCorrect == 1 && isChecked)
-                ParentQuestion.userCorrectAnswers++;
-            else
-                ParentQuestion.userCorrectAnswers--;
-        }
     }
 }

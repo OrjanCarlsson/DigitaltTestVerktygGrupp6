@@ -28,14 +28,6 @@ namespace DigitaltTestVerktygGrupp6Student
         public MainWindow()
         {
             InitializeComponent();
-            //using (var db = new ModelQuiz())
-            //{
-            //    var query = db.Students.ToList();
-            //    foreach (var item in query)
-            //    {
-            //        MessageBox.Show(item.FirstName);
-            //    }
-            //}
 
             viewModel = QuizViewmodel.Instance;
             viewModel.SelectionSetup(new dbStudents { FirstName = "Charles", LastName = "Placeholder", dbStudentId = 1, UserName = "5mJ5na" });

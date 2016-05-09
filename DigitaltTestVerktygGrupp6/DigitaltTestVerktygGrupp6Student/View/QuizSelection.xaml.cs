@@ -28,11 +28,24 @@ namespace DigitaltTestVerktygGrupp6Student.View
             InitializeComponent();
             viewModel = QuizViewmodel.Instance;
             DataContext = viewModel;
+            InitializeComponent();
+
+            FontSize = 16;
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             viewModel.ContentFrame.Navigate(new Quiz());          
+        }
+
+        private void QuizList_Loaded(object sender, RoutedEventArgs e)
+        {
+            (sender as ListView).SelectedIndex = 0;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            viewModel.NavigateTo(new ImageSaving());
         }
     }
 }

@@ -23,8 +23,8 @@ namespace DigitaltTestVerktygGrupp6Student.Model
         public string Image { get; set; }
         public ObservableCollection<Alternative> Alternatives { get; set; }
 
-        protected int correctAnswers = 0;
-        public int userCorrectAnswers = 0, answered = 0;
+        protected int correctAnswers = 0, userCorrectAnswers = 0;
+        public int answered = 0;
 
         public Question(dbQuestions question)
         {
@@ -33,7 +33,9 @@ namespace DigitaltTestVerktygGrupp6Student.Model
             Type = question.Type;
             Text = question.Text;
             Points = question.Points;
-            Image = question.Image;
+            //if (question.Image != null)
+            //    Image = "../../../DigitaltTestVerktygGrupp6Wpf/Database/Images" + question.Image;
+            Image = "../../../DigitaltTestVerktygGrupp6Wpf/Database/Images/04O5fBb.png";
         }
 
         protected virtual void AddAlternatives(dbQuestions question)
@@ -44,7 +46,7 @@ namespace DigitaltTestVerktygGrupp6Student.Model
             }
         }
 
-        public bool AnswerCorrect()
+        public virtual bool AnswerCorrect()
         {
             return correctAnswers == userCorrectAnswers;
         }
