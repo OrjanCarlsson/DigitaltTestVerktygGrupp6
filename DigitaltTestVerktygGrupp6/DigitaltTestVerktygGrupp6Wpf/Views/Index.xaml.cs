@@ -47,6 +47,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
         public void update()
         {
             ExamListView.ItemsSource = repo.QuizsList();
+            cbxQuizzes.ItemsSource = repo.QuizsList();
             UserListView.ItemsSource = repo.StudentsList();
             StatisticsListView.ItemsSource = repo.StudentQuizzesList();
         }
@@ -104,7 +105,25 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
+        }
 
+        private void SortBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedQuiz = cbxQuizzes.SelectedItem as dbQuiz;
+            if (selectedQuiz == null)
+            {
+                MessageBox.Show("Välj ett prov");
+            }
+            else
+            {
+                StatisticsListView.ItemsSource = repo.UpdateStudentQuizzesList(selectedQuiz.dbQuizId);
+            }
+            
+        }
+
+        private void DefaultSortBtn_Click(object sender, RoutedEventArgs e)
+        {
+            StatisticsListView.ItemsSource = repo.StudentQuizzesList();
         }
     }
 }
