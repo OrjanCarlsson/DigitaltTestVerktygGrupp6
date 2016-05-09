@@ -12,7 +12,8 @@ namespace DigitaltTestVerktygGrupp6Wpf.Database
         public string Text { get; set; }
         public int IsCorrect { get; set; }
 
-        public dbQuestion Question { get; set; }
         public int dbQuestionId { get; set; }
+
+        public virtual dbQuestion dbQuestions { get; set; }
     }
 }
