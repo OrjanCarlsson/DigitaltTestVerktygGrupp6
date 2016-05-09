@@ -9,56 +9,82 @@
       Title="CreateQuiz">
 
     <Page.Resources>
-        <ControlTemplate x:Key="showQuestion">
-            <ItemsControl ItemsSource="{Binding Questions}">
+        <ControlTemplate x:Key="ShowAnswersToEdit">
+            <ItemsControl ItemsSource="{Binding SelectedQuestion.Alternatives}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="{Binding Text}"/>
+                            <TextBlock Text="Svar:"/>
+                            <TextBox Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ControlTemplate>
-        <ControlTemplate x:Key="showAnswers">
-            <ItemsControl ItemsSource="{Binding alternativeList}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock Text="{Binding Text}"/>
-                            <TextBlock Text="DERPDERPDERP"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+        <ControlTemplate x:Key="ShowQuestionToEdit">
+            <StackPanel>
+                <TextBlock Text="Fråga: "/>
+                <TextBox Text="{Binding SelectedQuestion.Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
         </ControlTemplate>
     </Page.Resources>
     <Grid Background="#FFF9F9F9">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="140"/>
+            <ColumnDefinition Width="255"/>
+            <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="174"/>
+            <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
         <Canvas x:Name="Header" Height="50" Width="518" Margin="0,0,-1,444" Background="#FFECA92F">
             <TextBlock Text="HerpyLogo" FontSize="26" FontWeight="Bold" Foreground="#FF2B2A2A" Canvas.Left="339" Canvas.Top="7"/>
         </Canvas>
-        <Canvas Height="2" Background="Gray" Margin="0,50,0,442" Grid.ColumnSpan="2"/>
+        <Canvas Height="2" Background="Gray" Margin="0,50,0,442" Grid.ColumnSpan="3"/>
         <Canvas Width="515" Margin="2,55,0,0" Grid.ColumnSpan="2">
             <TextBlock Text="Namn:" Canvas.Left="31" Canvas.Top="10"/>
-            <TextBox Width="123" Canvas.Left="105" Canvas.Top="10" Height="22"/>
+            <TextBox x:Name="txtQuizName" Width="123" Canvas.Left="105" Canvas.Top="10" Height="22"/>
             <TextBlock Text="Om Provet:" Canvas.Left="31" Canvas.Top="49" />
-            <TextBox Width="198" Canvas.Left="105" Canvas.Top="49" Height="50" />
-            <Button x:Name="btnAddQuestion" Content="Lägg till fråga" Canvas.Left="349" Canvas.Top="77" Width="80" Height="22" Click="btnAddQuestion_Click"/>
+            <TextBox x:Name="txtQuizIntro" Width="198" Canvas.Left="105" Canvas.Top="49" Height="50" />
+            <Button x:Name="btnAddQuestion" Content="Lägg till fråga" Canvas.Left="380" Canvas.Top="33" Width="80" Height="22" Click="btnAddQuestion_Click"/>
+            <Button x:Name="btnAddQuiz" Content="Skapa Prov" Canvas.Left="380" Canvas.Top="79" Width="80" Click="btnAddQuiz_Click"/>
         </Canvas>
-        <Canvas Height="2" Background="Gray" Margin="0,173,0,319" Grid.ColumnSpan="2"/>
-        <ContentControl x:Name="showQuestionsControl" Grid.Row="1" Grid.ColumnSpan="2">
+        <Canvas Height="2" Background="Gray" Margin="0,173,0,319" Grid.ColumnSpan="3"/>
+        <Canvas Width="0.5" Background="Gray" Margin="0,1,259,-1" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"/>
+        <ContentControl x:Name="showQuestionContent" Grid.Row="1" Grid.Column="1" Margin="34,28,58,53" Grid.ColumnSpan="2">
 
         </ContentControl>
-        <ContentControl x:Name="showAnswersControl" Grid.Row="1" Grid.ColumnSpan="2">
+        <ContentControl x:Name="showAnswersContent" Grid.Row="1" Grid.Column="1" Margin="34,85,58,0" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <!--<DataTemplate>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Margin="10,32,25,-32" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
+                        <TextBox Text="{Binding SelectedQuestion.Text, UpdateSourceTrigger=PropertyChanged}" Width="50" Height="20" Margin="70,0,69,0"/>
+                        -->
+            <!--<TextBox Text="{Binding SelectedQuestion.Alternatives, UpdateSourceTrigger=PropertyChanged}" Width="50" Height="20"  />-->
+            <!--
+
+                    </StackPanel>
+                </Grid>
+            </DataTemplate>-->
+
+        </ContentControl>
+        <ContentControl x:Name="showQuestions" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0">
+            <ListView x:Name="listQuestions" ItemsSource="{Binding questionList}" SelectedItem="{Binding SelectedQuestion}" HorizontalAlignment="Left" Height="272" Margin="10,10,0,0" VerticalAlignment="Top" Width="236">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <TextBlock Text="{Binding Text}"/>
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </ContentControl>
 
         <!--<StackPanel x:Name="panelDisplayQ" Grid.Column="0" Margin="0,253,0,0">
@@ -85,7 +111,8 @@
                     <TextBlock Text="Poäng" Grid.Column="2" FontWeight="Bold" Foreground="#FF2B2A2A" FontSize="14" Margin="28,83,66,291" Grid.ColumnSpan="2"/>
                     <TextBox x:Name="txtPoints" Height="20" Grid.Column="3" Width="40" Margin="10,85,24,291" />
                     <TextBlock Text="Frågetyp" Grid.Column="0" FontWeight="Bold" Foreground="#FF2B2A2A" FontSize="14" Grid.ColumnSpan="2" Margin="21,115,127,261"/>
-                    <ComboBox x:Name="cmbType" Width="120" Height="22" Grid.Column="1" Margin="1,115,27,256" >
+                    <ComboBox x:Name="cmbType" Width="120" Height="22" Grid.Column="1" Margin="1,115,27,256" SelectionChanged="cmbType_SelectionChanged" >
+                        <ComboBoxItem Content="Text"/>
                         <ComboBoxItem Content="Rangordnings"/>
                         <ComboBoxItem Content="Flervals"/>
                         <ComboBoxItem Content="Alternativ"/>
@@ -107,5 +134,6 @@
                 </Grid>
             </Border>
         </Popup>
+        <Button x:Name="btnEditQuestion" Content="Edit" Grid.Column="2" HorizontalAlignment="Left" Margin="20,86,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Page>
