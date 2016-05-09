@@ -23,7 +23,11 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
     /// </summary>
     public partial class Index : Page
     {
-        
+        public delegate void ComboboxUpdater(string content);
+        private void QuizzesCombobox(string content)
+        {
+            cbxQuizzes.Items.Add(content);
+        }
         CreateQuizModel viewModel;
         Repository repo = new Repository();
        
@@ -97,5 +101,23 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             //FrameCreateQuiz.Navigate(new CreateQuiz());
         }
 
+        private void SortBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedQuiz = cbxQuizzes.SelectedItem as dbQuiz;
+            if (selectedQuiz == null)
+            {
+                MessageBox.Show("Välj ett prov");
+            }
+            else
+            {
+                StatisticsListView.ItemsSource = repo.UpdateStudentQuizzesList(selectedQuiz.dbQuizId);
+            }
+            
+        }
+
+        private void DefaultSortBtn_Click(object sender, RoutedEventArgs e)
+        {
+            StatisticsListView.ItemsSource = repo.StudentQuizzesList();
+        }
     }
 }

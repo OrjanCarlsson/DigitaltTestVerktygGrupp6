@@ -78,12 +78,26 @@
                                 <GridViewColumn Header="Quiz" DisplayMemberBinding="{Binding quiz.Name}" />
                                 <GridViewColumn Header="Time" DisplayMemberBinding="{Binding Time}" />
                                 <GridViewColumn Header="Score"  DisplayMemberBinding="{Binding Score}" />
-                                
+
 
                             </GridView>
                         </ListView.View>
                     </ListView>
-                    <ComboBox x:Name="cbxQuizzes" HorizontalAlignment="Left" Margin="10,205,0,0" VerticalAlignment="Top" Width="120"/>
+                    <!--<ComboBox  ItemsSource="{Binding Quizes}" HorizontalAlignment="Left" Margin="10,205,0,0" VerticalAlignment="Top" Width="120">
+                        <ComboBox.ItemTemplate >
+                            
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>-->
+                    <ComboBox x:Name="cbxQuizzes" HorizontalAlignment="Left" Width="150" Margin="10,208,0,0" VerticalAlignment="Top" Text="--Välj Quiz--">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"></TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Label x:Name="label" Content="Välj prov här att sortera på" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="SortBtn" Content="Sortera" HorizontalAlignment="Left" Margin="190,210,0,0" VerticalAlignment="Top" Width="75" Click="SortBtn_Click"/>
+                    <Button x:Name="DefaultSortBtn" Content="Återställ" HorizontalAlignment="Left" Margin="190,235,0,0" VerticalAlignment="Top" Width="75" Click="DefaultSortBtn_Click"/>
                 </Grid>
 
             </TabItem>
