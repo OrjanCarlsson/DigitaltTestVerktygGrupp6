@@ -7,14 +7,13 @@
       mc:Ignorable="d" 
       d:DesignHeight="525" d:DesignWidth="520"
       Title="CreateQuiz">
-
     <Page.Resources>
         <ControlTemplate x:Key="ShowAnswersToEdit">
             <ItemsControl ItemsSource="{Binding SelectedQuestion.Alternatives}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="Svar:"/>
+                            <TextBlock Text="Svar:" FontSize="14" FontWeight="Bold"/>
                             <TextBox Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                     </DataTemplate>
@@ -23,7 +22,7 @@
         </ControlTemplate>
         <ControlTemplate x:Key="ShowQuestionToEdit">
             <StackPanel>
-                <TextBlock Text="Fråga: "/>
+                <TextBlock Text="Fråga: " FontSize="14" FontWeight="Bold"/>
                 <TextBox Text="{Binding SelectedQuestion.Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
         </ControlTemplate>
@@ -45,10 +44,10 @@
         </Canvas>
         <Canvas Height="2" Background="Gray" Margin="0,50,0,442" Grid.ColumnSpan="3"/>
         <Canvas Width="515" Margin="2,55,0,0" Grid.ColumnSpan="2">
-            <TextBlock Text="Namn:" Canvas.Left="31" Canvas.Top="10"/>
-            <TextBox x:Name="txtQuizName" Width="123" Canvas.Left="105" Canvas.Top="10" Height="22"/>
-            <TextBlock Text="Om Provet:" Canvas.Left="31" Canvas.Top="49" />
-            <TextBox x:Name="txtQuizIntro" Width="198" Canvas.Left="105" Canvas.Top="49" Height="50" />
+            <TextBlock Text="Namn:" Canvas.Left="31" Canvas.Top="10" FontSize="14" FontWeight="Bold"/>
+            <TextBox x:Name="txtQuizName" Width="123" Canvas.Left="117" Canvas.Top="10" Height="22"/>
+            <TextBlock Text="Om Provet:" Canvas.Left="31" Canvas.Top="49" FontSize="14" FontWeight="Bold" />
+            <TextBox x:Name="txtQuizIntro" Width="198" Canvas.Left="117" Canvas.Top="49" Height="50" />
             <Button x:Name="btnAddQuestion" Content="Lägg till fråga" Canvas.Left="380" Canvas.Top="33" Width="80" Height="22" Click="btnAddQuestion_Click"/>
             <Button x:Name="btnAddQuiz" Content="Skapa Prov" Canvas.Left="380" Canvas.Top="79" Width="80" Click="btnAddQuiz_Click"/>
         </Canvas>
@@ -127,7 +126,7 @@
                         <CheckBox x:Name="chkAnswer" Margin="8,3,0,6"/>
                     </StackPanel>
                     <StackPanel x:Name="panelRemoveAnswer" Grid.Column="3" Margin="0,150,0,0">
-                        <Button Content="+"  Click="Button_Click_1" Width="20"/>
+                        <Button x:Name="btnAddAnswer" Content="+"  Click="Button_Click_1" Width="20"/>
                     </StackPanel>
                     <Button x:Name="btnSaveQuestion" Content="Save" Width="60" Height="20" Grid.Column="0" Margin="67,366,70,10" Grid.ColumnSpan="2" Click="btnSaveQuestion_Click"/>
                     <Button x:Name="btnClosePopup" Content="Cancel" Width="60" Height="20" Grid.Column="1" Click="btnClosePopup_Click" Margin="0,366,70,10" Grid.ColumnSpan="2" HorizontalAlignment="Right" />

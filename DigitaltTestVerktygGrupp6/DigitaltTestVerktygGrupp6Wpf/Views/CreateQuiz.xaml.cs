@@ -64,6 +64,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
         private void btnClosePopup_Click(object sender, RoutedEventArgs e)
         {
             AddQPopup.IsOpen = false;
+            cmbType.IsEnabled = true;
         }
 
         private TextBlock makeTextBlock()
@@ -84,7 +85,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
         {       
             var newTextBlock2 = new TextBlock()
             {
-                Text = alternativeTemp[counter - 1].Text,
+                Text = viewModel.alternativeList[counter - 1].Text,
                 // Height = 20,
                 // Width = 147,
                 FontSize = 14,
@@ -123,6 +124,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
         {
             clickCounter++;
             rangordningsCounter++;
+            cmbType.IsEnabled = false;
             int answerChecker;
             if (chkAnswer.IsChecked == true)
             {
@@ -154,6 +156,16 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                     });
 
                 }
+                else if (cmbType.SelectedIndex == 0)
+                {
+                    viewModel.alternativeList.Add(new dbAlternative
+                    {
+                        Text = txtAnswer.Text,
+                        IsCorrect = 1
+                    });
+                    txtAnswer.IsEnabled = false;
+                    btnAddAnswer.IsEnabled = false;
+                }
                 else
                 {
                     viewModel.alternativeList.Add(new dbAlternative
@@ -183,7 +195,10 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                 chkAnswer.IsChecked = false;
             }
         }
-
+        private void testing(int index)
+        {
+            viewModel.alternativeList.RemoveAt(index);
+        }
         private void btnRemoveAnswer(object sender, RoutedEventArgs e)
         {
             if (panelAnswerText.Children.Count > 1)
@@ -193,8 +208,15 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                 panelAnswerText.Children.RemoveAt(panelAnswerText.Children.Count - 1);
                 panelRemoveAnswer.Children.RemoveAt(panelRemoveAnswer.Children.Count - 1);
                 //panelCheckBox.Children.RemoveAt(panelCheckBox.Children.Count - 1);
-                viewModel.alternativeList.RemoveAt(0);
+                //viewModel.alternativeList.RemoveAt(0);
+                testing(panelAnswers.Children.Count-1);
             }
+            if (panelRemoveAnswer.Children.Count == 1)
+            {
+                cmbType.IsEnabled = true;
+            }
+            txtAnswer.IsEnabled = true;
+            btnAddAnswer.IsEnabled = true;
         }
 
         private void cmbType_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -233,8 +255,8 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                     Name = txtQuizName.Text,
                     Intro = txtQuizIntro.Text,
                     Questions = viewModel.questionList,
-                    GradeG = gradeVG(),
-                    GradeVG = gradeG()
+                    GradeG = gradeG(),
+                    GradeVG = gradeVG()
                 });
 
                 using (var db = new dbDataContext())
@@ -272,6 +294,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
 
         private void btnSaveQuestion_Click(object sender, RoutedEventArgs e)
         {
+            cmbType.IsEnabled = true;
             rangordningsCounter = -1;
                counter = 0;
             //int listCounter = 0;
@@ -304,7 +327,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                     Text = txtQuestion.Text,
                     Type = cmbType.Text,
                     Points = int.Parse(txtPoints.Text),
-                    Alternatives = alternativeTemp
+                    Alternatives = viewModel.alternativeList
                 });
                 //questionTemp.Add(new Question
                 //{
@@ -330,7 +353,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                 txtQuestion.Clear();
 
                 
-                alternativeTemp = new ObservableCollection<dbAlternative>();
+                viewModel.alternativeList = new ObservableCollection<dbAlternative>();
                 //viewModel.alternativeList.Clear();
             
                 AddQPopup.IsOpen = false;
