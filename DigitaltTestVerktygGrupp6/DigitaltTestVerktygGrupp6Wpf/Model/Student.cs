@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace DigitaltTestVerktygGrupp6Wpf.Model
 {
-    class Student
+    public class Student
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
         public bool SendTo { get; set; }
+        public bool TestDone { get; set; }
         public int ID { get; set; }
         public Student(dbStudent student)
         {
@@ -20,6 +21,11 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
             LastName = student.LastName;
             Email = student.Email;
             ID = student.dbStudentId;
+            SendTo = false;
+        }
+
+        public Student()
+        {
             SendTo = false;
         }
     }

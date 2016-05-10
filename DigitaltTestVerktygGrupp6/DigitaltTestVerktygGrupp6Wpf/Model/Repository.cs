@@ -33,6 +33,27 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
             }
         }
 
+        public ObservableCollection<Student> FreeStudentQuizList(int quizId)
+        {
+            ObservableCollection<Student> studentList = new ObservableCollection<Student>();
+            using (var db = new dbDataContext())
+            {
+                var sqs = db.StudentQuizzes.Where(sq => sq.dbQuizId == quizId).ToList();
+                foreach (var sq in sqs)
+                {
+                    foreach (var stu in db.Students)
+                    {
+                        bool testDone = false;
+                        if (stu.dbStudentId == sq.dbStudentId)
+                            testDone = true;
+                        studentList.Add(new Student(stu) { TestDone = testDone });
+                    }
+                }
+            }
+            return studentList;
+        }
+
+
         public List<dbQuiz> QuizsList()
         {
             using (var db = new dbDataContext())
