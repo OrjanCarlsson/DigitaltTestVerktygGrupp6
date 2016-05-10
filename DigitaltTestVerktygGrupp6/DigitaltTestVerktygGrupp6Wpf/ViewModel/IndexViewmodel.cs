@@ -56,9 +56,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.ViewModel
             foreach (var student in Students)
             {
                 if (student.SendTo == true)
-                {
                     SendoutList.Add(student);
-                }
             }
         }
     }

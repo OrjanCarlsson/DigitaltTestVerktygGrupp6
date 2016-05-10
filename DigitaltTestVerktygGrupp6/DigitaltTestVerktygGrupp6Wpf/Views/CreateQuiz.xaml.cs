@@ -30,11 +30,6 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
         int calcPoints;
         double totalPoints;
         CreateQuizModel viewModel;
-        //IList<dbAlternative> alternativeList = new List<dbAlternative>();
-        ObservableCollection<dbAlternative> alternativeTemp = new ObservableCollection<dbAlternative>();
-        //ObservableCollection<Question> questionTemp = new ObservableCollection<Question>();
-
-        
         ControlTemplate showAnswersToEdit, showQuestionToEdit;
         public CreateQuiz()
         {
@@ -44,16 +39,11 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
 
             showAnswersToEdit = Resources["ShowAnswersToEdit"] as ControlTemplate;
             showQuestionToEdit = Resources["ShowQuestionToEdit"] as ControlTemplate;
-            //showAnswers = Resources["showAnswers"] as ControlTemplate;
 
             showAnswersContent.Template = showAnswersToEdit;
             showQuestionContent.Template = showQuestionToEdit;
             cmbType.SelectedIndex = 2;
-        }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-
+            showQuestionContent.Visibility = Visibility.Collapsed;
         }
 
         private void btnAddQuestion_Click(object sender, RoutedEventArgs e)
@@ -65,6 +55,8 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
         {
             AddQPopup.IsOpen = false;
             cmbType.IsEnabled = true;
+            txtAnswer.IsEnabled = true;
+            btnAddAnswer.IsEnabled = true;
         }
 
         private TextBlock makeTextBlock()
@@ -86,13 +78,10 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             var newTextBlock2 = new TextBlock()
             {
                 Text = viewModel.alternativeList[counter - 1].Text,
-                // Height = 20,
-                // Width = 147,
                 FontSize = 14,
                 FontWeight = FontWeights.Bold,
                 Margin = new Thickness(0, 6, 0, 0)
             };
-            //test.Add(newTextBox);
             if (chkAnswer.IsChecked == true)
             {
                 newTextBlock2.Foreground = Brushes.Green;
@@ -102,11 +91,13 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
 
         private Button makeRemoveButton()
         {
+            var bc = new BrushConverter();
             var btnDelete = new Button()
             {
                 Content = "-",
                 Width = 20,
-                Margin = new Thickness(0, 4, 0, 0)
+                Margin = new Thickness(0, 4, 0, 0),
+                Background = (Brush)bc.ConvertFrom("#FFFF665E")
             };
             btnDelete.Click += btnRemoveAnswer;
             return btnDelete;
@@ -148,13 +139,6 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                         Text = txtAnswer.Text,
                         IsCorrect = rangordningsCounter
                     });
-
-                    alternativeTemp.Add(new dbAlternative
-                    {
-                        Text = txtAnswer.Text,
-                        IsCorrect = rangordningsCounter
-                    });
-
                 }
                 else if (cmbType.SelectedIndex == 0)
                 {
@@ -173,24 +157,16 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                         Text = txtAnswer.Text,
                         IsCorrect = answerChecker
                     });
-
-                    alternativeTemp.Add(new dbAlternative
-                    {
-                        Text = txtAnswer.Text,
-                        IsCorrect = answerChecker
-                    });
                 }
                 
                 txtAnswer.Clear();
             
-
                 if (panelAnswerText.Children.Count < 8)
                 {
                     counter++;
                     panelAnswers.Children.Add(makeTextBlock2());
                     panelAnswerText.Children.Add(makeTextBlock());
                     panelRemoveAnswer.Children.Add(makeRemoveButton());
-                    // panelCheckBox.Children.Add(checkAnswer());
                 }
                 chkAnswer.IsChecked = false;
             }
@@ -207,8 +183,6 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                 panelAnswers.Children.RemoveAt(panelAnswers.Children.Count - 1);
                 panelAnswerText.Children.RemoveAt(panelAnswerText.Children.Count - 1);
                 panelRemoveAnswer.Children.RemoveAt(panelRemoveAnswer.Children.Count - 1);
-                //panelCheckBox.Children.RemoveAt(panelCheckBox.Children.Count - 1);
-                //viewModel.alternativeList.RemoveAt(0);
                 testing(panelAnswers.Children.Count-1);
             }
             if (panelRemoveAnswer.Children.Count == 1)
@@ -245,11 +219,6 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             }
             else
             {
-                //gradeG(totalPoints);
-                //gradeVG(totalPoints);
-                //totalPoints = totalPoints * 0.5;
-                //int gradeG = (int)Math.Round(totalPoints, 0);
-
                 viewModel.quizList.Add(new dbQuiz
                 {
                     Name = txtQuizName.Text,
@@ -261,7 +230,6 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
 
                 using (var db = new dbDataContext())
                 {
-
                     foreach (dbQuiz quiz in viewModel.quizList)
                     {
                         db.Quizes.Add(quiz);
@@ -273,10 +241,8 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             }
         }
 
-
         private int gradeVG()
         {
-            //int gradeVG = totalPoints * (int)Math.Round(0.8);
             double gPoint = totalPoints;
             gPoint = gPoint * 0.8;
             int gradeVG = (int)Math.Round(gPoint, 0);
@@ -284,26 +250,24 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
         }
         private int gradeG()
         {
-            //int gradeG = totalPoints * (int)Math.Round(0.5);
-            //return gradeG;
             double vgPoint = totalPoints;
             vgPoint = vgPoint * 0.5;
             int gradeG = (int)Math.Round(vgPoint, 0);
             return gradeG;
         }
 
+        private void listQuestions_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            showQuestionContent.Visibility = Visibility.Visible;
+        }
+
         private void btnSaveQuestion_Click(object sender, RoutedEventArgs e)
         {
             cmbType.IsEnabled = true;
+            txtAnswer.IsEnabled = true;
+            btnAddAnswer.IsEnabled = true;
             rangordningsCounter = -1;
-               counter = 0;
-            //int listCounter = 0;
-            //questionList = new List<dbQuestion>();
-            //listCounter++;
-            //if (txtQuestion.Text == string.Empty || txtPoints.Text == string.Empty)
-            //{
-            //    MessageBox.Show("HERPO");
-            //}
+            counter = 0;
             if (String.IsNullOrEmpty(txtQuestion.Text))
             {
                 MessageBox.Show("Type in a question");
@@ -312,11 +276,11 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             {
                 MessageBox.Show("Type in a points");
             }
-            else if (String.IsNullOrEmpty(txtAnswer.Text) && alternativeTemp.Count <= 0)
+            else if (String.IsNullOrEmpty(txtAnswer.Text) && viewModel.alternativeList.Count <= 0)
             {
                 MessageBox.Show("Type in an answer");
             }
-            else if (alternativeTemp.Count <= 0)
+            else if (viewModel.alternativeList.Count <= 0)
             {
                 MessageBox.Show("Need to add atleast one answer");
             }
@@ -329,15 +293,6 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                     Points = int.Parse(txtPoints.Text),
                     Alternatives = viewModel.alternativeList
                 });
-                //questionTemp.Add(new Question
-                //{
-                //    Text = txtQuestion.Text,
-                //    Type = cmbType.Text,
-                //    Points = int.Parse(txtPoints.Text),
-                //    Alternatives = alternativeTemp
-                //});
-
-                //calculatePoints();
 
                 foreach (var item in viewModel.questionList)
                 {
@@ -352,9 +307,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                 txtPoints.Clear();
                 txtQuestion.Clear();
 
-                
                 viewModel.alternativeList = new ObservableCollection<dbAlternative>();
-                //viewModel.alternativeList.Clear();
             
                 AddQPopup.IsOpen = false;
             }
