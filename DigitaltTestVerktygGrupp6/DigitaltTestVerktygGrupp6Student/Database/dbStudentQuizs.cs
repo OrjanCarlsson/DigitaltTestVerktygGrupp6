@@ -22,6 +22,8 @@ namespace DigitaltTestVerktygGrupp6Student.Database
 
         public int Score { get; set; }
 
+        public string FinalGrade { get; set; }
+
         public virtual dbQuizs dbQuizs { get; set; }
 
         public virtual dbStudents dbStudents { get; set; }
