@@ -20,5 +20,6 @@ namespace DigitaltTestVerktygGrupp6Wpf.Database
 
         public int Time { get; set; }
         public int Score { get; set; }
+        public string FinalGrade { get; set; }
     }
 }

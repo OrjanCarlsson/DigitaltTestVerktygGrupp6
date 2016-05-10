@@ -22,7 +22,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
         {
             using (var db = new dbDataContext())
             {
-                return db.StudentQuizzes.Include("student").Include("quiz").ToList();
+                return db.StudentQuizzes.Include("student").Include("quiz").Include("quiz.Questions").ToList();
             }
         }
         public List<dbStudentQuiz> UpdateStudentQuizzesList(int quizId)

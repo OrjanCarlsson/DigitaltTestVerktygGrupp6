@@ -78,6 +78,7 @@
                                 <GridViewColumn Header="Quiz" DisplayMemberBinding="{Binding quiz.Name}" />
                                 <GridViewColumn Header="Time" DisplayMemberBinding="{Binding Time}" />
                                 <GridViewColumn Header="Score"  DisplayMemberBinding="{Binding Score}" />
+                                <GridViewColumn Header="Grade"  DisplayMemberBinding="{Binding FinalGrade}" />
 
 
                             </GridView>
