@@ -225,7 +225,8 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                     Intro = txtQuizIntro.Text,
                     Questions = viewModel.questionList,
                     GradeG = gradeG(),
-                    GradeVG = gradeVG()
+                    GradeVG = gradeVG(),
+                    Feedback = true
                 });
 
                 using (var db = new dbDataContext())
