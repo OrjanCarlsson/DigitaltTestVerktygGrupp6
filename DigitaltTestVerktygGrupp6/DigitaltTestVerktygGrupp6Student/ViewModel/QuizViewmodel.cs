@@ -129,7 +129,7 @@ namespace DigitaltTestVerktygGrupp6Student.ViewModel
         public void ShowResult()
         {
             timer.Stop();
-            repo.SaveResult(ActiveStudent, SelectedQuiz, Score, (SelectedQuiz.TimeLimit - timer.Minutes));
+            repo.SaveResult(ActiveStudent, SelectedQuiz, Score, (SelectedQuiz.TimeLimit - timer.Minutes), TotalScore);
             ContentFrame.Navigate(new Results());
         }
 

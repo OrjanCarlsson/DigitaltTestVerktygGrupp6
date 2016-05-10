@@ -3,6 +3,7 @@ using DigitaltTestVerktygGrupp6Wpf.Model;
 using DigitaltTestVerktygGrupp6Wpf.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,7 +47,10 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             cbxQuizzes.ItemsSource = repo.QuizsList();
             UserListView.ItemsSource = repo.StudentsList();
             StatisticsListView.ItemsSource = repo.StudentQuizzesList();
-            
+
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(StatisticsListView.ItemsSource);
+            view.SortDescriptions.Add(new SortDescription("student.FirstName", ListSortDirection.Descending));
+
         }
         private void DelUserBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -115,7 +119,32 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             }
             else
             {
+                double IGCounter = 0;
+                double GCounter = 0;
+                double VGCounter = 0;
+                double Totalcounter = 0;
                 StatisticsListView.ItemsSource = repo.UpdateStudentQuizzesList(selectedQuiz.dbQuizId);
+                foreach (var item in repo.UpdateStudentQuizzesList(selectedQuiz.dbQuizId))
+                {
+                    Totalcounter++;
+                    if (item.FinalGrade == "IG")
+                    {
+                        IGCounter++;
+                    }
+                    else if (item.FinalGrade == "G")
+                    {
+                        GCounter++;
+                    }
+                    else if (item.FinalGrade == "VG")
+                    {
+                        VGCounter++;
+                    }
+                }
+                 
+                
+                IGLabel.Content = IGCounter + " " + "IG på provet" + " " + ((IGCounter / Totalcounter) * 100) + "%";
+                GLabel.Content = GCounter + " " + "G på provet" + " " + ((GCounter / Totalcounter) * 100) + "%";
+                VGLabel.Content = VGCounter + " " + "VG på provet" + " " + ((VGCounter / Totalcounter) * 100) + "%";
             }
             
         }
@@ -123,6 +152,12 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
         private void DefaultSortBtn_Click(object sender, RoutedEventArgs e)
         {
             StatisticsListView.ItemsSource = repo.StudentQuizzesList();
+            IGLabel.Content = "";
+            GLabel.Content = "";
+            VGLabel.Content = "";
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(StatisticsListView.ItemsSource);
+            view.SortDescriptions.Add(new SortDescription("student.FirstName", ListSortDirection.Descending));
+
         }
 
         private void btnCancelSendout_click(object sender, RoutedEventArgs e)

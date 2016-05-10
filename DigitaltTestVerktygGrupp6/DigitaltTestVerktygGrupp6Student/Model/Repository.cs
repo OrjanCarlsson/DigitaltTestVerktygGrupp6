@@ -45,7 +45,7 @@ namespace DigitaltTestVerktygGrupp6Student.Model
             }
         }
 
-        internal void SaveResult(dbStudents activeStudent, dbQuizs selectedQuiz, int score, int time)
+        internal void SaveResult(dbStudents activeStudent, dbQuizs selectedQuiz, int score, int time, double totalScore)
         {
             using (var model = new QuizModel())
             {
@@ -56,6 +56,21 @@ namespace DigitaltTestVerktygGrupp6Student.Model
                 var sq = query.First();
                 sq.Score = score;
                 sq.Time = time;
+
+                string grade;
+
+                double GThreshold = (double)(selectedQuiz.GradeG) / 100;
+                double VGThreshold = (double)(selectedQuiz.GradeVG) / 100;
+
+                if (score >= VGThreshold)
+                    grade = "VG";
+                else if (score >= GThreshold)
+                    grade = "G";
+                else
+                    grade = "IG";
+
+                sq.FinalGrade = grade;
+
                 model.SaveChanges();
             }
         }
