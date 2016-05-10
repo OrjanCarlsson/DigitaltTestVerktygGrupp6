@@ -238,16 +238,16 @@
                             
                         </ComboBox.ItemTemplate>
                     </ComboBox>-->
-                    <ComboBox x:Name="cbxQuizzes" HorizontalAlignment="Left" Width="150" Margin="13,261,0,0" VerticalAlignment="Top" Text="--Välj Quiz--" FontWeight="DemiBold" BorderThickness="2" FontSize="13">
+                    <ComboBox x:Name="cbxQuizzes" HorizontalAlignment="Left" Width="150" Margin="35,258,0,0" VerticalAlignment="Top" Text="--Välj Quiz--" FontWeight="DemiBold" BorderThickness="2" FontSize="13">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Name}"></TextBlock>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>
-                    <Label x:Name="label" Content="Välj prov här att sortera på" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top"/>
-                    <Button x:Name="SortBtn" Content="Sortera" HorizontalAlignment="Left" Margin="190,210,0,0" VerticalAlignment="Top" Width="75" Click="SortBtn_Click"/>
-                    <Button x:Name="DefaultSortBtn" Content="Återställ" HorizontalAlignment="Left" Margin="190,235,0,0" VerticalAlignment="Top" Width="75" Click="DefaultSortBtn_Click"/>
+                    <Label x:Name="label" Content="Välj prov här att sortera på" HorizontalAlignment="Left" Margin="31,224,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="SortBtn" Content="Sortera" HorizontalAlignment="Left" Margin="217,222,0,0" VerticalAlignment="Top" Width="75" Click="SortBtn_Click" Style="{StaticResource MetroButton}"/>
+                    <Button x:Name="DefaultSortBtn" Content="Återställ" HorizontalAlignment="Left" Margin="217,255,0,0" VerticalAlignment="Top" Width="75" Click="DefaultSortBtn_Click" Style="{StaticResource MetroButton}"/>
                     <Label x:Name="IGLabel" Content="" HorizontalAlignment="Left" Margin="311,192,0,0" VerticalAlignment="Top" Width="141"/>
                     <Label x:Name="GLabel" Content="" HorizontalAlignment="Left" Margin="311,223,0,0" VerticalAlignment="Top" Width="141"/>
                     <Label x:Name="VGLabel" Content="" HorizontalAlignment="Left" Margin="311,255,0,0" VerticalAlignment="Top" Width="141"/>
