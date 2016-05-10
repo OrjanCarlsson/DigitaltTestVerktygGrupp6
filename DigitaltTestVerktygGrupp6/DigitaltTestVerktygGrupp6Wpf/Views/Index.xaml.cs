@@ -141,7 +141,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                     }
                 }
                  
-                TotalExamsLabel.Content = Totalcounter;
+                
                 IGLabel.Content = IGCounter + " " + "IG på provet" + " " + ((IGCounter / Totalcounter) * 100) + "%";
                 GLabel.Content = GCounter + " " + "G på provet" + " " + ((GCounter / Totalcounter) * 100) + "%";
                 VGLabel.Content = VGCounter + " " + "VG på provet" + " " + ((VGCounter / Totalcounter) * 100) + "%";
