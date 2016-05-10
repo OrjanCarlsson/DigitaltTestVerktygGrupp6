@@ -59,6 +59,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
                 {
                     db.StudentQuizzes.Add(new dbStudentQuiz { dbStudentId = student.ID, dbQuizId = targetQuiz.dbQuizId });
                 }
+                db.Quizes.ToList().Single(q => q.dbQuizId == targetQuiz.dbQuizId).Feedback = targetQuiz.Feedback;
                 db.SaveChanges();
             }
         }

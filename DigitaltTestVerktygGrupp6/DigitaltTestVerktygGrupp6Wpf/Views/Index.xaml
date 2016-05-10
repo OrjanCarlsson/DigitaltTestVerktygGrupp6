@@ -202,7 +202,8 @@
                             <Run Text=" till:"></Run>
                         </TextBlock>
                     </Canvas>
-                    <ListView Margin="0,50,0,0" ItemsSource="{Binding SendoutList}">
+                    <CheckBox Content="Direkt feedback" Margin="0,55,0,0" IsChecked="{Binding SendoutQuiz.Feedback}"></CheckBox>
+                    <ListView Margin="0,75,0,0" ItemsSource="{Binding SendoutList}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Border BorderBrush="DarkSlateGray" BorderThickness="0,0,0,1">
