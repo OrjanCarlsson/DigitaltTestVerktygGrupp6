@@ -102,7 +102,6 @@
                     <Label x:Name="IGLabel" Content="" HorizontalAlignment="Left" Margin="311,192,0,0" VerticalAlignment="Top" Width="141"/>
                     <Label x:Name="GLabel" Content="" HorizontalAlignment="Left" Margin="311,223,0,0" VerticalAlignment="Top" Width="141"/>
                     <Label x:Name="VGLabel" Content="" HorizontalAlignment="Left" Margin="311,255,0,0" VerticalAlignment="Top" Width="141"/>
-                    <Label x:Name="TotalExamsLabel" Content="" HorizontalAlignment="Left" Margin="180,267,0,-0.333" VerticalAlignment="Top" Width="97" RenderTransformOrigin="-1.289,3.09"/>
                 </Grid>
 
             </TabItem>
