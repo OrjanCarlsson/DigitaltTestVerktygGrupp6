@@ -44,8 +44,15 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             showQuestionContent.Template = showQuestionToEdit;
             cmbType.SelectedIndex = 2;
             showQuestionContent.Visibility = Visibility.Collapsed;
+            comboBoxTimeSetup();
         }
 
+        private void comboBoxTimeSetup()
+        {
+            int[] comboTime = new int[] { 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120 };
+            cmbTime.ItemsSource = comboTime;
+            cmbTime.SelectedIndex = 0;
+        }
         private void btnAddQuestion_Click(object sender, RoutedEventArgs e)
         {
             AddQPopup.IsOpen = true;
@@ -226,7 +233,8 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                     Questions = viewModel.questionList,
                     GradeG = gradeG(),
                     GradeVG = gradeVG(),
-                    Feedback = true
+                    Feedback = true,
+                    TimeLimit = int.Parse(cmbTime.SelectedItem.ToString())
                 });
 
                 using (var db = new dbDataContext())

@@ -190,11 +190,13 @@
         <Canvas Height="2" Background="Gray" Margin="0,50,0,442" Grid.ColumnSpan="3"/>
         <Canvas Width="515" Margin="2,55,0,0" Grid.ColumnSpan="2">
             <TextBlock Text="Namn:" Canvas.Left="31" Canvas.Top="19" FontSize="14" FontWeight="Bold" Foreground="#EE464646"/>
-            <TextBox x:Name="txtQuizName" Width="123" Canvas.Left="117" Canvas.Top="19" Height="22" BorderThickness="2" Foreground="#EE464646" FontSize="12" FontWeight="Bold"/>
+            <TextBox x:Name="txtQuizName" Width="123" Canvas.Left="112" Canvas.Top="19" Height="22" BorderThickness="2" Foreground="#EE464646" FontSize="12" FontWeight="Bold"/>
             <TextBlock Text="Om Provet:" Canvas.Left="31" Canvas.Top="49" FontSize="14" FontWeight="Bold" Foreground="#EE464646" />
-            <TextBox x:Name="txtQuizIntro" Width="198" Canvas.Left="117" Canvas.Top="49" Height="50" BorderThickness="2" Foreground="#EE464646" FontWeight="Bold"/>
+            <TextBox x:Name="txtQuizIntro" Width="244" Canvas.Left="112" Canvas.Top="49" Height="50" BorderThickness="2" Foreground="#EE464646" FontWeight="Bold"/>
             <Button x:Name="btnAddQuestion" Content="Lägg till fråga" Canvas.Left="366" Canvas.Top="18" Width="108" Height="30" Click="btnAddQuestion_Click" Style="{StaticResource MetroButton}"/>
             <Button x:Name="btnAddQuiz" Content="Skapa Prov" Canvas.Left="366" Canvas.Top="69" Width="108" Click="btnAddQuiz_Click" Style="{StaticResource MetroButtonGreen}" Height="30"/>
+            <TextBlock Text="Tid:" Canvas.Left="267" Canvas.Top="19" FontSize="14" FontWeight="Bold" Foreground="#EE464646"/>
+            <ComboBox x:Name="cmbTime" Canvas.Left="303" Canvas.Top="19" Width="53" BorderThickness="2" FontSize="13" FontWeight="DemiBold"/>
         </Canvas>
         <Canvas Height="2" Background="Gray" Margin="0,173,0,319" Grid.ColumnSpan="3"/>
         <Canvas Width="0.5" Background="Gray" Margin="0,1,259,-1" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"/>
