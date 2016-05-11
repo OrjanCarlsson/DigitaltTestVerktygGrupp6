@@ -17,8 +17,8 @@ namespace DigitaltTestVerktygGrupp6Student.ViewModel
     {
         public dbStudents ActiveStudent { get; set; }
         public List<dbQuizs> Quizes { get; set; }
+        public List<dbStudentQuizs> FinishedQuizes { get; set; }
         private dbQuizs selectedQuiz;
-
         public dbQuizs SelectedQuiz
         {
             get { return selectedQuiz; }
@@ -28,6 +28,17 @@ namespace DigitaltTestVerktygGrupp6Student.ViewModel
                 OnPropertyChanged("SelectedQuiz");
             }
         }
+        private dbStudentQuizs selectedFinishedQuiz;
+        public dbStudentQuizs SelectedFinishedQuiz
+        {
+            get { return selectedFinishedQuiz; }
+            set
+            {
+                selectedFinishedQuiz = value;
+                OnPropertyChanged("SelectedFinishedQuiz");
+            }
+        }
+
 
         public ObservableCollection<Question> Questions { get; set; }
         public Question ActiveQuestion { get; set; }
@@ -63,6 +74,27 @@ namespace DigitaltTestVerktygGrupp6Student.ViewModel
                     instance = new QuizViewmodel();
                 return instance;
             }
+            set
+            {
+
+            }
+        }
+
+        internal void GetFinishedQuizes(dbStudents student)
+        {
+            FinishedQuizes = repo.GetFinishedQuizes(student);
+           
+        }
+
+        public void Reset()
+        {
+            selectedQuiz = null;
+            ActiveQuestion = null;
+            Questions.Clear();
+            TotalScore = 0;
+            CorrectAnswers = 0;
+            QuestionIndex = 1;
+            Score = 0;
         }
 
         private QuizViewmodel()

@@ -47,5 +47,11 @@ namespace DigitaltTestVerktygGrupp6Student.View
         {
             viewModel.NavigateTo(new ImageSaving());
         }
+
+        private void btnShowFinishedTests_Click(object sender, RoutedEventArgs e)
+        {
+            viewModel.NavigateTo(new FinishedQuizes());
+            viewModel.GetFinishedQuizes(viewModel.ActiveStudent);
+        }
     }
 }

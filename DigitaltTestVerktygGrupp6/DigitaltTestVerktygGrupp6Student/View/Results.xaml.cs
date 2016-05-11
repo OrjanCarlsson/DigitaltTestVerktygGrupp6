@@ -35,6 +35,7 @@ namespace DigitaltTestVerktygGrupp6Student.View
 
         private void btnFinishQuiz_Click(object sender, RoutedEventArgs e)
         {
+            viewModel.Reset();
             viewModel.NavigateTo(new QuizSelection());
         }
     }

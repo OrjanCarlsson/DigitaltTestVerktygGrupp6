@@ -14,10 +14,26 @@ namespace DigitaltTestVerktygGrupp6Student.Model
             using (var model = new QuizModel())
             {
                 var query = from quiz in model.dbQuizs
-                            where quiz.dbStudentQuizs.Any(c => c.dbStudentId == student.dbStudentId)
+                            where quiz.dbStudentQuizs.Any(c => c.dbStudentId == student.dbStudentId && c.FinalGrade == null)
                             select quiz;
 
                 return query.ToList();
+            }
+
+
+        }
+
+        public List<dbStudentQuizs> GetFinishedQuizes(dbStudents student)
+        {
+            using (var model = new QuizModel())
+            {
+                //var query = from quiz in model.dbQuizs
+                //            where quiz.dbStudentQuizs.Any(c => c.dbStudentId == student.dbStudentId && c.FinalGrade != null)
+                //            select quiz;
+
+                return model.dbStudentQuizs.Include("dbStudents").Include("dbQuizs").Where(a => a.dbStudentId == student.dbStudentId).ToList();
+
+                //return query.ToList();
             }
         }
 
