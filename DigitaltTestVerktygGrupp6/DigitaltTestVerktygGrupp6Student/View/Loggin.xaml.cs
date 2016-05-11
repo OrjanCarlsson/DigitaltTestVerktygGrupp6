@@ -40,7 +40,6 @@ namespace DigitaltTestVerktygGrupp6Student.View
             }
             else
             {
-                
                 viewModel = QuizViewmodel.Instance;
                 viewModel.SelectionSetup(loguser);
                 viewModel.NavigateTo(new QuizSelection());
