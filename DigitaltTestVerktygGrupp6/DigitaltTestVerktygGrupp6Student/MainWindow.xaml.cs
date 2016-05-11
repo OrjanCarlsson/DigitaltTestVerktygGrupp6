@@ -29,7 +29,6 @@ namespace DigitaltTestVerktygGrupp6Student
         {
             InitializeComponent();
             viewModel = QuizViewmodel.Instance;
-            viewModel.SelectionSetup(new dbStudents { FirstName = "Charles", LastName = "Placeholder", dbStudentId = 1, UserName = "5mJ5na" });
             viewModel.ContentFrame = LoginFrame;
             viewModel.NavigateTo(new Loggin());
         }
