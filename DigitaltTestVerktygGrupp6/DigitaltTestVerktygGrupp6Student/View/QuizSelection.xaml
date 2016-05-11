@@ -5,10 +5,158 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DigitaltTestVerktygGrupp6Student.View"
       mc:Ignorable="d" 
-      d:DesignHeight="800" d:DesignWidth="1200"
+      Height="525" Width="525"
       Title="Quiz">
+    <Page.Resources>
+        <Style
+        x:Key="ButtonFocusVisual">
+            <Setter
+            Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MetroButton" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+            <Setter Property="Background" Value="#EE898989"/>
+            <Setter Property="Foreground" Value="#FFF3F3F3"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10 5"/>
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Border
+                                x:Name="Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}" />
 
-    <Grid>
+                            <ContentPresenter
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Margin="{TemplateBinding Padding}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                RecognizesAccessKey="True" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="OpacityMask" Value="#AA888888"/>
+                                <Setter Property="Margin" Value="2 1" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderThickness" Value="0"/>
+                                <!--<Setter Property="Background" Value="DimGray"/>-->
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="#ADADAD"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MetroButtonRed" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+            <Setter Property="Background" Value="#EEF05959"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10 5"/>
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="BorderBrush" Value="#FFE22E2E"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Border
+                                x:Name="Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}" />
+
+                            <ContentPresenter
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Margin="{TemplateBinding Padding}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                RecognizesAccessKey="True" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="OpacityMask" Value="#AA888888"/>
+                                <Setter Property="Margin" Value="2 1" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderThickness" Value="0"/>
+                                <!--<Setter Property="Background" Value="DimGray"/>-->
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="#ADADAD"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MetroButtonGreen" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+            <Setter Property="Background" Value="#EE18B94B"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10 5"/>
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="BorderBrush" Value="#FF259334"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Border
+                                x:Name="Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}" />
+
+                            <ContentPresenter
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Margin="{TemplateBinding Padding}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                RecognizesAccessKey="True" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="OpacityMask" Value="#AA888888"/>
+                                <Setter Property="Margin" Value="2 1" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderThickness" Value="0"/>
+                                <!--<Setter Property="Background" Value="DimGray"/>-->
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="#ADADAD"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <!--<DataTemplate x:Name="Userdata" DataType="model:Student"/>-->
+
+    <Grid Background="#FFF9F9F9">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -17,10 +165,14 @@
             <RowDefinition Height="150"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top">
-            <StackPanel HorizontalAlignment="Right">
-                <ListView Name="QuizList" ItemsSource="{Binding Quizes}" SelectedItem="{Binding SelectedQuiz}" 
-                          Loaded="QuizList_Loaded" Margin="15, 5, 15, 15" Width="100">
+        <Canvas x:Name="Header" Height="50" Margin="0,0,0,100" Background="#FFFFAD37" Grid.ColumnSpan="2">
+            <TextBlock Text="Newton" FontSize="32" FontWeight="Bold" Foreground="#FF2B2A2A" Canvas.Left="334" Canvas.Top="2" Width="129"/>
+        </Canvas>
+        <Canvas Height="2" Background="Gray" Grid.ColumnSpan="2" Margin="0,50,0,473"/>
+        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Margin="0,0,117,0">
+            <StackPanel HorizontalAlignment="Right" Width="253" Margin="0,0,-124,0">
+                <ListView Name="QuizList" ItemsSource="{Binding Quizes}" SelectedItem="{Binding SelectedQuiz}" FontWeight="DemiBold" 
+                          Loaded="QuizList_Loaded" Margin="84,5,69,15" Width="100">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
@@ -31,25 +183,21 @@
                 </ListView>
             </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical" VerticalAlignment="Top">
-            <Border BorderBrush="Black" BorderThickness="1,0,0,0">
+        <StackPanel Grid.Row="1" Orientation="Vertical" VerticalAlignment="Top" Background="#FFEAEAEA" Grid.Column="1" Margin="0,4,0,0">
+            <Border BorderBrush="#FFC9C9C9" BorderThickness="2">
                 <StackPanel Margin="10,0,0,0">
-                <TextBlock Text="{Binding SelectedQuiz.Name, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Text="{Binding SelectedQuiz.TimeLimit, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Text="{Binding SelectedQuiz.Intro, UpdateSourceTrigger=PropertyChanged}"/>
-                <Button Content="Starta Quiz>" Name="StartButton" Click="StartButton_Click" Width="100" HorizontalAlignment="Left" Margin="0,10" Height="33" >
-                    <Button.Background>
-                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.MenuHighlightColorKey}}"/>
-                    </Button.Background>
-                </Button>
+                    <TextBlock Text="{Binding Path=SelectedQuiz.Name, StringFormat='Prov Namn: {0}', UpdateSourceTrigger=PropertyChanged}" FontWeight="DemiBold"/>
+                    <TextBlock Text="{Binding SelectedQuiz.TimeLimit, StringFormat='Tid: {0} Minuter', UpdateSourceTrigger=PropertyChanged}" FontWeight="DemiBold"/>
+                    <TextBlock Text="{Binding SelectedQuiz.Intro, StringFormat='Om Provet: {0}', UpdateSourceTrigger=PropertyChanged}" FontWeight="DemiBold" TextWrapping="WrapWithOverflow"/>
+
                 </StackPanel>
             </Border>
         </StackPanel>
-        <Button Content="Save image" Click="Button_Click" Height="100" Width="100"></Button>
-        <Label x:Name="label" Content="Välj Quiz" HorizontalAlignment="Left" Margin="0,89,0,0" VerticalAlignment="Top" Height="41" Width="136" FontSize="20" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="0,0,15,0">
-            <Label.Background>
+        <Button Content="Starta Prov&gt;" x:Name="StartButton" Click="StartButton_Click" Width="108" HorizontalAlignment="Left" Margin="209,180,0,153" Grid.Row="1" Style="{StaticResource MetroButton}" Grid.ColumnSpan="2"/>
+        <Label x:Name="label" Content="Välj Prov" HorizontalAlignment="Left" Margin="0,89,0,0" VerticalAlignment="Top" Height="41" Width="201" FontSize="20" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="0,0,30,0" FontWeight="DemiBold" Background="#FFFFAD37">
+            <!--<Label.Background>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.MenuHighlightColorKey}}"/>
-            </Label.Background>
+            </Label.Background>-->
         </Label>
     </Grid>
 </Page>

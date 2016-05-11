@@ -50,7 +50,8 @@ namespace DigitaltTestVerktygGrupp6Student.ViewModel
         private Repository repo;
         public ButtonCommand ButtonCommand { get; }
         private static QuizViewmodel instance;
-        private int questionIndex = 1;
+        public int QuestionIndex { get; set; } = 1;
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -115,7 +116,8 @@ namespace DigitaltTestVerktygGrupp6Student.ViewModel
                 }
                 else
                 {
-                    ActiveQuestion = Questions[questionIndex++];
+                    ActiveQuestion = Questions[QuestionIndex++];
+                    OnPropertyChanged("QuestionIndex");
                     OnPropertyChanged("ActiveQuestion");
                     NextQuestionEvent.Invoke();
                 }

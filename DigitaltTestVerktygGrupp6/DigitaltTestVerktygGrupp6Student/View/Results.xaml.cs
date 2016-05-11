@@ -28,6 +28,14 @@ namespace DigitaltTestVerktygGrupp6Student.View
             InitializeComponent();
             viewModel = QuizViewmodel.Instance;
             DataContext = viewModel;
+            //IF quiz.feedback = true; show txtWithFeedback
+            //ELSE show txtWithOutFeedback
+            txtWithOutFeedback.Visibility = Visibility.Collapsed;
+        }
+
+        private void btnFinishQuiz_Click(object sender, RoutedEventArgs e)
+        {
+            viewModel.NavigateTo(new QuizSelection());
         }
     }
 }

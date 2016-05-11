@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DigitaltTestVerktygGrupp6Student"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1200">
+        Title="MainWindow" Height="525" Width="525">
     <Grid>
         <Frame Name="LoginFrame" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
