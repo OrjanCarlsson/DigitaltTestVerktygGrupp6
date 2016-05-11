@@ -123,10 +123,14 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                 double GCounter = 0;
                 double VGCounter = 0;
                 double Totalcounter = 0;
+                double TimeCounter = 0;
+                double ScoreCounter = 0;
                 StatisticsListView.ItemsSource = repo.UpdateStudentQuizzesList(selectedQuiz.dbQuizId);
                 foreach (var item in repo.UpdateStudentQuizzesList(selectedQuiz.dbQuizId))
                 {
                     Totalcounter++;
+                    TimeCounter += item.Time;
+                    ScoreCounter += item.Score;
                     if (item.FinalGrade == "IG")
                     {
                         IGCounter++;
@@ -145,6 +149,8 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                 IGLabel.Content = IGCounter + " " + "IG på provet" + " " + ((IGCounter / Totalcounter) * 100) + "%";
                 GLabel.Content = GCounter + " " + "G på provet" + " " + ((GCounter / Totalcounter) * 100) + "%";
                 VGLabel.Content = VGCounter + " " + "VG på provet" + " " + ((VGCounter / Totalcounter) * 100) + "%";
+                ScoreLable.Content = (ScoreCounter/Totalcounter) + " Snittpoäng";
+                TimeLable.Content = (TimeCounter/Totalcounter) + "(Minuter) Snittid";
             }
             
         }

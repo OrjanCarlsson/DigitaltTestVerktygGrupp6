@@ -251,6 +251,8 @@
                     <Label x:Name="IGLabel" Content="" HorizontalAlignment="Left" Margin="311,192,0,0" VerticalAlignment="Top" Width="141"/>
                     <Label x:Name="GLabel" Content="" HorizontalAlignment="Left" Margin="311,223,0,0" VerticalAlignment="Top" Width="141"/>
                     <Label x:Name="VGLabel" Content="" HorizontalAlignment="Left" Margin="311,255,0,0" VerticalAlignment="Top" Width="141"/>
+                    <Label x:Name="ScoreLable" Content="" HorizontalAlignment="Left" Margin="311,286,0,0" VerticalAlignment="Top" Width="141"/>
+                    <Label x:Name="TimeLable" Content="" HorizontalAlignment="Left" Margin="311,317,0,0" VerticalAlignment="Top" Width="141"/>
                 </Grid>
 
             </TabItem>
