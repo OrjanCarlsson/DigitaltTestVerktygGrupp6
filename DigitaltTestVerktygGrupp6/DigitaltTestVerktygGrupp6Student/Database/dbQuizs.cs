@@ -27,6 +27,7 @@ namespace DigitaltTestVerktygGrupp6Student.Database
         public int GradeVG { get; set; }
 
         public int TimeLimit { get; set; }
+        public bool Feedback { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<dbQuestions> dbQuestions { get; set; }

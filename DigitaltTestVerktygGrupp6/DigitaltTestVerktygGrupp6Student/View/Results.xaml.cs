@@ -28,9 +28,19 @@ namespace DigitaltTestVerktygGrupp6Student.View
             InitializeComponent();
             viewModel = QuizViewmodel.Instance;
             DataContext = viewModel;
+
+            if (viewModel.SelectedQuiz.Feedback == true )
+            {
+                txtWithFeedback.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                txtWithOutFeedback.Visibility = Visibility.Visible;
+
+            }
             //IF quiz.feedback = true; show txtWithFeedback
             //ELSE show txtWithOutFeedback
-            txtWithOutFeedback.Visibility = Visibility.Collapsed;
+            
         }
 
         private void btnFinishQuiz_Click(object sender, RoutedEventArgs e)
