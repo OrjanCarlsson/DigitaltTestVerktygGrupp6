@@ -17,21 +17,35 @@ using DigitaltTestVerktygGrupp6Student.View;
 using DigitaltTestVerktygGrupp6Student.ViewModel;
 using DigitaltTestVerktygGrupp6Student.Database;
 
-namespace DigitaltTestVerktygGrupp6Student
+namespace DigitaltTestVerktygGrupp6Student.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Loggin.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Loggin : Page
     {
+        Repository repo = new Repository();
         private QuizViewmodel viewModel;
-        public MainWindow()
+        public Loggin()
         {
             InitializeComponent();
-            viewModel = QuizViewmodel.Instance;
-            viewModel.SelectionSetup(new dbStudents { FirstName = "Charles", LastName = "Placeholder", dbStudentId = 1, UserName = "5mJ5na" });
-            viewModel.ContentFrame = LoginFrame;
-            viewModel.NavigateTo(new Loggin());
+        }
+
+        private void LogginBtn_Click(object sender, RoutedEventArgs e)
+        {
+           dbStudents loguser = repo.GetUser(UserLogBox.Text, PassLogBox.Text);
+            if (loguser == null)
+            {
+                MessageBox.Show("Ingen användare hittades");
+            }
+            else
+            {
+                
+                viewModel = QuizViewmodel.Instance;
+                viewModel.SelectionSetup(loguser);
+                viewModel.NavigateTo(new QuizSelection());
+            }
+
         }
     }
 }

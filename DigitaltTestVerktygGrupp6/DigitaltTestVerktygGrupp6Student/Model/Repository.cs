@@ -74,5 +74,22 @@ namespace DigitaltTestVerktygGrupp6Student.Model
                 model.SaveChanges();
             }
         }
+
+        public dbStudents GetUser(string user, string password)
+        {
+            using (var model = new QuizModel())
+            {
+                foreach (dbStudents item in model.dbStudents)
+                {
+                    if (item.UserName == user && item.Password == password)
+                    {
+                        return item;
+                    }
+                    
+                }
+
+                return null;
+            }
+        }
     }
 }

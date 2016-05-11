@@ -88,6 +88,9 @@
     <Compile Include="View\ImageSaving.xaml.cs">
       <DependentUpon>ImageSaving.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Loggin.xaml.cs">
+      <DependentUpon>Loggin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Quiz.xaml.cs">
       <DependentUpon>Quiz.xaml</DependentUpon>
     </Compile>
@@ -110,6 +113,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\ImageSaving.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Loggin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
