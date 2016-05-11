@@ -36,8 +36,6 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             viewModel = CreateQuizModel.StaticModel;
             DataContext = ivm;
             // FrameCreateQuiz.NavigationService.GoBack();
-
-
             //viewModel.ContentFrame = FrameCreateQuiz;
             //viewModel.NavigateTo(new CreateQuiz());
         }
