@@ -68,18 +68,37 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
         {
             using (var db = new dbDataContext())
             {
-                dbStudent stu = new dbStudent
+                if (NewName.Text == "" || NewLastName.Text == ""
+                    || NewEmail.Text == "" || NewUserName.Text == ""
+                    || NewPassword.Text == "")
                 {
-                    FirstName = NewName.Text,
-                    LastName = NewLastName.Text,
-                    Email = NewEmail.Text,
-                    UserName = NewUserName.Text,
-                    Password = NewPassword.Text
-                };
+                    MessageBox.Show("Fyll i alla fält");
+                }
+                else
+                {
+                    string firstName = NewName.Text;
+                    string lastName = NewLastName.Text;
+                    string email = NewEmail.Text;
+                    string userName = NewUserName.Text;
+                    string password = NewPassword.Text;
+                    dbStudent stu = new dbStudent
+                    {
+                        FirstName = firstName,
+                        LastName = lastName,
+                        Email = email,
+                        UserName = userName,
+                        Password = password
+                    };
 
-                db.Students.Add(stu);
-                db.SaveChanges();
-                popupclose();
+                    db.Students.Add(stu);
+                    db.SaveChanges();
+                    popupclose();
+                }
+                
+
+               
+                
+
             }
         }
         private void popupclose()
