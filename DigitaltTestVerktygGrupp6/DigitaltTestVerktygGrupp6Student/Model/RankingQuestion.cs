@@ -10,7 +10,7 @@ namespace DigitaltTestVerktygGrupp6Student.Model
     class RankingQuestion : Question
     {
 
-        public List<int> Numbers { get; private set; }
+        public List<string> Numbers { get; private set; }
 
         private Alternative tempAlt;
         private int selectedIndex = 0;
@@ -58,12 +58,12 @@ namespace DigitaltTestVerktygGrupp6Student.Model
 
         protected override void AddAlternatives(dbQuestions question)
         {
-            Numbers = new List<int>();
+            Numbers = new List<string>();
             int nr = 1;
             foreach (var alt in question.dbAlternatives.ToList())
             {
                 Alternatives.Add(new RankingAlternative(alt, this));
-                Numbers.Add(nr++);
+                Numbers.Add(nr++.ToString()+".");
                 correctAnswers++;
             }
             answered = 1;
