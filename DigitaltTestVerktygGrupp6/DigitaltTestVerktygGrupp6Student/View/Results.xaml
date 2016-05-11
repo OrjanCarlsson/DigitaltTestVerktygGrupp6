@@ -159,7 +159,7 @@
             <TextBlock Text="{Binding Path=SelectedQuiz.Name, StringFormat='Prov: {0}'}" FontSize="32" FontWeight="Bold" Foreground="#FF2B2A2A" Canvas.Left="251" Canvas.Top="2" Width="212"/>
         </Canvas>
         <StackPanel Margin="121,189,115,213">
-            <TextBlock x:Name="txtWithFeedback" HorizontalAlignment="Center" FontWeight="DemiBold" FontSize="18" TextWrapping="WrapWithOverflow">
+            <TextBlock x:Name="txtWithFeedback" HorizontalAlignment="Center" FontWeight="DemiBold" FontSize="18" TextWrapping="WrapWithOverflow" Visibility="Collapsed">
             <TextBlock.Text>
                 <MultiBinding StringFormat="{}Tack för att du har medverkat. Du fick {0} poäng av {1} möjliga.">
                     <Binding Path="Score" />
@@ -167,7 +167,7 @@
                 </MultiBinding>
             </TextBlock.Text>
             </TextBlock>
-            <TextBlock x:Name="txtWithOutFeedback" Text="Tack för att du har medverkat." HorizontalAlignment="Center" FontWeight="DemiBold" FontSize="18" TextWrapping="WrapWithOverflow">
+            <TextBlock x:Name="txtWithOutFeedback" Text="Tack för att du har medverkat." HorizontalAlignment="Center" FontWeight="DemiBold" Visibility="Collapsed" FontSize="18" TextWrapping="WrapWithOverflow">
             </TextBlock>
         </StackPanel>
         <StackPanel Margin="226,336,211,95">
