@@ -70,6 +70,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.ViewModel
 
         private void SendoutSetup()
         {
+            OnPropertyChanged("SendoutQuiz");
             foreach (var student in Students)
             {
                 if (student.SendTo == true)
