@@ -26,8 +26,8 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
     {
         
         CreateQuizModel viewModel;
-        IndexViewmodel ivm = new IndexViewmodel();
-        Repository repo = new Repository();
+        private IndexViewmodel ivm = new IndexViewmodel();
+        private Repository repo = new Repository();
        
         public Index()
         {
@@ -41,6 +41,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             //viewModel.ContentFrame = FrameCreateQuiz;
             //viewModel.NavigateTo(new CreateQuiz());
         }
+
         public void update()
         {
             ExamListView.ItemsSource = repo.QuizsList();
@@ -194,6 +195,15 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
         {
             MessageBox.Show("Testen har skickats ut!");
             SendQuizPopup.IsOpen = false;
+        }
+
+        private void GradeBlock_Loaded(object sender, RoutedEventArgs e)
+        {
+            TextBlock GradeBlock = sender as TextBlock;
+            if(GradeBlock.Text.Equals("IG"))
+                GradeBlock.Foreground = Brushes.Red;
+            else if (GradeBlock.Text.Equals("G") || GradeBlock.Text.Equals("VG"))
+                GradeBlock.Foreground = Brushes.Green;
         }
     }
 }

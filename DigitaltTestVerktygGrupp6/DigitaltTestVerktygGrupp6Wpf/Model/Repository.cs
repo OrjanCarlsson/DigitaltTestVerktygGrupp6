@@ -33,26 +33,21 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
             }
         }
 
-        public ObservableCollection<Student> FreeStudentQuizList(int quizId)
+        public List<Student> FreeStudentQuizList(int quizId, List<Student> students)
         {
-            ObservableCollection<Student> studentList = new ObservableCollection<Student>();
             using (var db = new dbDataContext())
             {
                 var sqs = db.StudentQuizzes.Where(sq => sq.dbQuizId == quizId).ToList();
+
                 foreach (var sq in sqs)
                 {
-                    foreach (var stu in db.Students)
-                    {
-                        bool testDone = false;
-                        if (stu.dbStudentId == sq.dbStudentId)
-                            testDone = true;
-                        studentList.Add(new Student(stu) { TestDone = testDone });
-                    }
+                    Student student = students.SingleOrDefault(s => s.ID == sq.dbStudentId);
+                    if (student != null)
+                        student.Grade = sq.FinalGrade;
                 }
             }
-            return studentList;
+            return students;
         }
-
 
         public List<dbQuiz> QuizsList()
         {
@@ -78,6 +73,11 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
             {
                 foreach (var student in sendoutList)
                 {
+                    var studentQuiz = db.StudentQuizzes.SingleOrDefault(sq => sq.dbStudentId == student.ID && 
+                        sq.dbQuizId == targetQuiz.dbQuizId);
+
+                    if (studentQuiz != null)
+                        db.StudentQuizzes.Remove(studentQuiz);
                     db.StudentQuizzes.Add(new dbStudentQuiz { dbStudentId = student.ID, dbQuizId = targetQuiz.dbQuizId });
                 }
                 db.Quizes.ToList().Single(q => q.dbQuizId == targetQuiz.dbQuizId).Feedback = targetQuiz.Feedback;

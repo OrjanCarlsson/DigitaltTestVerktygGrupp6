@@ -268,9 +268,11 @@
                             <DataTemplate>
                                 <StackPanel>
                                     <StackPanel Orientation="Horizontal">
-                                        <CheckBox IsChecked="{Binding SendTo}"></CheckBox>
-                                        <TextBlock Text="{Binding FirstName}"></TextBlock>
-                                        <TextBlock Text="{Binding LastName}"></TextBlock>
+                                        <CheckBox IsChecked="{Binding SendTo}" Margin="5"></CheckBox>
+                                        <TextBlock Text="{Binding FirstName}" Margin="5"></TextBlock>
+                                        <TextBlock Text="{Binding LastName}" Margin="5"></TextBlock>
+                                        <TextBlock Text="{Binding Grade}" Margin="5" Loaded="GradeBlock_Loaded" 
+                                                   ToolTip="Studenten har redan gjort provet och fått detta betyg"></TextBlock>
                                     </StackPanel>
                                 </StackPanel>
                             </DataTemplate>

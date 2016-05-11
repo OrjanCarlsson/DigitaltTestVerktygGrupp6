@@ -3,20 +3,37 @@ using DigitaltTestVerktygGrupp6Wpf.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DigitaltTestVerktygGrupp6Wpf.ViewModel
 {
-    class IndexViewmodel
+    class IndexViewmodel : INotifyPropertyChanged
     {
         public ObservableCollection<Student> Students { get; set; }
+        private List<Student> students;
         public ObservableCollection<dbQuiz> Quizzes { get; set; }
-        public dbQuiz SendoutQuiz { get; set; }
+        private dbQuiz sendoutQuiz;
+
+        public dbQuiz SendoutQuiz
+        {
+            get { return sendoutQuiz; }
+            set
+            {
+                sendoutQuiz = value;
+                Students.Clear();
+                repo.FreeStudentQuizList(sendoutQuiz.dbQuizId, students).ForEach(Students.Add);
+            }
+        }
+
         public ObservableCollection<Student> SendoutList { get; set; }
         public dbQuiz ActiveSendQuiz { get; set; }
         private Repository repo;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public ButtonCommand ButtonCommand { get; }
 
         public IndexViewmodel()
@@ -27,11 +44,11 @@ namespace DigitaltTestVerktygGrupp6Wpf.ViewModel
             Quizzes = new ObservableCollection<dbQuiz>();
             Students = new ObservableCollection<Student>();
             SendoutList = new ObservableCollection<Student>();
+            students = new List<Student>();
             repo.QuizsList().ForEach(Quizzes.Add);
-
             foreach (var dbstudent in repo.StudentsList())
             {
-                Students.Add(new Student(dbstudent));      
+                students.Add(new Student(dbstudent));
             }
         }
 
@@ -58,6 +75,11 @@ namespace DigitaltTestVerktygGrupp6Wpf.ViewModel
                 if (student.SendTo == true)
                     SendoutList.Add(student);
             }
+        }
+
+        public void OnPropertyChanged(string property)
+        {
+            PropertyChanged(this, new PropertyChangedEventArgs(property));
         }
     }
 }

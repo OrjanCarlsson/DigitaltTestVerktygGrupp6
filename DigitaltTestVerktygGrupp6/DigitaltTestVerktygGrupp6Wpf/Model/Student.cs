@@ -13,7 +13,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
         public string LastName { get; set; }
         public string Email { get; set; }
         public bool SendTo { get; set; }
-        public bool TestDone { get; set; }
+        public string Grade { get; set; } = "EG";
         public int ID { get; set; }
         public Student(dbStudent student)
         {
@@ -21,11 +21,6 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
             LastName = student.LastName;
             Email = student.Email;
             ID = student.dbStudentId;
-            SendTo = false;
-        }
-
-        public Student()
-        {
             SendTo = false;
         }
     }
