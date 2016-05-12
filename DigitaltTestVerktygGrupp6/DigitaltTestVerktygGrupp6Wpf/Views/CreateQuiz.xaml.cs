@@ -119,7 +119,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             };
             return newCheckBox;
         }
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void btnAddAnswer_Click(object sender, RoutedEventArgs e)
         {
             clickCounter++;
             rangordningsCounter++;

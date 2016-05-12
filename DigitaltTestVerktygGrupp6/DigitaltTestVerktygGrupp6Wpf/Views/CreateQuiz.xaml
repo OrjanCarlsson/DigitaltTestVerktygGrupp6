@@ -273,7 +273,7 @@
                         <CheckBox x:Name="chkAnswer" Margin="8,3,0,6" BorderThickness="2"/>
                     </StackPanel>
                     <StackPanel x:Name="panelRemoveAnswer" Grid.Column="3" Margin="0,150,0,0">
-                        <Button x:Name="btnAddAnswer" Content="+"  Click="Button_Click_1" Width="20" Background="#FF6BE06B"/>
+                        <Button x:Name="btnAddAnswer" Content="+"  Click="btnAddAnswer_Click" Width="20" Background="#FF6BE06B"/>
                     </StackPanel>
                     <Button x:Name="btnSaveQuestion" Content="Save" Grid.Column="0" Margin="90,348,72,21" Grid.ColumnSpan="2" Click="btnSaveQuestion_Click" Style="{StaticResource MetroButtonGreen}"/>
                     <Button x:Name="btnClosePopup" Content="Cancel" Width="86" Click="btnClosePopup_Click" Margin="0,348,10,21" HorizontalAlignment="Right" Style="{StaticResource MetroButtonRed}" Grid.ColumnSpan="2" Grid.Column="1"/>
