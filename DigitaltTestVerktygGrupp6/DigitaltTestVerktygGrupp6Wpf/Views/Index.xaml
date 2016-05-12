@@ -162,7 +162,7 @@
             <TextBlock Text="Newton" FontSize="32" FontWeight="Bold" Foreground="#FF2B2A2A" Canvas.Left="356" Canvas.Top="4" Width="129"/>
         </Canvas>
         <Canvas Height="2" Background="Gray" Margin="0,50,0,473"/>
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Width="519" Margin="0,51,0,6" FontWeight="DemiBold">
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Width="519" Margin="0,51,0,6" FontWeight="DemiBold" SelectionChanged="tabControl_SelectionChanged" >
             <TabItem x:Name="TestsTAB" Header="Exams" Margin="-2,-2,-35,0">
                 <Grid Background="#FFF9F9F9">
                     <Button x:Name="NewExamBtn" Content="New Exam" HorizontalAlignment="Left" Margin="358,262,0,0" VerticalAlignment="Top" Width="124" Height="34" Click="NewExamBtn_Click" Style="{StaticResource MetroButton}"/>
@@ -256,7 +256,7 @@
                 </Grid>
 
             </TabItem>
-            <TabItem Header="Skicka" Margin="118,-2,-162,0">
+            <TabItem Header="Skicka" Margin="118,-2,-162,0" Name="Tabber">
                 <Grid Background="#FFF9F9F9">
                     <ListView x:Name="UserSendListView" ItemsSource="{Binding Students}" HorizontalAlignment="Left" Height="177" Margin="10,10,0,0" VerticalAlignment="Top" Width="493" BorderThickness="2">
                         <ListView.Resources>

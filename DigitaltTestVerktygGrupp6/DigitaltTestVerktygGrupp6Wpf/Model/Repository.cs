@@ -69,7 +69,6 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
 
         internal void SaveStudentQuiz(ObservableCollection<Student> sendoutList, dbQuiz targetQuiz)
         {
-            Console.WriteLine("SAVING QUIZ FEEDBACK: " + targetQuiz.Feedback + ". NAME: " + targetQuiz.Name);
             using (var db = new dbDataContext())
             {
                 foreach (var student in sendoutList)

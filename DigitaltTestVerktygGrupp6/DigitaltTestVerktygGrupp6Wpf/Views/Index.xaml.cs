@@ -24,11 +24,12 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
     /// </summary>
     public partial class Index : Page
     {
-        
+
         CreateQuizModel viewModel;
         private IndexViewmodel ivm = new IndexViewmodel();
         private Repository repo = new Repository();
-       
+        private bool firstSelection = true;
+
         public Index()
         {
             InitializeComponent();
@@ -93,10 +94,10 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                     db.SaveChanges();
                     popupclose();
                 }
-                
 
-               
-                
+
+
+
 
             }
         }
@@ -162,15 +163,15 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                         VGCounter++;
                     }
                 }
-                 
-                
+
+
                 IGLabel.Content = IGCounter + " " + "IG på provet" + " " + ((IGCounter / Totalcounter) * 100) + "%";
                 GLabel.Content = GCounter + " " + "G på provet" + " " + ((GCounter / Totalcounter) * 100) + "%";
                 VGLabel.Content = VGCounter + " " + "VG på provet" + " " + ((VGCounter / Totalcounter) * 100) + "%";
-                ScoreLable.Content = (ScoreCounter/Totalcounter) + " Snittpoäng";
-                TimeLable.Content = (TimeCounter/Totalcounter) + "(Minuter) Snittid";
+                ScoreLable.Content = (ScoreCounter / Totalcounter) + " Snittpoäng";
+                TimeLable.Content = (TimeCounter / Totalcounter) + "(Minuter) Snittid";
             }
-            
+
         }
 
         private void DefaultSortBtn_Click(object sender, RoutedEventArgs e)
@@ -198,10 +199,24 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
         private void GradeBlock_Loaded(object sender, RoutedEventArgs e)
         {
             TextBlock GradeBlock = sender as TextBlock;
-            if(GradeBlock.Text.Equals("IG"))
+            if (GradeBlock.Text.Equals("IG"))
                 GradeBlock.Foreground = Brushes.Red;
             else if (GradeBlock.Text.Equals("G") || GradeBlock.Text.Equals("VG"))
                 GradeBlock.Foreground = Brushes.Green;
+        }
+
+        private void tabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Tabber.IsSelected)
+            {
+                if (firstSelection)
+                {
+                    firstSelection = false;
+                    ivm.UpdateStudentlist();
+                }
+            }
+            else
+                firstSelection = true;
         }
     }
 }

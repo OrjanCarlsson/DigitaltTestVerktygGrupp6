@@ -43,11 +43,6 @@ namespace DigitaltTestVerktygGrupp6Student.View
             (sender as ListView).SelectedIndex = 0;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            viewModel.NavigateTo(new ImageSaving());
-        }
-
         private void btnShowFinishedTests_Click(object sender, RoutedEventArgs e)
         {
             viewModel.NavigateTo(new FinishedQuizes());

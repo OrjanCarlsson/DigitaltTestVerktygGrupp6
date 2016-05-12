@@ -46,10 +46,6 @@ namespace DigitaltTestVerktygGrupp6Wpf.ViewModel
             SendoutList = new ObservableCollection<Student>();
             students = new List<Student>();
             repo.QuizsList().ForEach(Quizzes.Add);
-            foreach (var dbstudent in repo.StudentsList())
-            {
-                students.Add(new Student(dbstudent));
-            }
         }
 
         private void SwitchCommand(string parameter)
@@ -60,6 +56,13 @@ namespace DigitaltTestVerktygGrupp6Wpf.ViewModel
                 Send();
             else if (parameter.Equals("Cancel"))
                 SendoutList.Clear();
+        }
+
+        public void UpdateStudentlist()
+        {
+            students.Clear();
+            foreach (var dbstudent in repo.StudentsList())
+                students.Add(new Student(dbstudent));
         }
 
         private void Send()

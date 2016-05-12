@@ -63,7 +63,7 @@ namespace DigitaltTestVerktygGrupp6Student.Model
             foreach (var alt in question.dbAlternatives.ToList())
             {
                 Alternatives.Add(new RankingAlternative(alt, this));
-                Numbers.Add(nr++.ToString()+".");
+                Numbers.Add(nr++.ToString() + ".");
                 correctAnswers++;
             }
             answered = 1;

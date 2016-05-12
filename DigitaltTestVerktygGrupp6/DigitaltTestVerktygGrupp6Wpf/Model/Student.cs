@@ -13,7 +13,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Model
         public string LastName { get; set; }
         public string Email { get; set; }
         public bool SendTo { get; set; }
-        public string Grade { get; set; } = "EG";
+        public string Grade { get; set; } = "";
         public int ID { get; set; }
         public Student(dbStudent student)
         {

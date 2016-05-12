@@ -270,6 +270,11 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             showQuestionContent.Visibility = Visibility.Visible;
         }
 
+        private void btnAddImage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void btnSaveQuestion_Click(object sender, RoutedEventArgs e)
         {
             cmbType.IsEnabled = true;

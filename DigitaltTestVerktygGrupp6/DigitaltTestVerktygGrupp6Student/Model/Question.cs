@@ -33,9 +33,6 @@ namespace DigitaltTestVerktygGrupp6Student.Model
             Type = question.Type;
             Text = question.Text;
             Points = question.Points;
-            //if (question.Image != null)
-            //    Image = "../../../DigitaltTestVerktygGrupp6Wpf/Database/Images" + question.Image;
-            Image = "../../../DigitaltTestVerktygGrupp6Wpf/Database/Images/04O5fBb.png";
         }
 
         protected virtual void AddAlternatives(dbQuestions question)
