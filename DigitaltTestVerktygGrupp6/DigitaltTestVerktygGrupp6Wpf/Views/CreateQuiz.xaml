@@ -277,9 +277,9 @@
                     </StackPanel>
                     <Button x:Name="btnSaveQuestion" Content="Save" Grid.Column="0" Margin="90,348,72,21" Grid.ColumnSpan="2" Click="btnSaveQuestion_Click" Style="{StaticResource MetroButtonGreen}"/>
                     <Button x:Name="btnClosePopup" Content="Cancel" Width="86" Click="btnClosePopup_Click" Margin="0,348,10,21" HorizontalAlignment="Right" Style="{StaticResource MetroButtonRed}" Grid.ColumnSpan="2" Grid.Column="1"/>
+                    <Button x:Name="button" Content="Bild.." Grid.Column="2" HorizontalAlignment="Left" Margin="49,115,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" Style="{StaticResource MetroButton}" Click="btnAddImage_Click"/>
                 </Grid>
             </Border>
         </Popup>
-        <Button x:Name="btnAddImage" Content="Lägg till bild" Grid.Column="2" HorizontalAlignment="Left" Margin="0,86,0,0" Grid.Row="2" VerticalAlignment="Top" Width="95" Style="{StaticResource MetroButton}" Click="btnAddImage_Click" />
     </Grid>
 </Page>

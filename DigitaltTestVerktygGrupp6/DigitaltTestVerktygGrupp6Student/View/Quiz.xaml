@@ -222,10 +222,10 @@
             </Canvas>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Image Source="{Binding ActiveQuestion.Image, UpdateSourceTrigger=PropertyChanged}" Loaded="Image_Loaded" ></Image>
-                    <TextBlock Text="{Binding ActiveQuestion.Text, UpdateSourceTrigger=PropertyChanged}" FontWeight="DemiBold" FontSize="16" TextDecorations="Underline"></TextBlock>
-
-
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{Binding ActiveQuestion.Text, UpdateSourceTrigger=PropertyChanged}" FontWeight="DemiBold" FontSize="16" TextDecorations="Underline"></TextBlock>
+                        <Image Loaded="Image_Loaded" Height="150" Width="150"></Image>
+                    </StackPanel>
                 </StackPanel>
                 <ContentControl Name="AlternativesContent" FontWeight="DemiBold" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center">
 

@@ -4,6 +4,7 @@ using DigitaltTestVerktygGrupp6Wpf.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
         double totalPoints;
         CreateQuizModel viewModel;
         ControlTemplate showAnswersToEdit, showQuestionToEdit;
+        private string imagePath = "";
         public CreateQuiz()
         {
             InitializeComponent();
@@ -82,7 +84,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
         }
 
         private TextBlock makeTextBlock2()
-        {       
+        {
             var newTextBlock2 = new TextBlock()
             {
                 Text = viewModel.alternativeList[counter - 1].Text,
@@ -166,9 +168,9 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                         IsCorrect = answerChecker
                     });
                 }
-                
+
                 txtAnswer.Clear();
-            
+
                 if (panelAnswerText.Children.Count < 8)
                 {
                     counter++;
@@ -191,7 +193,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                 panelAnswers.Children.RemoveAt(panelAnswers.Children.Count - 1);
                 panelAnswerText.Children.RemoveAt(panelAnswerText.Children.Count - 1);
                 panelRemoveAnswer.Children.RemoveAt(panelRemoveAnswer.Children.Count - 1);
-                testing(panelAnswers.Children.Count-1);
+                testing(panelAnswers.Children.Count - 1);
             }
             if (panelRemoveAnswer.Children.Count == 1)
             {
@@ -276,7 +278,17 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
 
         private void btnAddImage_Click(object sender, RoutedEventArgs e)
         {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 
+            dlg.DefaultExt = ".png";
+            dlg.Filter = "PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
+
+            Nullable<bool> result = dlg.ShowDialog();
+
+            if (result == true)
+            {
+                imagePath = dlg.FileName;
+            }
         }
 
         private void btnSaveQuestion_Click(object sender, RoutedEventArgs e)
@@ -285,6 +297,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             txtAnswer.IsEnabled = true;
             btnAddAnswer.IsEnabled = true;
             rangordningsCounter = -1;
+            int nr;
             counter = 0;
             if (String.IsNullOrEmpty(txtQuestion.Text))
             {
@@ -302,15 +315,27 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             {
                 MessageBox.Show("Need to add atleast one answer");
             }
+            else if (!int.TryParse(txtPoints.Text, out nr))
+            {
+                MessageBox.Show("Questions points must be a number!");
+            }
             else
             {
+                string imageName = ""; 
+                if (!imagePath.Equals(""))
+                    imageName = System.IO.Path.GetFileName(imagePath);
+
                 viewModel.questionList.Add(new dbQuestion
                 {
                     Text = txtQuestion.Text,
                     Type = cmbType.Text,
                     Points = int.Parse(txtPoints.Text),
-                    Alternatives = viewModel.alternativeList
+                    Alternatives = viewModel.alternativeList,
+                    Image = imageName
                 });
+                
+                if(!imagePath.Equals(""))
+                    File.Copy(imagePath, "../../Database/Images/" + System.IO.Path.GetFileName(imagePath), true);
 
                 foreach (var item in viewModel.questionList)
                 {
@@ -329,7 +354,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                 AddQPopup.IsOpen = false;
 
             }
-            
+
         }
 
     }
