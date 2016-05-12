@@ -35,8 +35,6 @@ namespace DigitaltTestVerktygGrupp6Student.Model
                     Alternatives[selectedIndex] = value;
                     Alternatives[index] = tempAlt;
 
-                    CheckAnswers();
-
                     firstSelection = true;
                 }
             }
@@ -54,13 +52,19 @@ namespace DigitaltTestVerktygGrupp6Student.Model
             }
         }
 
+        public override bool AnswerCorrect()
+        {
+            CheckAnswers();
+            return correctAnswers == userCorrectAnswers;
+        }
+
         public RankingQuestion(dbQuestions question) : base(question) { }
 
         protected override void AddAlternatives(dbQuestions question)
         {
             Numbers = new List<string>();
             int nr = 1;
-            foreach (var alt in question.dbAlternatives.ToList())
+            foreach (var alt in question.dbAlternatives.OrderBy(a => Guid.NewGuid()).ToList())
             {
                 Alternatives.Add(new RankingAlternative(alt, this));
                 Numbers.Add(nr++.ToString() + ".");

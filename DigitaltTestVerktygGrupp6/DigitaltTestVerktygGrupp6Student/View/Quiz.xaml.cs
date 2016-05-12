@@ -35,8 +35,13 @@ namespace DigitaltTestVerktygGrupp6Student.View
         private void LoadQuestionImage()
         {
             BitmapImage image = viewModel.GetActiveImage();
-            if (image != null)
-               questionImage.Source = image;
+            if (image == null)
+                questionImage.Visibility = Visibility.Collapsed;
+            else
+            {
+                questionImage.Visibility = Visibility.Visible;
+                questionImage.Source = image;
+            }
         }
 
         public Quiz()

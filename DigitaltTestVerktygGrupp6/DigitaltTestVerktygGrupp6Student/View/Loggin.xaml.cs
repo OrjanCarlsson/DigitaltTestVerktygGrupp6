@@ -33,7 +33,7 @@ namespace DigitaltTestVerktygGrupp6Student.View
 
         private void LogginBtn_Click(object sender, RoutedEventArgs e)
         {
-           dbStudents loguser = repo.GetUser(UserLogBox.Text, PassLogBox.Text);
+           dbStudents loguser = repo.GetUser(UserLogBox.Text, PassLogBox.Password);
             if (loguser == null)
             {
                 MessageBox.Show("Ingen användare hittades");

@@ -19,15 +19,13 @@ namespace DigitaltTestVerktygGrupp6Student.Model
 
                 return query.ToList();
             }
-
-
         }
 
         public List<dbStudentQuizs> GetFinishedQuizes(dbStudents student)
         {
             using (var model = new QuizModel())
             {
-                return model.dbStudentQuizs.Include("dbStudents").Include("dbQuizs").Where(a => a.dbStudentId == student.dbStudentId).ToList();
+                return model.dbStudentQuizs.Include("dbStudents").Include("dbQuizs").Where(a => a.dbStudentId == student.dbStudentId && a.FinalGrade != null).ToList();
             }
         }
 
@@ -69,8 +67,8 @@ namespace DigitaltTestVerktygGrupp6Student.Model
 
                 string grade;
 
-                double GThreshold = (double)(selectedQuiz.GradeG) / 100;
-                double VGThreshold = (double)(selectedQuiz.GradeVG) / 100;
+                double GThreshold = totalScore * ((double)(selectedQuiz.GradeG) / 100);
+                double VGThreshold = totalScore * ((double)(selectedQuiz.GradeVG) / 100) ;
 
                 if (score >= VGThreshold)
                     grade = "VG";
@@ -95,7 +93,7 @@ namespace DigitaltTestVerktygGrupp6Student.Model
                     {
                         return item;
                     }
-                    
+
                 }
 
                 return null;

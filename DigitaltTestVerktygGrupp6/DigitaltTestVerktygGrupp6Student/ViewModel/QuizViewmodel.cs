@@ -34,6 +34,8 @@ namespace DigitaltTestVerktygGrupp6Student.ViewModel
 
         internal BitmapImage GetActiveImage()
         {
+            if (ActiveQuestion.Image == null)
+                return null;
             if (ActiveQuestion.Image.Equals(""))
                 return null;
             string path = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory) + (dbImagePath + ActiveQuestion.Image));
@@ -111,6 +113,7 @@ namespace DigitaltTestVerktygGrupp6Student.ViewModel
             CorrectAnswers = 0;
             QuestionIndex = 1;
             Score = 0;
+            Quizes = repo.GetQuizes(ActiveStudent);
         }
 
         private QuizViewmodel()

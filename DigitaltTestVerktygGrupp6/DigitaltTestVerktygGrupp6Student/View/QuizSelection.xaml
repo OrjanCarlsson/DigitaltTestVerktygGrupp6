@@ -5,7 +5,6 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DigitaltTestVerktygGrupp6Student.View"
       mc:Ignorable="d" 
-      Height="525" Width="525"
       Title="Quiz">
     <Page.Resources>
         <Style
@@ -193,8 +192,8 @@
                 </StackPanel>
             </Border>
         </StackPanel>
-        <Button Content="Starta Prov&gt;" x:Name="StartButton" Click="StartButton_Click" Width="108" HorizontalAlignment="Left" Margin="57,135,0,198" Grid.Row="1" Style="{StaticResource MetroButton}" Grid.Column="1"/>
-        <Button Content="Se Gjorda Prov" x:Name="btnShowFinishedTests" Style="{StaticResource MetroButton}" Margin="83,135,61,198" Grid.Row="1" Click="btnShowFinishedTests_Click" />
+        <Button Content="Starta Prov" x:Name="StartButton" Click="StartButton_Click" HorizontalAlignment="Left" Width="125" Height="64" Margin="57,135,0,198" Grid.Row="1" Style="{StaticResource MetroButton}" Grid.Column="1"/>
+        <Button Content="Se Gjorda Prov" x:Name="btnShowFinishedTests" Style="{StaticResource MetroButton}" Width="125" Height="64" Margin="83,135,61,211" Grid.Row="1" Click="btnShowFinishedTests_Click" />
         <Label x:Name="label" Content="Välj Prov" HorizontalAlignment="Left" Margin="0,89,0,0" VerticalAlignment="Top" Height="41" Width="201" FontSize="20" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="0,0,30,0" FontWeight="DemiBold" Background="#FFFFAD37">
             <!--<Label.Background>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.MenuHighlightColorKey}}"/>

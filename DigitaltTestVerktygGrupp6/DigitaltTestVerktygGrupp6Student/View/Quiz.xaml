@@ -204,7 +204,7 @@
     <Grid Background="#FFF9F9F9">
         <Grid>
             <Canvas x:Name="Header" Height="50" Margin="0,0,0,475" Background="#FFFFAD37">
-                <TextBlock Text="{Binding Path=SelectedQuiz.Name, StringFormat='Prov: {0}'}" FontSize="32" FontWeight="Bold" Foreground="#FF2B2A2A" Canvas.Left="195" Canvas.Top="2" Width="268" HorizontalAlignment="Right"/>
+                <TextBlock Text="{Binding Path=SelectedQuiz.Name, StringFormat='Prov: {0}'}" FontSize="32" FontWeight="Bold" Foreground="#FF2B2A2A" Canvas.Left="77" Canvas.Top="2" Width="386" HorizontalAlignment="Right"/>
             </Canvas>
             <Canvas Height="2" Background="Gray" Grid.ColumnSpan="2" Margin="0,50,0,473"/>
             <Canvas Height="40" Width="200" HorizontalAlignment="Left" Margin="0,94,0,391" Background="#FFFFAD37">

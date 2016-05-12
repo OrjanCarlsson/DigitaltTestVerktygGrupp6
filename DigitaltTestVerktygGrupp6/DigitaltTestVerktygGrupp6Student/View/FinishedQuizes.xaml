@@ -189,7 +189,7 @@
                 <StackPanel Margin="10,0,0,0">
                     <TextBlock Text="{Binding Path=SelectedFinishedQuiz.dbQuizs.Name, StringFormat='Prov Namn: {0}', UpdateSourceTrigger=PropertyChanged}" FontWeight="DemiBold"/>
                     <TextBlock Text="{Binding Path=SelectedFinishedQuiz.Time, StringFormat='Tid: {0} Minuter', UpdateSourceTrigger=PropertyChanged}" FontWeight="DemiBold"/>
-                    <TextBlock Text="{Binding SelectedFinishedQuiz.FinalGrade, StringFormat='Om Provet: {0}', UpdateSourceTrigger=PropertyChanged}" FontWeight="DemiBold" TextWrapping="WrapWithOverflow"/>
+                    <TextBlock Text="{Binding SelectedFinishedQuiz.FinalGrade, StringFormat='Slutbetyg: {0}', UpdateSourceTrigger=PropertyChanged}" FontWeight="DemiBold" TextWrapping="WrapWithOverflow"/>
                     <TextBlock Text="{Binding SelectedFinishedQuiz.Score, StringFormat='Score: {0}', UpdateSourceTrigger=PropertyChanged}" FontWeight="DemiBold"/>
                 </StackPanel>
             </Border>
@@ -198,7 +198,7 @@
         <StackPanel Margin="64,131,75,118" Grid.Row="1">
             <Button Content="Tillbaks" x:Name="btnGoToQuizSelect" Style="{StaticResource MetroButton}"  Grid.Row="1" Click="btnGoToQuizSelect_Click" />
         </StackPanel>
-        <Label x:Name="label" Content="Välj Gjorda Prov" HorizontalAlignment="Left" Margin="0,89,0,0" VerticalAlignment="Top" Height="41" Width="201" FontSize="20" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="0,0,30,0" FontWeight="DemiBold" Background="#FFFFAD37">
+        <Label x:Name="label" Content="Gjorda Prov" HorizontalAlignment="Left" Margin="0,89,0,0" VerticalAlignment="Top" Height="41" Width="201" FontSize="20" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="0,0,30,0" FontWeight="DemiBold" Background="#FFFFAD37">
             <!--<Label.Background>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.MenuHighlightColorKey}}"/>
             </Label.Background>-->

@@ -260,14 +260,14 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             double gPoint = totalPoints;
             gPoint = gPoint * 0.8;
             int gradeVG = (int)Math.Round(gPoint, 0);
-            return gradeVG;
+            return 70;
         }
         private int gradeG()
         {
             double vgPoint = totalPoints;
             vgPoint = vgPoint * 0.5;
             int gradeG = (int)Math.Round(vgPoint, 0);
-            return gradeG;
+            return 50;
         }
 
         private void listQuestions_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -336,6 +336,8 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                 
                 if(!imagePath.Equals(""))
                     File.Copy(imagePath, "../../Database/Images/" + System.IO.Path.GetFileName(imagePath), true);
+
+                imagePath = "";
 
                 foreach (var item in viewModel.questionList)
                 {

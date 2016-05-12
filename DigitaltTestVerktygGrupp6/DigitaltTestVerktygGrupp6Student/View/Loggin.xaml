@@ -9,11 +9,11 @@
       Title="Loggin">
 
     <Grid>
-        <TextBox x:Name="UserLogBox" HorizontalAlignment="Left" Height="26" Margin="76,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138"/>
-        <TextBox x:Name="PassLogBox" HorizontalAlignment="Left" Height="26" Margin="76,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138"/>
-        <Button x:Name="LogginBtn" Content="Button" HorizontalAlignment="Left" Margin="76,195,0,0" VerticalAlignment="Top" Width="94" Height="31" Click="LogginBtn_Click"/>
-        <Label x:Name="label" Content="UserName" HorizontalAlignment="Left" Margin="76,44,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1" Content="Password" HorizontalAlignment="Left" Margin="76,101,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="UserLogBox" Height="26" Margin="87,116,75,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138"/>
+        <PasswordBox x:Name="PassLogBox" Height="26" Margin="87,172,75,0" VerticalAlignment="Top" Width="138"/>
+        <Button x:Name="LogginBtn" Content="Logga in" Margin="106,228,100,0" VerticalAlignment="Top" Width="94" Height="31" Click="LogginBtn_Click"/>
+        <Label x:Name="label" Content="Användarnamn" Margin="87,90,122,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Label x:Name="label1" Content="Lösenord" Margin="87,146,154,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
 
     </Grid>
 </Page>
