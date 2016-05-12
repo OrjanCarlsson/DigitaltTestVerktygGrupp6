@@ -8,8 +8,10 @@ namespace DigitaltTestVerktygGrupp6Student.Database
     public partial class QuizModel : DbContext
     {
         public QuizModel()
-            : base("name=QuizModel")
+            
         {
+            string connectionString = @"data source=(LocalDB)\MSSQLLocalDB;attachdbfilename=" + Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\" + "QuizDatabase.mdf;integrated security=True;connect timeout=30;MultipleActiveResultSets=True;App=EntityFramework"; 
+            Database.Connection.ConnectionString = connectionString;
         }
 
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }

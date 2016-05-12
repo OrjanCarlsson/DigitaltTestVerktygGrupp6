@@ -280,6 +280,6 @@
                 </Grid>
             </Border>
         </Popup>
-        <Button x:Name="btnAddImage" Content="Lägg til bild" Grid.Column="2" HorizontalAlignment="Left" Margin="0,86,0,0" Grid.Row="2" VerticalAlignment="Top" Width="95" Style="{StaticResource MetroButton}"/>
+        <Button x:Name="btnAddImage" Content="Lägg till bild" Grid.Column="2" HorizontalAlignment="Left" Margin="0,86,0,0" Grid.Row="2" VerticalAlignment="Top" Width="95" Style="{StaticResource MetroButton}" Click="btnAddImage_Click" />
     </Grid>
 </Page>

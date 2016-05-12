@@ -15,7 +15,13 @@ namespace DigitaltTestVerktygGrupp6Wpf.Database
         public DbSet<dbQuiz> Quizes { get; set; }
         public DbSet<dbStudent> Students { get; set; }
         public DbSet<dbStudentQuiz> StudentQuizzes { get; set; }
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+
+        public dbDataContext() : base("QuizDatabase")
+        {
+
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder) 
         {
             base.OnModelCreating(modelBuilder);
             // modelBuilder.Conventions.Remove<System.Data.Entity.ModelConfiguration.Conventions.PluralizingTableNameConvention>();

@@ -27,7 +27,7 @@ namespace DigitaltTestVerktygGrupp6Student.View
 
         private void Image_Loaded(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Source: " + (sender as Image).Source);
+
         }
 
         public Quiz()
