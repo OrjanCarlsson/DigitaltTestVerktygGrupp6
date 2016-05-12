@@ -44,6 +44,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
             showQuestionContent.Template = showQuestionToEdit;
             cmbType.SelectedIndex = 2;
             showQuestionContent.Visibility = Visibility.Collapsed;
+            showAnswersContent.Visibility = Visibility.Collapsed;
             comboBoxTimeSetup();
         }
 
@@ -247,6 +248,8 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                 }
                 viewModel.ContentFrame.Navigate(new Index());
 
+                viewModel.questionList = new ObservableCollection<dbQuestion>();
+                viewModel.quizList = new ObservableCollection<dbQuiz>();
             }
         }
 
@@ -268,6 +271,7 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
         private void listQuestions_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             showQuestionContent.Visibility = Visibility.Visible;
+            showAnswersContent.Visibility = Visibility.Visible;
         }
 
         private void btnSaveQuestion_Click(object sender, RoutedEventArgs e)
@@ -317,8 +321,8 @@ namespace DigitaltTestVerktygGrupp6Wpf.Views
                 txtQuestion.Clear();
 
                 viewModel.alternativeList = new ObservableCollection<dbAlternative>();
-            
                 AddQPopup.IsOpen = false;
+
             }
             
         }
