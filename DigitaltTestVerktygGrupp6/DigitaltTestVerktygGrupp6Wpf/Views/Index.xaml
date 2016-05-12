@@ -355,7 +355,7 @@
                             <Run Text=" till:"></Run>
                         </TextBlock>
                     </Canvas>
-                    <CheckBox Content="Direkt feedback" Margin="0,55,0,0" IsChecked="{Binding SendoutQuiz.Feedback, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></CheckBox>
+                    <CheckBox Content="Direkt feedback" Margin="5,55,0,0" IsChecked="{Binding SendoutQuiz.Feedback, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></CheckBox>
                     <ListView Margin="0,75,0,0" ItemsSource="{Binding SendoutList}">
                         <ListView.ItemTemplate>
                             <DataTemplate>

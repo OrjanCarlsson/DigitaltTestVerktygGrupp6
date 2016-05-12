@@ -24,10 +24,19 @@ namespace DigitaltTestVerktygGrupp6Student.View
     {
         private QuizViewmodel viewModel;
         private ControlTemplate radioTemplate, checkTemplate, textTemplate, rankingTemplate;
+        private Image questionImage;
 
         private void Image_Loaded(object sender, RoutedEventArgs e)
         {
+            questionImage = sender as Image;
+            LoadQuestionImage();
+        }
 
+        private void LoadQuestionImage()
+        {
+            BitmapImage image = viewModel.GetActiveImage();
+            if (image != null)
+               questionImage.Source = image;
         }
 
         public Quiz()
@@ -42,6 +51,7 @@ namespace DigitaltTestVerktygGrupp6Student.View
             DataContext = viewModel;
             ShowQuestion();
             viewModel.NextQuestionEvent += ShowQuestion;
+            viewModel.NextQuestionEvent += LoadQuestionImage;
         }
 
         private void ShowQuestion()

@@ -5,11 +5,13 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace DigitaltTestVerktygGrupp6Student.ViewModel
 {
@@ -19,6 +21,7 @@ namespace DigitaltTestVerktygGrupp6Student.ViewModel
         public List<dbQuizs> Quizes { get; set; }
         public List<dbStudentQuizs> FinishedQuizes { get; set; }
         private dbQuizs selectedQuiz;
+        private string dbImagePath;
         public dbQuizs SelectedQuiz
         {
             get { return selectedQuiz; }
@@ -28,6 +31,20 @@ namespace DigitaltTestVerktygGrupp6Student.ViewModel
                 OnPropertyChanged("SelectedQuiz");
             }
         }
+
+        internal BitmapImage GetActiveImage()
+        {
+            if (ActiveQuestion.Image.Equals(""))
+                return null;
+            string path = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory) + (dbImagePath + ActiveQuestion.Image));
+            BitmapImage questionImage = new BitmapImage();
+            questionImage.BeginInit();
+            questionImage.UriSource = new Uri(path);
+            questionImage.EndInit();
+
+            return questionImage;
+        }
+
         private dbStudentQuizs selectedFinishedQuiz;
         public dbStudentQuizs SelectedFinishedQuiz
         {
@@ -82,8 +99,7 @@ namespace DigitaltTestVerktygGrupp6Student.ViewModel
 
         internal void GetFinishedQuizes(dbStudents student)
         {
-            FinishedQuizes = repo.GetFinishedQuizes(student);
-           
+            FinishedQuizes = repo.GetFinishedQuizes(student);         
         }
 
         public void Reset()
@@ -103,6 +119,7 @@ namespace DigitaltTestVerktygGrupp6Student.ViewModel
             Questions = new ObservableCollection<Question>();
             ButtonCommand = new ButtonCommand();
             ButtonCommand.Call += SwitchCommand;
+            dbImagePath = @"..\..\..\..\DigitaltTestVerktygGrupp6Wpf/Database/Images/";
         }
 
         internal void SelectionSetup(dbStudents student)

@@ -33,6 +33,7 @@ namespace DigitaltTestVerktygGrupp6Student.Model
             Type = question.Type;
             Text = question.Text;
             Points = question.Points;
+            Image = question.Image;
         }
 
         protected virtual void AddAlternatives(dbQuestions question)
