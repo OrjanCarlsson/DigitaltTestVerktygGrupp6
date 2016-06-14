@@ -1,0 +1,381 @@
+﻿<Page x:Class="DigitaltTestVerktygGrupp6Wpf.Views.Index"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DigitaltTestVerktygGrupp6Wpf.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="525" d:DesignWidth="520"
+      Title="Index"
+       xmlns:model="clr-namespace:DigitaltTestVerktygGrupp6Wpf.Database">
+
+    <Page.Resources>
+        <Style
+        x:Key="ButtonFocusVisual">
+            <Setter
+            Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MetroButton" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+            <Setter Property="Background" Value="#EE898989"/>
+            <Setter Property="Foreground" Value="#FFF3F3F3"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10 5"/>
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Border
+                                x:Name="Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}" />
+
+                            <ContentPresenter
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Margin="{TemplateBinding Padding}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                RecognizesAccessKey="True" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="OpacityMask" Value="#AA888888"/>
+                                <Setter Property="Margin" Value="2 1" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderThickness" Value="0"/>
+                                <!--<Setter Property="Background" Value="DimGray"/>-->
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="#ADADAD"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MetroButtonRed" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+            <Setter Property="Background" Value="#EEF05959"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10 5"/>
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="BorderBrush" Value="#FFE22E2E"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Border
+                                x:Name="Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}" />
+
+                            <ContentPresenter
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Margin="{TemplateBinding Padding}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                RecognizesAccessKey="True" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="OpacityMask" Value="#AA888888"/>
+                                <Setter Property="Margin" Value="2 1" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderThickness" Value="0"/>
+                                <!--<Setter Property="Background" Value="DimGray"/>-->
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="#ADADAD"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MetroButtonGreen" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+            <Setter Property="Background" Value="#EE18B94B"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10 5"/>
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="BorderBrush" Value="#FF259334"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Border
+                                x:Name="Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}" />
+
+                            <ContentPresenter
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Margin="{TemplateBinding Padding}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                RecognizesAccessKey="True" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="OpacityMask" Value="#AA888888"/>
+                                <Setter Property="Margin" Value="2 1" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderThickness" Value="0"/>
+                                <!--<Setter Property="Background" Value="DimGray"/>-->
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="#ADADAD"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <!--<DataTemplate x:Name="Userdata" DataType="model:Student"/>-->
+    <Grid Background="AliceBlue">
+        <Canvas x:Name="Header" Height="50" Width="518" Margin="0,0,2,475" Background="#FFFFAD37">
+            <TextBlock Text="Newton" FontSize="32" FontWeight="Bold" Foreground="#FF2B2A2A" Canvas.Left="356" Canvas.Top="4" Width="129"/>
+        </Canvas>
+        <Canvas Height="2" Background="Gray" Margin="0,50,0,473"/>
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Width="519" Margin="0,51,0,6" FontWeight="DemiBold">
+            <TabItem x:Name="TestsTAB" Header="Exams" Margin="-2,-2,-35,0">
+                <Grid Background="#FFF9F9F9">
+                    <Button x:Name="NewExamBtn" Content="New Exam" HorizontalAlignment="Left" Margin="358,262,0,0" VerticalAlignment="Top" Width="124" Height="34" Click="NewExamBtn_Click" Style="{StaticResource MetroButton}"/>
+                    <ListView Name="ExamListView" HorizontalAlignment="Left" Height="213" Margin="10,16,0,0" VerticalAlignment="Top" Width="493" FontWeight="DemiBold" BorderThickness="2">
+                        <ListView.Resources>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                            </Style>
+                        </ListView.Resources>
+                        <ListView.View>
+                            <GridView>
+
+                                <GridViewColumn Header="Name"   DisplayMemberBinding="{Binding Name}"/>
+                                <GridViewColumn Header="Summary" DisplayMemberBinding="{Binding Intro}" />
+                                <GridViewColumn Header="Grade G" DisplayMemberBinding="{Binding GradeG}" Width="55"/>
+                                <GridViewColumn Header="Grade VG"  DisplayMemberBinding="{Binding GradeVG}" Width="62"/>
+                                <GridViewColumn Header="Time" DisplayMemberBinding="{Binding TimeLimit}" />
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Users" Margin="130,-2,-174,0">
+                <Grid Background="#FFF9F9F9">
+                    <ListView Name="UserListView" HorizontalAlignment="Left" Height="177" Margin="10,10,0,0" VerticalAlignment="Top" Width="493" BorderThickness="2">
+                        <ListView.Resources>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                            </Style>
+                        </ListView.Resources>
+                        <ListView.View>
+                            <GridView>
+
+                                <GridViewColumn Header="Firstname"   DisplayMemberBinding="{Binding FirstName}" />
+                                <GridViewColumn Header="Lastname" DisplayMemberBinding="{Binding LastName}" />
+                                <GridViewColumn Header="Username" DisplayMemberBinding="{Binding UserName}" />
+                                <GridViewColumn Header="Password"  DisplayMemberBinding="{Binding Password}" />
+                                <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}" />
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Button x:Name="NewUserBtn" Content="New User" HorizontalAlignment="Left" Margin="120,222,0,0" VerticalAlignment="Top" Width="98" Height="33" Click="NewUserBtn_Click" Style="{StaticResource MetroButtonGreen}"/>
+                    <Button x:Name="DelUserBtn" Content="Delete User" HorizontalAlignment="Left" Margin="280,222,0,0" VerticalAlignment="Top" Width="98" Height="33" Click="DelUserBtn_Click" Style="{StaticResource MetroButtonRed}"/>
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="Statistik" Margin="-10.333,-2,-33.667,0">
+                <Grid Background="#FFF9F9F9">
+
+                    <ListView x:Name="StatisticsListView" HorizontalAlignment="Left" Height="177" Margin="10,10,0,0" VerticalAlignment="Top" Width="493" BorderThickness="2">
+                        <ListView.Resources>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                            </Style>
+                        </ListView.Resources>
+                        <ListView.View>
+                            <GridView>
+
+                                <GridViewColumn Header="Student"   DisplayMemberBinding="{Binding student.FirstName}" />
+                                <GridViewColumn Header="Quiz" DisplayMemberBinding="{Binding quiz.Name}" />
+                                <GridViewColumn Header="Time" DisplayMemberBinding="{Binding Time}" />
+                                <GridViewColumn Header="Score"  DisplayMemberBinding="{Binding Score}" />
+                                <GridViewColumn Header="Grade"  DisplayMemberBinding="{Binding FinalGrade}" />
+
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <!--<ComboBox  ItemsSource="{Binding Quizes}" HorizontalAlignment="Left" Margin="10,205,0,0" VerticalAlignment="Top" Width="120">
+                        <ComboBox.ItemTemplate >
+                            
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>-->
+                    <ComboBox x:Name="cbxQuizzes" HorizontalAlignment="Left" Width="150" Margin="35,258,0,0" VerticalAlignment="Top" Text="--Välj Quiz--" FontWeight="DemiBold" BorderThickness="2" FontSize="13">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"></TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Label x:Name="label" Content="Välj prov här att sortera på" HorizontalAlignment="Left" Margin="31,224,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="SortBtn" Content="Sortera" HorizontalAlignment="Left" Margin="217,222,0,0" VerticalAlignment="Top" Width="75" Click="SortBtn_Click" Style="{StaticResource MetroButton}"/>
+                    <Button x:Name="DefaultSortBtn" Content="Återställ" HorizontalAlignment="Left" Margin="217,255,0,0" VerticalAlignment="Top" Width="75" Click="DefaultSortBtn_Click" Style="{StaticResource MetroButton}"/>
+                    <Label x:Name="IGLabel" Content="" HorizontalAlignment="Left" Margin="311,192,0,0" VerticalAlignment="Top" Width="141"/>
+                    <Label x:Name="GLabel" Content="" HorizontalAlignment="Left" Margin="311,223,0,0" VerticalAlignment="Top" Width="141"/>
+                    <Label x:Name="VGLabel" Content="" HorizontalAlignment="Left" Margin="311,255,0,0" VerticalAlignment="Top" Width="141"/>
+                    <Label x:Name="ScoreLable" Content="" HorizontalAlignment="Left" Margin="311,286,0,0" VerticalAlignment="Top" Width="141"/>
+                    <Label x:Name="TimeLable" Content="" HorizontalAlignment="Left" Margin="311,317,0,0" VerticalAlignment="Top" Width="141"/>
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="Skicka" Margin="118,-2,-162,0">
+                <Grid Background="#FFF9F9F9">
+                    <ListView x:Name="UserSendListView" ItemsSource="{Binding Students}" HorizontalAlignment="Left" Height="177" Margin="10,10,0,0" VerticalAlignment="Top" Width="493" BorderThickness="2">
+                        <ListView.Resources>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                            </Style>
+                        </ListView.Resources>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox IsChecked="{Binding SendTo}" Margin="5"></CheckBox>
+                                        <TextBlock Text="{Binding FirstName}" Margin="5"></TextBlock>
+                                        <TextBlock Text="{Binding LastName}" Margin="5"></TextBlock>
+                                        <TextBlock Text="{Binding Grade}" Margin="5" Loaded="GradeBlock_Loaded" 
+                                                   ToolTip="Studenten har redan gjort provet och fått detta betyg"></TextBlock>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ComboBox x:Name="QuizCombo" ItemsSource="{Binding Quizzes}" HorizontalAlignment="Left" Margin="140,217,0,0" VerticalAlignment="Top" 
+                              Width="92" SelectedItem="{Binding SendoutQuiz}" BorderThickness="2" FontWeight="DemiBold" FontSize="13">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <TextBlock Text="{Binding Name}"></TextBlock>
+                                </Grid>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <TextBlock  Text="--Välj Quiz--" IsHitTestVisible="False"  HorizontalAlignment="Left" Margin="140,219,0,0" VerticalAlignment="Top" Width="92" TextAlignment="Center">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=QuizCombo,Path=SelectedItem}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <Button x:Name="SendQuizBtn" Content="Send" HorizontalAlignment="Left" Margin="280,216,0,0" VerticalAlignment="Top"
+                            Width="85" Height="27" Command="{Binding ButtonCommand}" CommandParameter="Sendout" Click="SendButton_Click" Style="{StaticResource MetroButton}"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Popup x:Name="AddUserPopup" HorizontalAlignment="Left" VerticalAlignment="Top" Width="300" Height="400" IsOpen="False" Placement="Center" AllowsTransparency="True">
+            <Border BorderThickness="2" BorderBrush="Gray">
+                <Grid Background="#FFF9F9F9">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Canvas Height="1" Background="Gray" Grid.ColumnSpan="3" Margin="0,50,0,345"/>
+                    <Canvas Width="296" Height="50" Background="#FFFFAD37" Margin="0,0,0,346">
+                        <TextBlock Text="Lägg till ny Användare" FontSize="18" FontWeight="Bold" Canvas.Top="12" Canvas.Left="25" Foreground="#FF2B2A2A"/>
+                    </Canvas>
+                    <TextBlock Text="Namn" Grid.Column="0" Margin="36,100,93,273" FontWeight="Bold" Foreground="#EE464646" FontSize="14" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="NewName" Height="20" Margin="15,100,45,276" Grid.Column="1" Grid.ColumnSpan="2" BorderThickness="2"/>
+
+                    <TextBlock Text="Efternamn" Grid.Column="0" Margin="36,132,93,218" FontWeight="Bold" Foreground="#EE464646" FontSize="14" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="NewLastName" Height="20" Margin="15,132,45,244" Grid.Column="1" Grid.ColumnSpan="2" BorderThickness="2"/>
+
+                    <TextBlock Text="Email" Grid.Column="0" Margin="36,164,93,196" FontWeight="Bold" Foreground="#EE464646" FontSize="14" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="NewEmail" Height="20" Margin="15,164,45,212" Grid.Column="1" Grid.ColumnSpan="2" BorderThickness="2"/>
+
+                    <TextBlock Text="Username" Grid.Column="0" Margin="36,196,93,164" FontWeight="Bold" Foreground="#EE464646" FontSize="14" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="NewUserName" Height="20" Margin="15,196,45,180" Grid.Column="1" Grid.ColumnSpan="2" BorderThickness="2"/>
+
+                    <TextBlock Text="Lösenord" Grid.Column="0" Margin="36,228,93,122" FontWeight="Bold" Foreground="#EE464646" FontSize="14" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="NewPassword" Height="20" Margin="15,228,45,148" Grid.Column="1" Grid.ColumnSpan="2" BorderThickness="2"/>
+
+
+
+                    <Button x:Name="btnSaveUser" Content="Save" Grid.Column="0" Margin="60,330,71,39" Grid.ColumnSpan="2" Click="btnSaveUser_Click" Style="{StaticResource MetroButtonGreen}"/>
+                    <Button x:Name="btnCloseUserPopup" Content="Cancel" Width="66"  Margin="0,330,70,39" Grid.ColumnSpan="2" HorizontalAlignment="Right" Click="btnCloseUserPopup_click" Style="{StaticResource MetroButtonRed}" Grid.Column="1"/>
+                </Grid>
+            </Border>
+        </Popup>
+        <Popup x:Name="SendQuizPopup" HorizontalAlignment="Left" VerticalAlignment="Top" Width="300" Height="400" IsOpen="False" Placement="Center" AllowsTransparency="True">
+            <Border BorderThickness="2" BorderBrush="Gray">
+                <Grid Background="#FFF9F9F9">
+                    <!--<Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>-->
+                    <Canvas Height="1" Background="Gray" Grid.ColumnSpan="3" Margin="0,50,0,345"/>
+                    <Canvas Width="296" Height="50" Background="#FFECA92F" Margin="0,0,0,346">
+                        <TextBlock FontSize="18" FontWeight="Bold" Canvas.Top="12" Canvas.Left="25" Foreground="#FF2B2A2A">
+                            <Run Text="Skicka Quiz "></Run>
+                            <Run FontStyle="Italic" Text="{Binding SendoutQuiz.Name}"></Run>
+                            <Run Text=" till:"></Run>
+                        </TextBlock>
+                    </Canvas>
+                    <CheckBox Content="Direkt feedback" Margin="0,55,0,0" IsChecked="{Binding SendoutQuiz.Feedback, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></CheckBox>
+                    <ListView Margin="0,75,0,0" ItemsSource="{Binding SendoutList}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="DarkSlateGray" BorderThickness="0,0,0,1">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding FirstName}" Margin="5"></TextBlock>
+                                        <TextBlock Text="{Binding LastName}" Margin="5"></TextBlock>
+                                        <TextBlock Text="{Binding Email}" Margin="5"></TextBlock>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Button x:Name="btnSendout" Content="Skicka" Width="60" Height="20" Grid.Column="0" Margin="67,366,70,10" 
+                            Grid.ColumnSpan="2" Click="btnSendout_Click" Command="{Binding ButtonCommand}" CommandParameter="Send"/>
+                    <Button x:Name="btnCancelSendout" Content="Avbryt" Width="60" Height="20" Grid.Column="1"  Margin="0,366,70,10" 
+                            Grid.ColumnSpan="2" HorizontalAlignment="Right" Click="btnCancelSendout_click"/>
+                </Grid>
+            </Border>
+        </Popup>
+    </Grid>
+
+</Page>

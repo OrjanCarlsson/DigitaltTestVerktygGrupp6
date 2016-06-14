@@ -1,0 +1,93 @@
+﻿<Window x:Class="DigitaltTestVerktygGrupp6Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DigitaltTestVerktygGrupp6Wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="525" Width="525"
+        xmlns:model="clr-namespace:DigitaltTestVerktygGrupp6Wpf.Database">
+    <Grid>
+        <Frame x:Name="FrameCreateQuiz"/>
+    </Grid>
+    <!--<DataTemplate x:Name="Userdata" DataType="model:Student"/>-->
+    <!--<Grid>
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="494" VerticalAlignment="Top" Width="519" Margin="0,0,-2,0">
+            <TabItem x:Name="TestsTAB" Header="Exams" Margin="-2,-2,-35,0">
+                <Grid Background="#FFE5E5E5">
+                    <Button x:Name="NewExamBtn" Content="New Exam" HorizontalAlignment="Left" Margin="309,190,0,0" VerticalAlignment="Top" Width="178" Height="57" Click="NewExamBtn_Click"/>
+                    <ListView x:Name="ExamListView" HorizontalAlignment="Left" Height="175" Margin="10,10,0,0" VerticalAlignment="Top" Width="493">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Users" Margin="34.667,-2,-79,0">
+                <Grid Background="#FFE5E5E5">
+
+                    <ListView Name="UserListView" HorizontalAlignment="Left" Height="177" Margin="10,10,0,0" VerticalAlignment="Top" Width="493">
+                        <ListView.Resources>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                            </Style>
+                        </ListView.Resources>
+                        <ListView.View>
+                            <GridView>
+
+                                <GridViewColumn Header="Firstname"   DisplayMemberBinding="{Binding FirstName}" />
+                                <GridViewColumn Header="Lastname" DisplayMemberBinding="{Binding LastName}" />
+                                <GridViewColumn Header="Username" DisplayMemberBinding="{Binding UserName}" />
+                                <GridViewColumn Header="Password"  DisplayMemberBinding="{Binding Password}" />
+                                <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}" />
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Button x:Name="NewUserBtn" Content="New User" HorizontalAlignment="Left" Margin="344,205,0,0" VerticalAlignment="Top" Width="130" Height="43" Click="NewUserBtn_Click"/>
+                    <Button x:Name="DelUserBtn" Content="Delete User" HorizontalAlignment="Left" Margin="153,205,0,0" VerticalAlignment="Top" Width="115" Height="43" Click="DelUserBtn_Click"/>
+                </Grid>
+
+            </TabItem>
+
+        </TabControl>
+        <Popup x:Name="AddUserPopup" HorizontalAlignment="Left" VerticalAlignment="Top" Width="300" Height="400" IsOpen="False" Placement="Center" AllowsTransparency="True">
+            <Border BorderThickness="2" BorderBrush="Gray">
+                <Grid Background="#FFF9F9F9">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Canvas Height="1" Background="Gray" Grid.ColumnSpan="3" Margin="0,50,0,345"/>
+                    <Canvas Width="296" Height="50" Background="#FFECA92F" Margin="0,0,0,346">
+                        <TextBlock Text="Lägg till ny Användare" FontSize="18" FontWeight="Bold" Canvas.Top="12" Canvas.Left="25" Foreground="#FF2B2A2A"/>
+                    </Canvas>
+                    <TextBlock Text="Namn" Grid.Column="0" Margin="21,80,10,293" FontWeight="Bold" Foreground="#FF2B2A2A" FontSize="14"/>
+                    <TextBox x:Name="NewName" Height="20" Margin="0,80,60,293" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+                    <TextBlock Text="Efternamn" Grid.Column="0" Margin="21,110,10,240" FontWeight="Bold" Foreground="#FF2B2A2A" FontSize="14"/>
+                    <TextBox x:Name="NewLastName" Height="20" Margin="0,85,60,240" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+                    <TextBlock Text="Email" Grid.Column="0" Margin="21,140,10,220" FontWeight="Bold" Foreground="#FF2B2A2A" FontSize="14"/>
+                    <TextBox x:Name="NewEmail" Height="20" Margin="0,120,60,220" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+                    <TextBlock Text="Username" Grid.Column="0" Margin="21,170,10,190" FontWeight="Bold" Foreground="#FF2B2A2A" FontSize="14"/>
+                    <TextBox x:Name="NewUserName" Height="20" Margin="0,150,60,190" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+                    <TextBlock Text="Lösenord" Grid.Column="0" Margin="21,200,10,150" FontWeight="Bold" Foreground="#FF2B2A2A" FontSize="14"/>
+                    <TextBox x:Name="NewPassword" Height="20" Margin="0,180,60,150" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+
+
+                    <Button x:Name="btnSaveUser" Content="Save" Width="60" Height="20" Grid.Column="0" Margin="67,366,70,10" Grid.ColumnSpan="2" Click="btnSaveUser_Click"/>
+                    <Button x:Name="btnCloseUserPopup" Content="Cancel" Width="60" Height="20" Grid.Column="1"  Margin="0,366,70,10" Grid.ColumnSpan="2" HorizontalAlignment="Right" Click="btnCloseUserPopup_click"/>
+                </Grid>
+            </Border>
+        </Popup>
+        <Frame x:Name="FrameCreateQuiz"/>
+    </Grid>-->
+
+</Window>

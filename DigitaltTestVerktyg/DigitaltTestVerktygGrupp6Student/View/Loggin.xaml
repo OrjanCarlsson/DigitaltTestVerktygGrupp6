@@ -1,0 +1,19 @@
+﻿<Page x:Class="DigitaltTestVerktygGrupp6Student.View.Loggin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DigitaltTestVerktygGrupp6Student.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="Loggin">
+
+    <Grid>
+        <TextBox x:Name="UserLogBox" HorizontalAlignment="Left" Height="26" Margin="76,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138"/>
+        <TextBox x:Name="PassLogBox" HorizontalAlignment="Left" Height="26" Margin="76,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138"/>
+        <Button x:Name="LogginBtn" Content="Button" HorizontalAlignment="Left" Margin="76,195,0,0" VerticalAlignment="Top" Width="94" Height="31" Click="LogginBtn_Click"/>
+        <Label x:Name="label" Content="UserName" HorizontalAlignment="Left" Margin="76,44,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Password" HorizontalAlignment="Left" Margin="76,101,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Page>
